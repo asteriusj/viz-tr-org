@@ -1,6 +1,6 @@
 {
-  "name": "tr-scorcard",
-  "version": "0.2.0",
+  "name": "viz-tr-org",
+  "version": "0.2.1",
   "description": "Interactive Diagrams for Transform Rockford Community Regional Indicator Scorecard - Scorecard indicators for Transform Rockford Regional Transformation Plan ",
   "main": "index.js",
   "scripts": {
