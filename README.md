@@ -18,21 +18,66 @@ The visualizations available include:
 ### Scorecard Browse & Search
 
 
-# Setup
-
 ## web service urls
 
 // defaults for Indicators sheet
 
 https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD
 
+# Setup
 
-## browserify
+## upgrade version of nodejs and npm versions
+```
+nvm i v8 i
+```
+
+## install browserify & watchify
+```
+npm install -g browserify
+```
 ```
 browserify main.js -o bundle.js
 ```
 
-## serverless
+## package build
+```
+npm run build
+```
+
+# Serverless setup
 ```
 npm install serverless -g
 ```
+```
+serverless create -t hello-world -n viz-tr-org
+```
+```
+serverless plugin install -n serverless-s3-sync
+```
+
+## example deploy commands
+```
+serverless deploy -v
+serverless client deploy -v
+serverless client deploy --stage dev -v
+```
+
+
+## github pulls, adds, pushed
+```
+git pull git@github.com:asteriusj/viz-tr-org
+git add <folders and files>
+git add *
+git commit -m "initial push from c9"
+git push git@github.com:asteriusj/viz-tr-org
+```
+
+
+
+## 3rd party
+
+```
+npm install array-to-tree
+```
+
+
