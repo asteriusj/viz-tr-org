@@ -36,6 +36,11 @@ nvm i v8 i
 npm install -g browserify
 ```
 ```
+npm install cssify
+```
+
+
+```
 browserify main.js -o bundle.js
 ```
 
