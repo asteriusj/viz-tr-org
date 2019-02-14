@@ -17,3 +17,15 @@ The visualizations available include:
 
 ### Scorecard Browse & Search
 
+
+# Setup
+
+## web service urls
+
+// defaults for Indicators sheet
+
+https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD
+
+
+## browserify
+browserify main.js -o bundle.js
