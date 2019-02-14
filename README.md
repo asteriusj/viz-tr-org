@@ -28,4 +28,11 @@ https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD
 
 
 ## browserify
+```
 browserify main.js -o bundle.js
+```
+
+## serverless
+```
+npm install serverless -g
+```
