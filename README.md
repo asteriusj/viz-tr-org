@@ -26,12 +26,13 @@ https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD
 
 # Setup
 
-## upgrade version of nodejs and npm versions
+1. upgrade version of nodejs and npm versions
 ```
 nvm i v8 i
+nvm alias default 8
 ```
 
-## install browserify & watchify
+2. install browserify & watchify
 ```
 npm install -g browserify
 ```
@@ -44,21 +45,71 @@ npm install cssify
 browserify main.js -o bundle.js
 ```
 
-## package build
+2.1 package build
 ```
 npm run build
 ```
 
-# Serverless setup
+
+3. AWS Credentials reference material
+## https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
+## http://bit.ly/aws-creds-setup
+## https://serverless.com/framework/docs/providers/aws/guide/credentials/
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+
+3.1 add ~/.aws/credentials file
+
+3.2 add .env file??
+
+3.3 set environmental variables
+export AWS_ACCESS_KEY_ID=your_access_key_id
+export AWS_SECRET_ACCESS_KEY=your_secret_access_key
+export AWS_REGION=your_aws_region
+
+
+4. Serverless setup
 ```
 npm install serverless -g
 ```
 ```
 serverless create -t hello-world -n viz-tr-org
 ```
+
+then plug-ins
+
 ```
 serverless plugin install -n serverless-s3-sync
 ```
+```
+npm install --save serverless-finch
+```
+
+
+4.1 serverless.yml
+
+### see comversation on bucketname, sitename and external dns
+https://forums.aws.amazon.com/thread.jspa?threadID=84927
+
+* You must name your S3 bucket the same as your domain, "www.example.com" Make sure you include the "www." subdomain prefix as part of the bucket name.
+
+* Set up your bucket as a web site. Make sure you have an "index.htm" file name entered and the correct bucket policy setup under Permissions. 
+
+* Under Godaddy DNS settings make just one entry, set Host WWW CNAME, points to, "s3-website-us-east-1.amazonaws.com" or whatever s3 domain Amazon supplies for your bucket. You leave off the "http://www.example.com." heading in the url that Amazon supplies.
+
+* The last step under Forwarding/manage is to "forward only" your naked domain name "example.com" to "www.example.com"
+
+
+5. Use serverless cli to deploy to cloud host
+
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+
+
+
+
+
 
 ## example deploy commands
 ```

@@ -2,6 +2,14 @@
   "name": "viz-tr-org",
   "version": "0.2.1",
   "description": "Interactive Diagrams for Transform Rockford Community Regional Indicator Scorecard - Scorecard indicators for Transform Rockford Regional Transformation Plan ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asteriusj/vis-tr-org"
+  },
+  "engines": {
+    "node": ">= 8.x",
+    "npm": ">= 3.x"
+  },
   "main": "index.js",
   "scripts": {
     "build": "browserify -t cssify main.js > sunburst/includes.js && browserify -t cssify sunburst/main.js > sunburst/bundle.js",
@@ -11,6 +19,13 @@
   "license": "ISC",
   "dependencies": {
     "array-to-tree": "^3.3.0",
-    "cssify": "^1.0.3"
+    "serverless": "^1.37.1",
+    "serverless-finch": "^2.3.2"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "cssify": "^1.0.3",
+    "serverless-s3-sync": "^1.7.2",
+    "watchify": "^3.11.0"
   }
 }
