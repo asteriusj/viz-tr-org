@@ -19,6 +19,8 @@
   "license": "ISC",
   "dependencies": {
     "array-to-tree": "^3.3.0",
+    "aws": "0.0.3-2",
+    "aws-cli": "0.0.2",
     "serverless": "^1.37.1",
     "serverless-finch": "^2.3.2"
   },

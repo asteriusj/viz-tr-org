@@ -50,6 +50,11 @@ browserify main.js -o bundle.js
 npm run build
 ```
 
+2.2 aws
+```
+npm install aws-cli
+```
+
 
 3. AWS Credentials reference material
 ## https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/setup-credentials.html
@@ -67,6 +72,24 @@ AWS_REGION=
 export AWS_ACCESS_KEY_ID=your_access_key_id
 export AWS_SECRET_ACCESS_KEY=your_secret_access_key
 export AWS_REGION=your_aws_region
+
+3.4 create a signing certificate
+
+```
+serverless config credentials --provider aws --key AKIAJ72EGGQUUGWWP5SQ --secret b4NytprxG4tvGyWkcnleGHFG
+
+openssl req -new -x509 -nodes -sha256 -days 365 -key private-key.pem -outform PEM -out certificate.pem
+
+```
+
+
+
+3.5 Setup AWS Profile with serverless config credentials command
+serverless config credentials --provider aws --key AKIAIOSFODNN7EXAMPLE --secret wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+
+
+
 
 
 4. Serverless setup
@@ -107,10 +130,6 @@ export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
 
 
-
-
-
-
 ## example deploy commands
 ```
 serverless deploy -v
@@ -118,6 +137,14 @@ serverless client deploy -v
 serverless client deploy --stage dev -v
 ```
 
+
+6. Install 3rd party packages
+
+```
+npm install array-to-tree
+```
+
+7. Github
 
 ## github pulls, adds, pushed
 ```
@@ -130,10 +157,6 @@ git push git@github.com:asteriusj/viz-tr-org
 
 
 
-## 3rd party
-
-```
-npm install array-to-tree
 ```
 
 
