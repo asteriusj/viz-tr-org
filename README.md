@@ -156,7 +156,15 @@ git push git@github.com:asteriusj/viz-tr-org
 ```
 
 
+8. Point DNS CNAME to S3 Bucket
 
-```
+Sign into GoDaddy.com account Customer #:71843172
 
+Add a CNAME to transformrockford.org domain:
 
+Host: viz 
+Points to: s3-website-us-east-1.amazonaws.com
+
+test http://viz.transformrockford.org/
+
+TODo: get HTTPS certificate??
