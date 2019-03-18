@@ -1,0 +1,106 @@
+
+#cardsdiv {
+    
+}
+
+.metrictoplevel {
+    float: left;
+    z-index:100;
+    width: 99%;
+    margin-top: 10;
+    margin-bottom: 10;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+    /*padding: 1em;*/
+}
+.toplevellabel {
+    padding: 10;
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    
+    margin: 2px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.metrictheme {
+    float: left;
+    z-index:99%;
+    width: 100%;
+    /*margin-top: 10;*/
+    /*padding-top: 0;*/
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+    /*padding-bottom: 0;*/
+    /*padding: 2px;*/
+    /*border: 1px solid black;*/
+    /*border-top: 1px solid black;*/
+    /*border-bottom: 1px solid black;*/
+    /*border-left: none;*/
+    /*border-right: none;*/
+    
+}
+.themelabel {
+    /*padding: 10;*/
+    font-size: 20px;
+    font-weight: bold;
+    margin: 2px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 1em;
+}
+.themecontainer {
+    min-height: 100px ;
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+}
+
+
+
+.metricindicator {
+
+    float: left;
+    z-index:100;
+    
+    margin: 2;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 1em;
+    /*color: rgb(8,8,8);*/
+
+}
+.metricindicator h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+.indicatorlabel {
+    padding: 10;
+    font-size: 20px;
+    font-weight: bold;
+    background: yellow;
+}
+.indicatordescription {
+   font-size: 20px;
+   font-weight: normal;
+   margin-top: 5px;
+   margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}

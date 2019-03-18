@@ -1,0 +1,74 @@
+<template id="cool-timer">
+    <style>
+      p.timer-display {
+        display: block;
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 3em;
+        border: 1px solid #212121;
+        color: #212121;
+        background: #fff;
+      }
+
+      p {
+        background: #eb6;
+        color: #212121;
+        padding: 5px;
+      }
+    </style>
+    <p class="timer-display">
+      <span id="timer">0</span> seconds
+    </p>
+    <p>
+      <!-- A custom description that can be overridden in markup -->
+      <slot name="timer-description">This is the coolest timer ever!</slot>
+    </p>
+</template>
+
+
+<script>
+class CoolTimer extends HTMLElement {
+    
+  constructor() {
+    // Always call parent constructor first
+    super();
+
+    // Get template content from DOM
+    const template = document.getElementById("cool-timer");
+    const templateContent = template.content;
+
+    // Create new Shadow Root
+    const shadowRoot = this.attachShadow({ mode: "open" }).appendChild(
+      templateContent.cloneNode(true)
+    );
+  }
+    
+    // Called when the element is first connected to the DOM
+  connectedCallback() {
+    // `this` will always reference the custom element instance (which extends from HTMLElement, in this case)
+    // First, get timer span reference
+    const timerDisplay = this.shadowRoot.getElementById("timer");
+
+    // Set a 'second' count at 0
+    let elapsedSeconds = 0;
+
+    // Every second, increment elapsed seconds and update timer display
+    this.timer = setInterval(() => {
+      elapsedSeconds++;
+      timerDisplay.innerHTML = elapsedSeconds;
+    }, 1000);
+  }
+
+  // Called when custom element is removed
+  disconnectedCallback() {
+    if (this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+    }
+  }
+  
+  
+}
+
+customElements.define("cool-timer", CoolTimer);
+</script>

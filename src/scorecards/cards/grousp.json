@@ -1,0 +1,83 @@
+[
+  {
+    "id": "foafiaf:Scorecard_Top_25",
+    "type": "",
+    "dbotype": "foafiaf:Scorecard",
+    "category": null,
+    "topic": "Community Transformation Scorecard",
+    "label": "Top 25",
+    "title": "A Top 25 Community",
+    "description": "",
+    "definition": "",
+    "abstract": "",
+    "categories": "Scorecard",
+    "inscheme": "foafiaf:Scorecard_0",
+    "parent_id": "foafiaf:Scorecard_0",
+    "name": "Top 25",
+    "full": "Top 25 - ",
+    "polarity": "Increasing is good",
+    "timeperiodtype": "Quarter",
+    "unitofmeasure": "ROYG",
+    "units": "ROYG",
+    "color": "#ffffff",
+    "gcolor": "#ffffff",
+    "groups": [
+      {
+        "id": "foafiaf:Scorecard_Recreate",
+        "type": "",
+        "dbotype": "foafiaf:Scorecard",
+        "category": null,
+        "topic": "Scorecard: Recreate",
+        "label": "Recreate",
+        "title": "Recreating Sense of Place",
+        "description": "",
+        "definition": "",
+        "abstract": "",
+        "categories": "Scorecard",
+        "inscheme": "foafiaf:Scorecard_Top Level",
+        "parent_id": "foafiaf:Scorecard_Top_25",
+        "name": "Recreate",
+        "full": "Recreate - ",
+        "parent": "foafiaf:Scorecard_Top_25",
+        "polarity": "Increasing is good",
+        "timeperiodtype": "Quarter",
+        "unitofmeasure": "ROYG",
+        "units": "ROYG",
+        "status": "Yellow",
+        "color": "#f7ee67",
+        "gcolor": "#f7ee67",
+        "groups": [
+          {
+            "id": "foafiaf:Scorecard_Diversity",
+            "type": "",
+            "dbotype": "foafiaf:Scorecard",
+            "category": null,
+            "topic": "Scorecard: Diversity",
+            "label": "Diversity",
+            "title": "",
+            "description": "",
+            "definition": "",
+            "abstract": "",
+            "keywords": "Recreate",
+            "categories": "Scorecard",
+            "inscheme": "foafiaf:Scorecard_Themes",
+            "parent_id": "foafiaf:Scorecard_Recreate",
+            "name": "Diversity",
+            "full": "Diversity - ",
+            "parent": "foafiaf:Scorecard_Recreate",
+            "polarity": "Increasing is good",
+            "timeperiodtype": "Quarter",
+            "unitofmeasure": "ROYG",
+            "units": "ROYG",
+            "status": "Yellow",
+            "color": "#f7ee67",
+            "gcolor": "#f7ee67",
+            "groups": [
+              
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

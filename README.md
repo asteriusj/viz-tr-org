@@ -28,8 +28,8 @@ https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD
 
 1. upgrade version of nodejs and npm versions
 ```
-nvm i v8 i
-nvm alias default 8
+nvm i v10 i
+nvm alias default 10
 ```
 
 2. install browserify & watchify
@@ -123,8 +123,26 @@ https://forums.aws.amazon.com/thread.jspa?threadID=84927
 
 * The last step under Forwarding/manage is to "forward only" your naked domain name "example.com" to "www.example.com"
 
+## CLI install
+https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
+```
+$ pip3 install awscli --upgrade --user
+$ aws --version
+```
+
+## COnfigure .aws/credentials and .aws/config
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration
+
+```
+aws configure
+```
 
 5. Use serverless cli to deploy to cloud host
+```
+$ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+$ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+$ export AWS_DEFAULT_REGION=us-east-1
+```
 
 export AWS_ACCESS_KEY_ID=
 export AWS_SECRET_ACCESS_KEY=
@@ -132,7 +150,6 @@ export AWS_SECRET_ACCESS_KEY=
 
 ## example deploy commands
 ```
-serverless deploy -v
 serverless client deploy -v
 serverless client deploy --stage dev -v
 ```
@@ -166,5 +183,7 @@ Host: viz
 Points to: s3-website-us-east-1.amazonaws.com
 
 test http://viz.transformrockford.org/
+
+
 
 TODo: get HTTPS certificate??

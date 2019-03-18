@@ -1,0 +1,57 @@
+<head>
+  <script src="//d3js.org/d3.v5.min.js"></script>
+  <script src="//unpkg.com/sunburst-chart"></script>
+  <!--<script src="../../dist/sunburst-chart.js"></script>-->
+
+  <style>body { margin: 0 }</style>
+</head>
+<body>
+  <div id="sunburst-chart"></div>
+
+  <script>
+    const color = d3.scaleOrdinal(d3.schemePaired);
+
+// var treeurl = 'https://e8apsbxd32.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
+var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+    console.log('treeurl:',treeurl)
+    
+    fetch(treeurl)
+    
+        .then(function (response) {
+            
+          return response.json();
+        })
+        .then(function (json) {
+            console.log('json',json);
+            let data = json.children[0]
+            
+            console.log('data',data);
+        
+            Sunburst()
+            .data(data)
+            .label('name')
+            .size('size')
+            .color((d, parent) => color(parent ? parent.data.name : null))
+            .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
+            (document.getElementById('sunburst-chart'));
+        
+          
+            
+        }); // end fetch
+            
+    
+    // d3.json('../../json/entityTree.json').then(data => {
+    // d3.json(treeurl).then(data => {
+    //   Sunburst()
+    //     .data(data)
+    //     .label('name')
+    //     .size('size')
+    //     .color((d, parent) => color(parent ? parent.data.name : null))
+    //     .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
+    //     (document.getElementById('sunburst-chart'));
+    
+    //   console.log('data:',data)
+      
+    // });
+  </script>
+</body>

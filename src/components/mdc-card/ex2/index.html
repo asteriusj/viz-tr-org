@@ -1,0 +1,167 @@
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="mdc-card.css" rel="stylesheet">
+  <link href="metricpopup.css" rel="stylesheet">
+  <script>
+    import {MDCRipple} from '@material/ripple';
+    
+    const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+    const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+      return new MDCRipple(el);
+    });
+  </script>
+</head>
+
+
+<div id="_card-1">
+    <div class="mdc-card demo-card">
+        <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0" style="--mdc-ripple-fg-size:210px; --mdc-ripple-fg-scale:2.34115; --mdc-ripple-fg-translate-start:135px, -37.4688px; --mdc-ripple-fg-translate-end:70px, 60.4375px;">
+            <!--<div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);"></div>-->
+            <div class="demo-card__primary">
+                <h2 class="demo-card__title mdc-typography--headline6">
+                    <div id="metricindicatorfoafiaf:Indicator_%_Foreign_born_population_share_" class="metricindicator">
+                        <div id="crd_foafiaf:Indicator_%_Foreign_born_population_share_" class=" ui-widget-content">
+                            <h2 class="metricindicator indicatorlabel">
+                                <span id="" style="darker">2016 % oreign born population share</span>
+                            </h2> 
+                        </div>
+                    </div>
+                    <!--Our Changing Planet-->
+                </h2>
+                <h3 class="demo-card__subtitle mdc-typography--subtitle2">
+                    Informs us of ...
+                </h3>
+            </div>
+            <div class="demo-card__secondary mdc-typography--body2">
+                
+                <div class="content">
+            
+                    <span  class="">
+                            <em>status:</em> 
+                        <span style="display: inline-block; width: 10px;"></span>    
+                        <span id="statusText"><font color="Green">Green</font></span>
+                    </span>  	
+                    
+                    <br>  	<br>  
+                    
+                    <span id="" class="">
+                        <i>value:</i>  
+                        <span style="display: inline-block; width: 5px;"></span>
+                        8.4% in 2016</span>   
+                        <span style="display: inline-block; width: 30px;"> </span>  
+                    
+                    <br>  	<br>  	
+                    
+                    <span id="" class="">
+                            <em>5-year Trend:</em> &nbsp; <i class="fas fa-arrow-up    fa-2x" title="Better" aria-hidden="" style="color: Green;"></i></span>  	<br>  	<br>  	<br>  	<span id="" class=""><em>rank:</em>  <span style="display: inline-block; width: 5px;"></span>21/101 in 2016</span>    <span style="display: inline-block; width: 30px;"> </span>  	
+                            
+                            <br>  	<br>  	
+                            
+                    <span id=""><i>Trend in rank:</i> &nbsp; 
+                    <i class="fas fa-arrow-up    fa-2x" title="Better (30/101 in 2011)" aria-hidden="" style="color: Green;"></i>
+                    </span>  
+                    
+                    <br>   
+                </div>  
+                
+                <!--Visit ten places on our planet that are undergoing the biggest changes today.-->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="_card-2">
+    <div class="mdc-card demo-card">
+        <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0" style="--mdc-ripple-fg-size:210px; --mdc-ripple-fg-scale:2.34115; --mdc-ripple-fg-translate-start:135px, -37.4688px; --mdc-ripple-fg-translate-end:70px, 60.4375px;">
+            <div class="demo-card__primary">
+                <h2 class="demo-card__title mdc-typography--headline6">
+                    <div id="metricindicatorfoafiaf:Indicator_%_Foreign_born_population_share_" class="metricindicator">
+                        <div id="crd_foafiaf:Indicator_%_Foreign_born_population_share_" class=" ui-widget-content">
+                            <h2 class="metricindicator indicatorlabel">
+                                <span id="" style="darker">2016 % xxx yyy</span>
+                            </h2> 
+                        </div>
+                    </div>
+                </h2>
+                <h3 class="demo-card__subtitle mdc-typography--subtitle2">
+                    Informs us of ...
+                </h3>
+            </div>
+            <div class="demo-card__secondary mdc-typography--body2">
+                <div class="content">
+                    
+                    
+                    <div class="flex-wrapper">
+                        <div class="single-chart">
+                            <svg viewbox="0 0 36 36" class="circular-chart orange">
+                                  <path class="circle-bg" d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                  <path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+                                      a 15.9155 15.9155 0 0 1 0 31.831
+                                      a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                                  <text x="18" y="20.35" class="percentage">30%</text>
+                            </svg>
+                        </div>
+                        
+                        <style>
+                            .flex-wrapper {
+                              display: flex;
+                              flex-flow: row nowrap;
+                            }
+                            .single-chart {
+                              width: 99%;
+                              justify-content: space-around ;
+                            }
+                            .circular-chart {
+                              display: block;
+                              margin: 10px auto;
+                              max-width: 80%;
+                              max-height: 250px;
+                            }
+                            .circle-bg {
+                              fill: none;
+                              stroke: #eee;
+                              stroke-width: 3.8;
+                            }
+                            .circle {
+                              fill: none;
+                              stroke-width: 2.8;
+                              stroke-linecap: round;
+                              animation: progress 1s ease-out forwards;
+                            }
+                            @keyframes progress {
+                              0% {
+                                stroke-dasharray: 0 100;
+                              }
+                            }
+                            .circular-chart.orange .circle {
+                              stroke: #ff9f00;
+                            }
+                            .circular-chart.green .circle {
+                              stroke: #4CC790;
+                            }
+                            .circular-chart.yellow .circle {
+                              stroke: yellow;
+                            }
+                            .circular-chart.blue .circle {
+                              stroke: #3c9ee5;
+                            }
+                            .percentage {
+                              fill: #666;
+                              font-family: sans-serif;
+                              font-size: 0.5em;
+                              text-anchor: middle;
+                            }
+                        </style>
+                    </div>                    
+                    
+     
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

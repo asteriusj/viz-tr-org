@@ -26,7 +26,6 @@ custom:
   aliasHostedZoneId: Z2FDTNDATAQYW2     # us-east-1
   aliasDNSName: s3-website-us-east-1.amazonaws.com
     
-
     
 ### Add Route 53 from plugin example  
 resources:

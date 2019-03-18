@@ -1,0 +1,126 @@
+/*body {*/
+/*  font-family: Arial, sans-serif;*/
+/*  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;*/
+/*  background-size: cover;*/
+/*  height: 100vh;*/
+/*}*/
+
+/*h1 {*/
+/*  text-align: center;*/
+/*  font-family: Tahoma, Arial, sans-serif;*/
+/*  color: #06D85F;*/
+/*  margin: 80px 0;*/
+/*}*/
+
+span#statusText {
+   font-family: Monospace;
+   font-size: 25px;
+   font-weight: bold;
+}
+span#grpRank {
+   margin-top: 25px;
+}
+span#grpDescription {
+   font-size: 20px;
+   font-weight: normal;
+   margin-bottom: 5px;
+}
+
+.metrictoplevel {
+    /*position: absolute;*/
+    /*width: 17%;*/
+    float: left;
+    z-index:100;
+    margin-top: 20px;
+    /*cursor: move;*/
+    border-style: solid;
+}
+.metrictheme {
+    /*position: absolute;*/
+    /*width: 17%;*/
+    float: left;
+    z-index:100;
+    margin-top: 10px;
+    /*cursor: move;*/
+    border-style: solid;
+}
+.metricpopup {
+    /*position: absolute;*/
+    width: 17%;
+    float: left;
+    z-index:100;
+    margin-top: 5px;
+    cursor: move;
+}
+
+div#myPopupBox {
+  display: none;
+    position: fixed;
+    width: 25%;
+    float: left;
+    z-index:100;
+    cursor: move;
+}
+#resizable { width: 150px; height: 150px; padding: 0.5em; }
+#resizable h3 { text-align: center; margin: 0; }
+.ui-draggable, .ui-droppable {
+	background-position: top;
+}
+#draggable { width: 150px; height: 150px; padding: 0.5em; }
+  
+.popup {
+  margin-top: 1%;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: 1%;
+  padding: 12px;
+  background: #fff;
+  border-color: #ddd;
+  border: 1px solid grey;
+  border-radius: 5px;
+  width: 99%;
+  position: relative;
+  /*transition: all 5s ease-in-out;*/
+}
+/*h1 {*/
+/*  text-align: center;*/
+/*  font-family: Tahoma, Arial, sans-serif;*/
+/*  color: #06D85F;*/
+/*  margin: 80px 0;*/
+/*}*/
+.popup h2 {
+  margin-top: 0;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  color: #333;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  padding-top: 4px;
+  /*overflow: auto;*/
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}

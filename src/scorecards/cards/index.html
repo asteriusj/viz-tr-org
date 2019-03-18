@@ -1,0 +1,58 @@
+
+<title>Card View - Transform Rockford Regional Indicator Interactive Scorecard</title>
+    
+    <link rel="amphtml" href="./index.amp.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="amp-google-client-id-api" content="googleanalytics">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Transform Rockford Community Regional Indicator Scorecard","description":"Scorecard indicators for Transford Rockford Regional T-Map ","url":"http://viz.transformrockford.org/index.html","sameAs":"","keywords":["Community > Scorecard","Community > Scorecard > Indicators","Community > Metrics"],"creator":{"@type":"NGO","name":"Transform Rockford","legalName":"Transform Rockford LLC","contactPoint":{"contactType":"customer service","telephone":"+1 815.977.5840","email":"transformrockford.org"}},"includedInDataCatalog":{"@type":"DataCatalog","name":""},"distribution":[{"@type":"DataDownload","encodingFormat":"CSV","contentUrl":""},{"@type":"DataDownload","encodingFormat":"JSON","contentUrl":""}],"temporalCoverage":"2011-01-01/2018-06-30","spatialCoverage":{"@type":"Place","geo":{"@type":"GeoShape","box":""}}}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebApplication","image":"http://viz.transformrockford.org/images/trlogo300x300.png","name":"Tranfsform Rockford Regional Indicator Interactive Scorecard","author":{"@type":"Organization","url":"https://github.com/asteriusj","name":"asteriusj - Jeffrey Stewart"},"url":"http://viz.transformrockford.org/index.html","datePublished":"2019-03-01","operatingSystem":"Web","fileSize":"0","interactionCount":"","contentRating":"","description":"HTML 5 SVG Interactive Diagrams for Tranfsform Rockford Community Regional Indicator Scorecard","applicationCategory":"Interactive Diagram"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"NGO","name":"Transform Rockford","legalName":"Transform Rockford LLC","address":{"@type":"PostalAddress","streetAddress":"303 N Main, Suite 110","addressLocality":"Rockford","addressRegion":"Illinois","postalCode":"61101"},"description":"TRANSFORMING OUR REGION FROM WITHIN - The Transform Rockford mission is to facilitate the creation and implementation of a strategic plan by the community for the purposes of dramatically improving the social and economic well-being of the community and its residents.","telephone":"+1 815.977.5840","logo":"http://viz.transformrockford.org/images/trlogo300x300.png","url":"http://transformrockford.org/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Person","familyName":"Stewart","givenName":"Jeffrey","name":"Jeffrey Stewart","telephone":"(815) 262-****","email":"jstewart@asteriusmedia.com","url":"http://www.asteriusmedia.com/","sameAs":["https://www.linkedin.com/in/jeffreyastewart","https://twitter.com/JeffreyAStewart","https://twitter.com/asteriusmedia","https://www.facebook.com/AsteriusMedia/","https://foursquare.com/jeffreyastewart","https://medium.com/@jeffreystewart","https://github.com/asteriusj","http://www.slideshare.net/stewtrekk","http://jeffreystewart.brandyourself.com/","http://www.pinterest.com/stewjeffrey/","https://instagram.com/stewjeffrey","https://angel.co/jeffrey-stewart"],"jobtitle":"Owner / IT and Management Consultant / Fractional CTO CMTO","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Byron","addressRegion":"IL","postalCode":"61010","streetAddress":""},"name":"work"}}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Asterius Media","legalName":"Asterius Media LLC","description":"Asterius Media LLC is an IT management and consulting firm that helps clients envision a technology future state, to organize capacity and needs into a planning road map, to design and manage the projects based on those objectives, to arrive at lower cost and better agility.","url":"http://www.asteriusmedia.com","logo":"https://static1.squarespace.com/static/5bf1bbaac258b49ab7b4dacd/t/5bf1bc1b4fa51adec12db7cb/1543451665679/f","founder":{"@type":"Person","name":"Jeffrey Stewart","jobtitle":"Owner / IT and Management Consultant / Fractional CTO CMTO","email":"jstewart@asteriusmedia.com"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-779-548-5398","contactType":"sales","contactOption":"TollFree","areaServed":"US"}],"areaServed":["US","IL","WS"],"sameAs":["https://www.linkedin.com/in/jeffreyastewart","https://twitter.com/asteriusmedia","https://www.facebook.com/AsteriusMedia/","https://medium.com/@jeffreystewart","https://github.com/asteriusj","http://www.slideshare.net/stewtrekk","https://angel.co/jeffrey-stewart"],"location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Byron","addressRegion":"IL","postalCode":"61010","streetAddress":""},"name":"work"}}</script>
+  
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+<!--<script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>-->
+<script src="https://unpkg.com/@webcomponents/custom-elements"></script>
+  
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script type="module">
+    import {doCards} from './cards.js';
+    
+    // import './superlative-input.js'
+    // const template = html`<superlative-input label="🥙"></superlative-input>`;
+    // ...
+</script>
+  
+<script src="./bundle.js"></script>
+<script src="./index.js"></script>
+
+<tr-indicator-cards></tr-indicator-cards>
+
+	<!-- https://developers.google.com/analytics/devguides/collection/amp-analytics/  -->
+    <!-- TR Interactive ga tag -->
+    <amp-analytics type="gtag" data-credentials="include">
+      <script type="application/json">
+        {
+          "vars": {
+            "gtag_id": "UA-98316611-3",
+            "config": {
+             "UA-98316611-1": { "groups": "default" }
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    
+    <!-- Transform Rockford Website ga tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98316611-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'UA-98316611-2');
+		</script>

@@ -1,0 +1,176 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <meta charset="utf-8">
+    <title>Sunburst Chart - Transform Rockford Regional Indicator Interactive Scorecard</title>
+    <meta name="description" content="HTML 5 SVG Interactive Sunburst Diagram for Transform Rockford Community Regional Indicator Scorecard">
+    <meta name="author" content="Transform Rockford LLC | Asterius Media LLC">
+
+    <script type="application/ld+json">{"@context":"http://schema.org/","@type":"Dataset","name":"Transform Rockford Community Regional Indicator Scorecard","description":"Scorecard indicators for Transford Rockford Regional T-Map ","url":"http://viz.transformrockford.org/index.html","sameAs":"","keywords":["Community > Scorecard","Community > Scorecard > Indicators","Community > Metrics"],"creator":{"@type":"NGO","name":"Transform Rockford","legalName":"Transform Rockford LLC","contactPoint":{"contactType":"customer service","telephone":"+1 815.977.5840","email":"transformrockford.org"}},"includedInDataCatalog":{"@type":"DataCatalog","name":""},"distribution":[{"@type":"DataDownload","encodingFormat":"CSV","contentUrl":""},{"@type":"DataDownload","encodingFormat":"JSON","contentUrl":""}],"temporalCoverage":"2011-01-01/2018-06-30","spatialCoverage":{"@type":"Place","geo":{"@type":"GeoShape","box":""}}}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebApplication","image":"http://viz.transformrockford.org/images/trlogo300x300.png","name":"Tranfsform Rockford Regional Indicator Interactive Scorecard","author":{"@type":"Organization","url":"https://github.com/asteriusj","name":"asteriusj - Jeffrey Stewart"},"url":"http://viz.transformrockford.org/index.html","datePublished":"2019-03-01","operatingSystem":"Web","fileSize":"0","interactionCount":"","contentRating":"","description":"HTML 5 SVG Interactive Diagrams for Tranfsform Rockford Community Regional Indicator Scorecard","applicationCategory":"Interactive Diagram"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"NGO","name":"Transform Rockford","legalName":"Transform Rockford LLC","address":{"@type":"PostalAddress","streetAddress":"303 N Main, Suite 110","addressLocality":"Rockford","addressRegion":"Illinois","postalCode":"61101"},"description":"TRANSFORMING OUR REGION FROM WITHIN - The Transform Rockford mission is to facilitate the creation and implementation of a strategic plan by the community for the purposes of dramatically improving the social and economic well-being of the community and its residents.","telephone":"+1 815.977.5840","logo":"http://viz.transformrockford.org/images/trlogo300x300.png","url":"http://transformrockford.org/"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Person","familyName":"Stewart","givenName":"Jeffrey","name":"Jeffrey Stewart","telephone":"(815) 262-****","email":"jstewart@asteriusmedia.com","url":"http://www.asteriusmedia.com/","sameAs":["https://www.linkedin.com/in/jeffreyastewart","https://twitter.com/JeffreyAStewart","https://twitter.com/asteriusmedia","https://www.facebook.com/AsteriusMedia/","https://foursquare.com/jeffreyastewart","https://medium.com/@jeffreystewart","https://github.com/asteriusj","http://www.slideshare.net/stewtrekk","http://jeffreystewart.brandyourself.com/","http://www.pinterest.com/stewjeffrey/","https://instagram.com/stewjeffrey","https://angel.co/jeffrey-stewart"],"jobtitle":"Owner / IT and Management Consultant / Fractional CTO CMTO","location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Byron","addressRegion":"IL","postalCode":"61010","streetAddress":""},"name":"work"}}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Asterius Media","legalName":"Asterius Media LLC","description":"Asterius Media LLC is an IT management and consulting firm that helps clients envision a technology future state, to organize capacity and needs into a planning road map, to design and manage the projects based on those objectives, to arrive at lower cost and better agility.","url":"http://www.asteriusmedia.com","logo":"https://static1.squarespace.com/static/5bf1bbaac258b49ab7b4dacd/t/5bf1bc1b4fa51adec12db7cb/1543451665679/f","founder":{"@type":"Person","name":"Jeffrey Stewart","jobtitle":"Owner / IT and Management Consultant / Fractional CTO CMTO","email":"jstewart@asteriusmedia.com"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-779-548-5398","contactType":"sales","contactOption":"TollFree","areaServed":"US"}],"areaServed":["US","IL","WS"],"sameAs":["https://www.linkedin.com/in/jeffreyastewart","https://twitter.com/asteriusmedia","https://www.facebook.com/AsteriusMedia/","https://medium.com/@jeffreystewart","https://github.com/asteriusj","http://www.slideshare.net/stewtrekk","https://angel.co/jeffrey-stewart"],"location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Byron","addressRegion":"IL","postalCode":"61010","streetAddress":""},"name":"work"}}</script>
+  
+  
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <style type="text/css"> 
+      html, body {
+        height: 100%;
+      }
+      #visualization {
+        margin: 20 10 10 10px;
+        padding: 5px;
+        height: 90%;
+      }
+    </style>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />-->
+    
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+  <style>
+  /*#resizable { width: 150px; height: 150px; padding: 0.5em; }*/
+  /*#resizable h3 { text-align: center; margin: 0; }*/
+  /*.ui-draggable, .ui-droppable {*/
+  /*	background-position: top;*/
+  /*}*/
+  /*#draggable { width: 150px; height: 150px; padding: 0.5em; }*/
+  </style>
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  // $( function() {
+  //   $( "#resizable" ).resizable();
+  //   $( "#myPopupBox" ).resizable();
+  // } );
+  // $( function() {
+  //   $( "#draggable" ).draggable();
+  //   $( "#myPopupBox" ).draggable();
+  // } );
+  </script>
+  
+    <script src="../assets/js/carrotsearch.circles.js"></script>
+    <script src="../assets/js/carrotsearch.circles.asserts.js"></script>
+    <script src="../assets/js/carrotsearch.examples.onresizehook.js"></script>
+    <script src="../assets/js/carrotsearch.examples.viewport.js"></script>
+    
+		<script src="../assets/js/graphUtils.js"></script>
+		<script src="../assets/js/transformGroups.js"></script>
+		
+
+    
+  </head>
+
+  <body>
+
+  <!-- Start Navbar -->
+	  <header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 ">
+	    <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger  pr2  ">☰
+	    </div>
+	        <amp-img src="../../images/icons/trlogo-60x60.png" width="60" height="60" layout="fixed" class="my0 mx-auto " alt="TR"></amp-img>
+	  </header>
+	  <!-- Start Sidebar -->
+	  <amp-sidebar id="header-sidebar" class="ampstart-sidebar px3  " layout="nodisplay">
+	    <div class="flex justify-start items-center ampstart-sidebar-header">
+	      <div role="button" aria-label="close sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger items-start">✕</div>
+	    </div>
+  
+	  	<ul class="ampstart-sidebar-faq list-reset m0">
+	        <li class="ampstart-faq-item"><a href="../../index.html" class="text-decoration-none">Home</a></li>
+	    </ul>
+	  </amp-sidebar>
+	  <!-- End Sidebar -->
+	  <!-- End Navbar -->
+    
+    <!-- start Main -->
+    <main id="content" role="main" class="">
+      <!-- Start article -->
+      <article id="article-" class="recipe-article">
+
+      </article>
+    </main>
+    <!-- end Main -->
+    
+    
+ <div id="myPopupBox" class="popup ui-widget-content">
+	<div class="popup">
+		<h2><span id="grpLabel" style="darker"></span></h2>
+		<a id="popup_close" class="close" onclick="myPopupClose()" href="#">&times;</a>
+		<div class="content">
+		  <br/>
+			<span id="grpFull"></span>
+			<br/>
+			<br/>
+			<span id="grpDescription"></span>
+			<br/>
+			<br/>
+			<span id="grpStatus" ></span>
+			<br/>
+			<br/>
+			<span id="grpValue"></span>   <span style="display: inline-block; width: 30px;"> </span>  
+			<br/>
+			<br/>
+			<span id="grpTrend"></span>
+			<br/>
+			<br/>
+			<br/>
+			<span id="grpRank"></span>    <span style="display: inline-block; width: 30px;"> </span>  
+			<br/>
+			<br/>
+			<span id="grpTrendRank"></span>
+			
+		</div>
+	</div>
+ </div>
+
+
+  
+
+
+
+
+      
+    <div id="visualization"></div>
+
+    
+    <script src="//code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" href="../assets/css/metricpopup.css" />
+    <script src="../assets/js/metricpopup.js"></script>
+    
+    <link rel="stylesheet" href="./sunburst.css" />
+    <script src="./sunburst.js"></script>
+    
+    
+    
+    <!-- https://developers.google.com/analytics/devguides/collection/amp-analytics/  -->
+    <!-- TR Interactive ga tag -->
+    <amp-analytics type="gtag" data-credentials="include">
+      <script type="application/json">
+        {
+          "vars": {
+            "gtag_id": "UA-98316611-3",
+            "config": {
+             "UA-98316611-1": { "groups": "default" }
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
+    
+    <!-- Transform Rockford Website ga tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-98316611-2"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		
+		  gtag('config', 'UA-98316611-2');
+		</script>
+
+	    
+  </body>
+</html>
