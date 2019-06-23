@@ -1,9 +1,27 @@
 /**
- * Semantic Data Broeser HTML5 (demo variant)
+ * Semantic Data Browser HTML5 (demo variant)
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
  */
 'use strict';
 console.log('loading browse.js... ')
+console.log('browse.js v.2019.06.22.11.52')
+
+// retrieve url params
+// var urlParams = new URLSearchParams(window.location.search);
+// if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
+// if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
+// if (RefreshAll) {
+//     // console.log('sunburst.js RefreshAll:',RefreshAll)
+//     sessionStorage.clear(); 
+//     // console.log('sessionStorage:',sessionStorage)
+// }
+// console.log('sunburst.js DoNotCache:',DoNotCache)
+// console.log('sunburst.js RefreshAll:',RefreshAll)
+
+
+
+
+
 function dtstamp() {
     let d = new Date();
     let dt  = new Date().getTime();
@@ -532,7 +550,7 @@ function buildNodeContent(_ed, cb) {
     let content = "" ;
     content += '<div id="node" about="' + _ed["_id"] + '" typeof="' + _ed["_type"] + '">'
     
-    content += '<h1 class="Title">' 
+    content += '<h2 class="Header">' 
     content += '<span property="skos:notation"></span>'  
     if (!isEmpty(_ed["skos:prefLabel"] )) {
         content += '<span property="skos:prefLabel" xml:lang="en">' + _ed["skos:prefLabel"] + '</span> '
@@ -546,16 +564,16 @@ function buildNodeContent(_ed, cb) {
 
     if (!isEmpty( _ed["rdf:type"] )) {
         // content += '<h3>RDF Type (<a href="" title="ADD LINK TO SPEC">rdf:type</a>)</h3>'
-        content += '<h3>RDF Type</h3>'
-        content += '	<span class="Content" property="rdf:type" style="">'
+        content += '<h3 class="rdftype">RDF Type</h3>'
+        content += '	<span class="Content rdftype" property="rdf:type" style="">'
         content +=          _ed["rdf:type"] 
         content += '	</span>'
     }
      
     if (!isEmpty( _ed["dbo:type"] )) {
         // content += '<h3>Type (<a href="" title="ADD LINK TO SPEC">dbo:type</a>)</h3>'
-        content += '<h3>Type</h3>'
-        content += '	<span class="Content" property="dbo:type">'
+        content += '<h3 class="dbotype">Type</h3>'
+        content += '	<span class="Content dbotype" property="dbo:type">'
         content +=          _ed["dbo:type"] 
         content += '	</span>'
     }

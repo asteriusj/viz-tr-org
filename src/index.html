@@ -70,7 +70,7 @@
                     <ul class="ampstart-dropdown-items list-reset m0 p0">
                         <li class="ampstart-dropdown-item"><a href="./scorecards/sunburst/index.amp.html" class="text-decoration-none">Scorecard Sunburst Chart</a></li>
                         <li class="ampstart-dropdown-item"><a href="./scorecards/cards/index.amp.html" class="text-decoration-none">Scorecard Indicator Cards</a></a></li>
-                        <li class="ampstart-dropdown-item"><a href="./scorecards/tree/index.amp.html" class="text-decoration-none">Indicator Tree Diagram</a></a></li>
+                        <!--<li class="ampstart-dropdown-item"><a href="./scorecards/tree/index.amp.html" class="text-decoration-none">Indicator Tree Diagram</a></a></li>-->
                         <li class="ampstart-dropdown-item"><a href="./scorecards/browse/index/amp.html" class="text-decoration-none">Scorecard Browse & Search</a></a></li>
                     </ul>
                   </section>
@@ -81,12 +81,19 @@
                 <!-- Start Dropdown-inline -->
                 <amp-accordion layout="container" disable-session-states="" class="ampstart-dropdown">
                   <section>
-                    <header><a class="text-decoration-none ampstart-label"href="#article-metrics">Metrics Dashboards</a></header>
+                    <header><a class="text-decoration-none ampstart-label" href="#article-metrics">Metrics Dashboards</a></header>
                     <ul class="ampstart-dropdown-items list-reset m0 p0">
-                        <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Performance Metrics </a></li>
-                        <li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Measurement Dials</a></li>
-                        <li class="ampstart-dropdown-item"><a href="./dashboards/cards/index.amp.html" class="text-decoration-none">Metrics Cards</a></li>
-                        <li class="ampstart-dropdown-item"><a href="./dashboards/tree/index.amp.html" class="text-decoration-none">Metrics Tree View</a></li>
+                        
+                        <li class="ampstart-dropdown-item"><a href="./dashboards/tree/index.amp.html" class="text-decoration-none">Metrics Tree View </a></li>
+                        
+                        <!--<li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Performance Metrics </a></li>-->
+                        <!--<li class="ampstart-dropdown-item"><a href="#" class="text-decoration-none">Measurement Dials</a></li>-->
+                        <!--<li class="ampstart-dropdown-item"><a href="./dashboards/cards/index.amp.html" class="text-decoration-none">Metrics Cards</a></li>-->
+                      
+                        <li class="ampstart-dropdown-item"><a href="./dashboards/spider/index.amp.html" class="text-decoration-none"></a>Spider Diagram</li>
+                      
+                        <li class="ampstart-dropdown-item"><a href="./dashboards/sunburst/index.amp.html" class="text-decoration-none"></a>Sunburst Chart</li>
+                    
                     </ul>
                   </section>
                 </amp-accordion>
@@ -114,7 +121,7 @@
       <article id="article-indicators" class="recipe-article">
         <header>
             <span class="ampstart-subtitle block px3 pt2 mb2">Interactive Visualizations</span>
-            <h2  class="mb1 px3">Scorecard Indicators</h2>
+            <h1  class="mb1 px3">Scorecard Indicators</h1>
         </header>
         <p class="mb4 px3">
           Indicators are measurable values that demonstrates how effectively the organization is achieving its objectives.
@@ -127,90 +134,98 @@
             
                 <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px; page-break-after:always;">-->
                 <div> 
-                  <!--<iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px;"-->
-                  <!--    scrolling = "no"-->
-                  <!--    sandbox="allow-scripts allow-same-origin"-->
-                  <!--    layout="fixed"-->
-                  <!--    frameborder="0"-->
-                  <!--    src="./scorecards/sunburst/index.html">-->
-                  <!--    <amp-img layout="fill" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>-->
-                  <!--</iframe> -->
-                  <br/>
+                  <br/><br/>
                   <a href="./scorecards/sunburst/index.amp.html" class="text-decoration-none h3">
                      
                      Scorecard Sunburst Diagram
                      <br/>
-                     <amp-img layout="" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>
+                     <!--<amp-img layout="" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>-->
                       
                   </a>
+                  <br/>
+                  <iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px;"
+                      scrolling = "no"
+                      sandbox="allow-scripts allow-same-origin"
+                      layout="fixed"
+                      frameborder="0"
+                      src="./scorecards/sunburst/index.html">
+                      <amp-img layout="fill" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>
+                  </iframe> 
+                  <br/>
+                  
                </div>  
                
                 <!--</li>-->
                 <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px; page-break-after:always;">-->
                 
                 <div>  
-                  <!--<iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px;"-->
-                  <!--    scrolling = "no"-->
-                  <!--    sandbox="allow-scripts allow-same-origin"-->
-                  <!--    layout="fixed"-->
-                  <!--    frameborder="0"-->
-                  <!--    src="./scorecards/cards/index.html">-->
-                  <!--    <amp-img layout="fill" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>-->
-                  <!--</iframe> -->
-                  <br/>
+                  <br/><br/>
                   <a href="scorecards/cards/index.amp.html" class="text-decoration-none h3">
                       
                       Scorecard Indicator Cards
                       <br/>
-                      <amp-img layout="" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>
+                      <!--<amp-img layout="" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>-->
                       
                   </a>
-                </div>
+                  <br/>
+                  <iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px;"
+                      scrolling = "no"
+                      sandbox="allow-scripts allow-same-origin"
+                      layout="fixed"
+                      frameborder="0"
+                      src="./scorecards/cards/index.html">
+                      <amp-img layout="fill" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>
+                  </iframe> 
+                  <br/>
+                  
+                <!--</div>-->
                 
                 <!--</li>-->
                 <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px; page-break-after:always;">-->
                 
-                <div>  
-                  <!--<iframe width="200px" height="200px"  style="max-width: 200px; max-height: 200px;"-->
-                  <!--    scrolling = "no"-->
-                  <!--    sandbox="allow-scripts allow-same-origin"-->
-                  <!--    layout="fixed"-->
-                  <!--    frameborder="0"-->
-                  <!--    src="./scorecards/tree/index.html">-->
-                  <!--    <amp-img layout="fill" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>-->
-                  <!--</iframe> -->
-                  <br/>
-                  <a href="./scorecards/tree/index.amp.html" class="text-decoration-none h3">
+              <!--  <div>  -->
+              <!--    <br/><br/>-->
+              <!--    <a href="./scorecards/tree/index.amp.html" class="text-decoration-none h3">-->
                       
-                      Indicator Tree Diagram   
-                      <br/>
-                      <amp-img layout="" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>
+              <!--        Indicator Tree Diagram   -->
+              <!--        <br/>-->
+                      <!--<amp-img layout="" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>-->
                       
-                  </a>
-              </div>   
+              <!--    </a>-->
+              <!--    <br/>-->
+              <!--    <iframe width="200px" height="200px"  style="max-width: 200px; max-height: 200px;"-->
+              <!--        scrolling = "no"-->
+              <!--        sandbox="allow-scripts allow-same-origin"-->
+              <!--        layout="fixed"-->
+              <!--        frameborder="0"-->
+              <!--        src="./scorecards/tree/index.html">-->
+              <!--        <amp-img layout="fill" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>-->
+              <!--    </iframe> -->
+              <!--    <br/>-->
+              <!--</div>   -->
               
               
                 <!--</li>-->
                 <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px; page-break-after:always;">-->
                  
               <div> 
-                  <br/>
+                  <br/><br/>
                   <a href="./scorecards/browse/index.amp.html" class="text-decoration-none h3">
                       
                       Scorecard Indicator Browse & Search 
                       <br/>
-                      <amp-img layout="" width="200" height="200" src="./images/browse_screenshot.png" placeholder></amp-img>
+                      <!--<amp-img layout="" width="200" height="200" src="./images/browse_screenshot.png" placeholder></amp-img>-->
                       
                   </a>
-                  <br/><br/>
-                  <!--<iframe width="200px" height="200px"style="max-width: 200px; max-height: 200px;"-->
-                  <!--    scrolling = "yes"-->
-                  <!--    sandbox="allow-scripts allow-same-origin"-->
-                  <!--    layout="fixed"-->
-                  <!--    frameborder="0"-->
-                  <!--    src="https://preview.c9users.io/asteriusj/viz-tr-org/src/scorecards/browse/index.html">-->
-                  <!--    <amp-img layout="fill" width="100" height="100" src="./images/browse_screenshot.png" placeholder></amp-img>-->
-                  <!--</iframe>-->
+                  <br/>
+                  <iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px; transform: scale(0.75); transform-origin: 0 0;"
+                      scrolling = "no"
+                      sandbox="allow-scripts allow-same-origin"
+                      layout="fixed"
+                      frameborder="0"
+                      src="./scorecards/browse/index.html">
+                      <amp-img layout="fill" width="100" height="100" src="./images/browse_screenshot.png" placeholder></amp-img>
+                  </iframe>
               </div> 
             <!--    </li>-->
             
@@ -218,12 +233,15 @@
             <!--</ul>-->
         </p>
       </article>
-      <!-- Start Indicators -->
+      <!-- End Indicators -->
+      
+      
+      
       <!-- Start Metrics -->
       <article id="article-metrics" class="recipe-article">
         <header>
             <span class="ampstart-subtitle block px3 pt2 mb2"></span>
-            <h2 class="mb1 px3">Metrics Dashboards</h2>
+            <h1 class="mb1 px3">Metrics Dashboards</h1>
         </header>
         <p class="mb4 px3">
           Metrics are quantifiable, reportable measures and reported to assess performance in a particular area, often track and assess the status of a specific process or activity.
@@ -233,42 +251,94 @@
             <div class="px3">
               <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px;">-->
                   <div>
-                      <br/>
-                      <a href="./dashboards/tree/index.amp.html" class="text-decoration-none h3">
+                    <br/>
+                    <a href="./dashboards/tree/index.amp.html" class="text-decoration-none h3">
                           
                           Metrics Tree View 
                           <br/>
-                          <amp-img layout="" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>
+                          <!--<amp-img layout="" width="200" height="200" src="./images/tree_screenshot.png" placeholder></amp-img>-->
                           
-                      </a>
+                    </a>
+                    <br/>
+                    <iframe width="200px" height="200px"style="max-width: 200px; max-height: 200px;"
+                        scrolling = "yes"
+                        sandbox="allow-scripts allow-same-origin"
+                        layout="fixed"
+                        frameborder="0"
+                        src="./dashboards/tree/index.html">
+                        <amp-img layout="fill" width="100" height="100" src="./images/tree_screenshot.png" placeholder></amp-img>
+                    </iframe>
                   </div> 
-              <!--    <br/><br/>-->
-                  <!--<div style='page-break-before:always;'>-->
-                  <!--    <iframe  width="200px" height="200px"style="max-width: 200px; max-height: 200px;"-->
-                  <!--        scrolling = "np"-->
-                  <!--        sandbox="allow-scripts allow-same-origin"-->
-                  <!--        layout="fixed"-->
-                  <!--        frameborder="0"-->
-                  <!--        src="./dashboards/tree/index.html">-->
-                  <!--        <amp-img layout="fill" width="100" height="100" src="./images/browse_screenshot.png" placeholder></amp-img>-->
-                  <!--    </iframe>-->
-                  <!--</div>  -->
                   
               <!--</li>-->
               
               <!--<li class="mb2" style="margin-top: 20px; margin-bottom: 40px;">-->
                        
-                <div>
-                      <br/>
-                      <a href="./dashboards/cards/index.amp.html" class="text-decoration-none h3">
+                <!--<div>-->
+                <!--    <br/>-->
+                <!--    <a href="./dashboards/cards/index.amp.html" class="text-decoration-none h3">-->
                           
-                          Metrics Cards 
-                          <br/>
-                          <amp-img layout="" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>
+                <!--          Metrics Cards -->
+                <!--          <br/>-->
+                <!--          <amp-img layout="" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>-->
                           
-                      </a>
+                <!--    </a>-->
+                <!--    <br/>-->
+                    <!--<iframe width="200px" height="200px"style="max-width: 200px; max-height: 200px;"-->
+                    <!--    scrolling = "yes"-->
+                    <!--    sandbox="allow-scripts allow-same-origin"-->
+                    <!--    layout="fixed"-->
+                    <!--    frameborder="0"-->
+                    <!--    src="./dashboards/cards/index.html">-->
+                    <!--    <amp-img layout="fill" width="100" height="100" src="./images/cards_screenshot.png" placeholder></amp-img>-->
+                    <!--</iframe>-->
                       
-                </div>      
+                <!--</div>     -->
+                
+                
+                <div>
+                    <br/>
+                    <a href="./dashboards/spider/index.amp.html" class="text-decoration-none h3">
+                          
+                          Spider Diagram
+                          <br/>
+                          <!--<amp-img layout="" width="200" height="200" src="./images/cards_screenshot.png" placeholder></amp-img>-->
+                          
+                    </a>
+                    <br/>
+                    <iframe width="200px" height="200px"style="min-width: 200px; min-height: 200px;"
+                        scrolling = "yes"
+                        sandbox="allow-scripts allow-same-origin"
+                        layout="fixed"
+                        frameborder="0"
+                        src="./dashboards/spider/index.html">
+                        <!--<amp-img layout="fill" width="100" height="100" src="./images/cards_screenshot.png" placeholder></amp-img>-->
+                    </iframe>
+                      
+                </div>     
+                
+                <div> 
+                  <br/><br/>
+                  <a href="./dashboards/sunburst/index.amp.html" class="text-decoration-none h3">
+                     
+                      Sunburst Diagram
+                     <br/>
+                     <!--<amp-img layout="" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>-->
+                      
+                  </a>
+                  <br/>
+                  <iframe width="200px" height="200px" style="max-width: 200px; max-height: 200px;"
+                      scrolling = "no"
+                      sandbox="allow-scripts allow-same-origin"
+                      layout="fixed"
+                      frameborder="0"
+                      src="./dashboards/sunburst/index.html">
+                      <amp-img layout="fill" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>
+                  </iframe> 
+                  <br/>
+                  
+               </div>  
+                
               <!--</li>-->
             </div>
           <!--</ul>-->

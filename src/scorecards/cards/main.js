@@ -8,7 +8,7 @@ var css2 = require('../assets/css/metricpopup.css');
 var js2  = require('../assets/js/metricpopup.js');
 
 var css1 = require('./cards.css');
-var js1  = require('./cards.js');
+// var js1  = require('./cards.js');
 
 
 var js3  = require('../../js/graphUtils.js');

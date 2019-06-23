@@ -1,5 +1,19 @@
 console.log('loading index.js')
+console.log('index.js v.2019.06.21.11.47')
 
+// retrieve url params
+var urlParams = new URLSearchParams(window.location.search);
+if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
+if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
+if (RefreshAll) {
+    console.log('index.js RefreshAll:',RefreshAll)
+    sessionStorage.clear(); 
+    // console.log('sessionStorage:',sessionStorage)
+}
+console.log('index.js DoNotCache:',DoNotCache)
+console.log('index.js RefreshAll:',RefreshAll)
+
+// embed function that is called at botton of this script
 // Import {Layout} from '../../../src/layout';
 
 // import {T2G} from '../ConvertTreesToGroups';
@@ -196,6 +210,7 @@ function embedCards(element, cb) {
     
     
     var Groups = JSON.parse(sessionStorage.getItem('groups')) || null;
+    if (DoNotCache) Groups = null
     console.log('scorecard.js Groups from sessionStorage: ',Groups)
             
             // Groups = JSON.parse('[{"id":"foafiaf:Scorecard_Top_25","type":"","dbotype":"foafiaf:Scorecard","category":null,"topic":"Community Transformation Scorecard","label":"Top 25","title":"A Top 25 Community","description":"","definition":"","abstract":"","categories":"Scorecard","inscheme":"foafiaf:Scorecard_0","parent_id":"foafiaf:Scorecard_0","name":"Top 25","full":"Top 25 - ","polarity":"Increasing is good","timeperiodtype":"Quarter","unitofmeasure":"ROYG","units":"ROYG","color":"#ffffff","gcolor":"#ffffff","groups":[{"id":"foafiaf:Scorecard_Recreate","type":"","dbotype":"foafiaf:Scorecard","category":null,"topic":"Scorecard: Recreate","label":"Recreate","title":"Recreating Sense of Place","description":"","definition":"","abstract":"","categories":"Scorecard","inscheme":"foafiaf:Scorecard_Top Level","parent_id":"foafiaf:Scorecard_Top_25","name":"Recreate","full":"Recreate - ","parent":"foafiaf:Scorecard_Top_25","polarity":"Increasing is good","timeperiodtype":"Quarter","unitofmeasure":"ROYG","units":"ROYG","status":"Yellow","color":"#f7ee67","gcolor":"#f7ee67","groups":[{"id":"foafiaf:Scorecard_Diversity","type":"","dbotype":"foafiaf:Scorecard","category":null,"topic":"Scorecard: Diversity","label":"Diversity","title":"","description":"","definition":"","abstract":"","keywords":"Recreate","categories":"Scorecard","inscheme":"foafiaf:Scorecard_Themes","parent_id":"foafiaf:Scorecard_Recreate","name":"Diversity","full":"Diversity - ","parent":"foafiaf:Scorecard_Recreate","polarity":"Increasing is good","timeperiodtype":"Quarter","unitofmeasure":"ROYG","units":"ROYG","status":"Yellow","color":"#f7ee67","gcolor":"#f7ee67","groups":[]}]}]}]')
@@ -221,7 +236,7 @@ function embedCards(element, cb) {
             })
             .then(function (data) {
                 console.log('data',data);
-                // console.log(JSON.stringify(data));
+                console.log(JSON.stringify(data));
                 
             ///////////////////////////////////////////////////////////////////////////////////    
             //
@@ -295,6 +310,13 @@ function embedCards(element, cb) {
             //
             function processTreeNode(_node, _level, cb) {
                 // console.log('processTreeNode _node: _level:',_node,_level);
+                
+            //     console.log('_node.id',_node.id )
+            //   if (_node.id != "") {
+                    
+            //     console.log('_node.id',_node.id )
+                
+              
                 
                 // increment node counter
                 NUM = NUM + 1;
@@ -378,7 +400,16 @@ function embedCards(element, cb) {
                   
                 }// end if
                 
-            }; 
+                
+                
+                    
+            //   } // end if id not ""
+              
+            }; processTreeNode
+            
+            
+              
+                
             //
             // end processTreeNode utility function
             //    
@@ -427,6 +458,7 @@ function drawCards(groups) {
                 // newTopLevelNode.style.backgroundColor = gTopLevel.gcolor;
                 newTopLevelNode.innerHTML = topLevelHTML;
                 
+                // console.log(' newTopLevelNode  ',newTopLevelNode)
                 topLevelDiv.appendChild( newTopLevelNode )
                 
                 
@@ -477,17 +509,26 @@ function drawCards(groups) {
                                 let gIndicator = gIndicatorGroups[i]
                                 // console.log('gIndicator:',gIndicator)
                                 
-                                let cardHTML = createCardHTML(gIndicator)
+                                if ( (gIndicator.id != "") && (gIndicator.datavalues != undefined) ){
+                                    console.log('id not blank:',gIndicator)
+                                    
+                                    
+                                    
+                                    let cardHTML = createCardHTML(gIndicator)
                                 
-                                var themeDiv = document.getElementById(themeContainerId);
-                                var newNode = document.createElement('div');
-                                var indicatorDivId = "metricindicator" + gIndicator.id
+                                    var themeDiv = document.getElementById(themeContainerId);
+                                    var newNode = document.createElement('div');
+                                    var indicatorDivId = "metricindicator" + gIndicator.id
+                                    
+                                    newNode.setAttribute("id", indicatorDivId );
+                                    newNode.setAttribute("class", "metricindicator");
+                                    newNode.innerHTML = cardHTML;
+                                    
+                                    themeDiv.appendChild( newNode )
                                 
-                                newNode.setAttribute("id", indicatorDivId );
-                                newNode.setAttribute("class", "metricindicator");
-                                newNode.innerHTML = cardHTML;
+                                }
                                 
-                                themeDiv.appendChild( newNode )
+                                
                             } // end for gIndicator
                         } // end if gIndicatorGroups
                                 
@@ -531,7 +572,7 @@ function drawCards(groups) {
         let cardHTML = "" ;
         
         cardHTML +=   '<div id="' + _id  +'" class=" ui-widget-content">'
-        cardHTML +=   '<h2 class="metricindicator indicatorlabel"><span id="" style="darker">' + getGrpPrefLabel(group) + '</span></h2>  '
+        cardHTML +=   '<h2 class="metricindicator indicatorlabel"><span id="" style="darker">' + getGrpLabel(group) + '</span></h2>  '
     	cardHTML +=   ' <br/>  '
     	cardHTML +=   ' <div class="content  '
     // 	cardHTML += 	'  <br/>  '
@@ -560,7 +601,7 @@ function drawCards(groups) {
         cardHTML +=     '</div>  '
        
        
-        console.log('cardHTML:',cardHTML)       
+        // console.log('cardHTML:',cardHTML)       
         return cardHTML ;
     }
         
@@ -568,14 +609,15 @@ function drawCards(groups) {
 // 
 //
 function getGrpLabel(group){
-    return group.label;
+    return group.label || group.title;
 }
 function getGrpPrefLabel(group){
-    return group.preflabel;
+    return group.preflabel || group.label;
 }
 function getGrpFull(group){
     let _full = group.full  || null ;
     if (_full != null) {
+        group.full = group.full.replace("- null", "")
         return group.full;
     } else {
         return ""

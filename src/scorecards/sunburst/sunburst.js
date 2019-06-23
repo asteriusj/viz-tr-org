@@ -1,6 +1,19 @@
-console.log('loading scorecard.js... ')
+console.log('loading sunburst.js... ')
+console.log('sunburst.js v.2019.06.22.11.52')
 
+// retrieve url params
+var urlParams = new URLSearchParams(window.location.search);
+if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
+if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
+if (RefreshAll) {
+    // console.log('sunburst.js RefreshAll:',RefreshAll)
+    sessionStorage.clear(); 
+    // console.log('sessionStorage:',sessionStorage)
+}
+console.log('sunburst.js DoNotCache:',DoNotCache)
+console.log('sunburst.js RefreshAll:',RefreshAll)
 
+// embed function that is called at botton of this script
 function embed() {
     // We respin until the visualization container has non-zero area (there are race 
     // conditions on Chrome which permit that) and the visualization class is loaded.
@@ -151,8 +164,8 @@ function embed() {
     //  get groupd data from sessionStorage or get indictaor data transform into groups
     //
     var Groups = JSON.parse(sessionStorage.getItem('groups')) || null;
-    // Groups = null;
-    console.log('scorecard.js Groups from sessionStorage: ',Groups)
+    if (DoNotCache) Groups = null;
+    console.log('sunburst.js Groups from sessionStorage: ',Groups)
             
     // check for Groups before proccesing, else get it!
     if (Groups != null) {
@@ -165,7 +178,8 @@ function embed() {
       // COMMENT OUT DATA FILE FOr teSTING
       // fetch('../../things/jsonld/_Indicator_.jsonld')
     
-      fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE')
+      // fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE')
+      fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD')
     
         .then(function (response) {
             
@@ -173,7 +187,8 @@ function embed() {
         })
         .then(function (data) {
             console.log('data',data);
-          
+            console.log(JSON.stringify(data));
+            
             console.log('transforing Groups from data:',data)
             
             // transform JSONLD data into Groups
@@ -219,6 +234,10 @@ function embed() {
                 
                 var res = sessionStorage.setItem('groups', JSON.stringify(groups));
                 console.log("sessionStorage.setItem('groups'",res)
+                
+                
+    // var grps = JSON.parse(sessionStorage.getItem('groups')) || null;
+    // console.log('scorecard.js Groups from sessionStorage: ',grps)
               
                 
                 groupDoIt(groups)

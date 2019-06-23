@@ -1,0 +1,46 @@
+{
+  "name": "Spokes",
+  "children": [
+    {
+      "name": "Impact Statements",
+      "free": true,
+      "description": "The Change We Want To See",
+      "children": [
+        {
+          "name": "ECONOMY & JOBS",
+          "description": "The region has a skilled and sought-after workforce – enabling all families to improve their standard of living. Our people are employed and per capita income is above the national average.",
+          "url": "https://www.transformrockford.org/home/community-plan/economy-jobs/",
+          "free": true,
+          "children": [
+            {
+              "name": "Outcomes",
+              "description": "How We Measure Success",
+              "url": "",
+              "free": true,
+              "children": [
+               {
+                 "name": "Family Income",
+                 "description": "",
+                 "url": "",
+                 "free": true
+               },
+               {
+                 "name": "National Recognition",
+                 "description": "",
+                 "url": "",
+                 "free": true
+               },
+               {
+                 "name": "Family Start-ups",
+                 "description": "",
+                 "url": "",
+                 "free": true
+               }
+             ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

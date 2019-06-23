@@ -1,57 +1,52 @@
-<head>
-  <script src="//d3js.org/d3.v5.min.js"></script>
-  <script src="//unpkg.com/sunburst-chart"></script>
-  <!--<script src="../../dist/sunburst-chart.js"></script>-->
-
-  <style>body { margin: 0 }</style>
-</head>
-<body>
-  <div id="sunburst-chart"></div>
-
-  <script>
-    const color = d3.scaleOrdinal(d3.schemePaired);
-
-// var treeurl = 'https://e8apsbxd32.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
-var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
-    console.log('treeurl:',treeurl)
-    
-    fetch(treeurl)
-    
-        .then(function (response) {
-            
-          return response.json();
-        })
-        .then(function (json) {
-            console.log('json',json);
-            let data = json.children[0]
-            
-            console.log('data',data);
-        
-            Sunburst()
-            .data(data)
-            .label('name')
-            .size('size')
-            .color((d, parent) => color(parent ? parent.data.name : null))
-            .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
-            (document.getElementById('sunburst-chart'));
-        
-          
-            
-        }); // end fetch
-            
-    
-    // d3.json('../../json/entityTree.json').then(data => {
-    // d3.json(treeurl).then(data => {
-    //   Sunburst()
-    //     .data(data)
-    //     .label('name')
-    //     .size('size')
-    //     .color((d, parent) => color(parent ? parent.data.name : null))
-    //     .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
-    //     (document.getElementById('sunburst-chart'));
-    
-    //   console.log('data:',data)
+<!--<body class="body-visualizations">-->
+  <!--<div class="section">-->
+    <!--<h3 class="heading-3">Sunburst Chart</h3>-->
+    <!--<div class="w-embed w-script">-->
       
-    // });
-  </script>
-</body>
+      
+        <div style="height: 100px;">
+          <script src="https://d3js.org/d3.v5.min.js"></script>
+          <script src="https://unpkg.com/sunburst-chart"></script>
+          <!-- <script src="../../dist/sunburst-chart.js"></script> -->
+          <style>body { margin: 0 }</style>
+          <div id="sunburst-chart"></div>
+          <script>
+            const color = d3.scaleOrdinal(d3.schemePaired);
+            
+            // marketing / strategy
+            // var treeurl = 'https://e8apsbxd32.execute-api.us-east-1.amazonaws.com/dev/entities/1W_3HbMs0XLNsFHM7tNMdo5W7Con5zXUav-gXBpfjvJM/TREE'
+            // _Indicators_
+            // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Y_15ezF4J2fQKsiv6cHmMA9TMWH6isXrebR0fdBxTNA/TREE'
+            // _Metrics_
+            var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+      
+            console.log('treeurl:',treeurl)
+            
+            
+            // d3.json('../../json/entityTree.json').then(data => {
+            d3.json(treeurl).then(data => {
+              Sunburst()
+                .data(data)
+                .label('name')
+                .size('size')
+                .color((d, parent) => color(parent ? parent.data.name : null))
+                .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
+                (document.getElementById('sunburst-chart'));
+            });
+          </script>
+        </div>
+      
+      
+    <!--</div>-->
+  <!--</div>-->
+  <script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script>
+ function getParam(name) {
+     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+     results = regex.exec(location.search);
+     return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+ }
+ </script>
+<!--</body>-->

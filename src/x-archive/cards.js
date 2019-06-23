@@ -211,7 +211,7 @@ console.log('loading cards.js... ')
                   return response.json();
                 })
                 .then(function (data) {
-                    console.log('data',data);
+                    console.log('fetch data:',data);
                     // console.log(JSON.stringify(data));
                     
                 

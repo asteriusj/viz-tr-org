@@ -1,5 +1,6 @@
 html {
-    min-height: 100%;
+    min-height: 75%;
+    max-height: 100%;
     position: relative
 }
 
@@ -30,7 +31,9 @@ body {
     color: #000;
     margin: 0;
     padding: 0;
-    height: 100%
+    width: 99%;
+    height: 99%;
+    overflow: auto
 }
 
 a:link {
@@ -252,8 +255,8 @@ div.noticia {
     padding-bottom: 0;
     font-weight: 500;
     font-size: 2em;
-    margin-top: 20px;
-    margin-bottom: 20;
+    margin-top: auto;
+    margin-bottom: auto;
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0);
     color: #036
@@ -270,6 +273,17 @@ div.noticia {
     background-color: rgba(255, 255, 255, 0);
     color: #036
 }
+#contenido h2.Header {
+    padding: .2em;
+    padding-bottom: 0;
+    font-weight: 400;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    color: #036
+}
 
 #contenido h3 {
     padding: .2em;
@@ -281,6 +295,10 @@ div.noticia {
     /*font-weight: bold;*/
     background-color: rgba(255, 255, 255, 0);
     color: #036
+}
+
+.rdftype, .dbotype {
+    display: none;
 }
 
 #contenido h4 {

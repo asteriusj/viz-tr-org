@@ -18,17 +18,6 @@
     <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Asterius Media","legalName":"Asterius Media LLC","description":"Asterius Media LLC is an IT management and consulting firm that helps clients envision a technology future state, to organize capacity and needs into a planning road map, to design and manage the projects based on those objectives, to arrive at lower cost and better agility.","url":"http://www.asteriusmedia.com","logo":"https://static1.squarespace.com/static/5bf1bbaac258b49ab7b4dacd/t/5bf1bc1b4fa51adec12db7cb/1543451665679/f","founder":{"@type":"Person","name":"Jeffrey Stewart","jobtitle":"Owner / IT and Management Consultant / Fractional CTO CMTO","email":"jstewart@asteriusmedia.com"},"contactPoint":[{"@type":"ContactPoint","telephone":"+1-779-548-5398","contactType":"sales","contactOption":"TollFree","areaServed":"US"}],"areaServed":["US","IL","WS"],"sameAs":["https://www.linkedin.com/in/jeffreyastewart","https://twitter.com/asteriusmedia","https://www.facebook.com/AsteriusMedia/","https://medium.com/@jeffreystewart","https://github.com/asteriusj","http://www.slideshare.net/stewtrekk","https://angel.co/jeffrey-stewart"],"location":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Byron","addressRegion":"IL","postalCode":"61010","streetAddress":""},"name":"work"}}</script>
 
 
-    <link rel="stylesheet" href="../assets/css/reset.css" />
-    <style type="text/css"> 
-      html, body {
-        height: 100%;
-      }
-      #visualization {
-        margin: 20 10 10 10px;
-        padding: 5px;
-        height: 90%;
-      }
-    </style>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -42,6 +31,18 @@
 	<script src="../assets/js/graphUtils.js"></script>
 	<script src="../assets/js/transformGroups.js"></script>
 		
+	
+    <link rel="stylesheet" href="../assets/css/reset.css" />
+    <style type="text/css"> 
+      /*html, body {*/
+      /*  height: 100%;*/
+      /*}*/
+      /*#visualization {*/
+      /*  margin: 20 10 10 10px;*/
+      /*  padding: 5px;*/
+      /*  height: 90%;*/
+      /*}*/
+    </style>
 		
     <!-- Based on: https://www.ampstart.com/templates -->
     
@@ -94,49 +95,17 @@
     <!-- start Main -->
     <main id="content" role="main" class="">
       <!-- Start article -->
-      <article id="article-indicator-sunburst" class="recipe-article">
+      <article id="article-indicators" class="recipe-article">
 
 
-
-   <div id="myPopupBox" class="popup ui-widget-content">
-    	<!--<div class="popup">-->
-    		<h2><span id="grpLabel" style="darker"></span></h2>
-    		<a id="popup_close" class="close" onclick="myPopupClose()" href="#">&times;</a>
-    		<div class="content">
-    		  <br/>
-    			<span id="grpFull"></span>
-    			<br/>
-    			<br/>
-    			<span id="grpDescription"></span>
-    			<br/>
-    			<br/>
-    			<span id="grpStatus" ></span>
-    			<br/>
-    			<br/>
-    			<span id="grpValue"></span>   <span style="display: inline-block; width: 30px;"> </span>  
-    			<br/>
-    			<br/>
-    			<span id="grpTrend"></span>
-    			<br/>
-    			<br/>
-    			<br/>
-    			<span id="grpRank"></span>    <span style="display: inline-block; width: 30px;"> </span>  
-    			<br/>
-    			<br/>
-    			<span id="grpTrendRank"></span>
-    			
-    		</div>
-    	<!--</div>-->
-    </div>
-
-    <div id="visualization"></div>
-
-    <link rel="stylesheet" href="../assets/css/metricpopup.css" />
-    <script src="../assets/js/metricpopup.js"></script>
-    
-    <link rel="stylesheet" href="./sunburst.css" />
-    <script src="./sunburst.js"></script>
-
+                  <iframe style="min-width: 480px; min-height: 640px;"
+                      scrolling = "no"
+                      sandbox="allow-scripts allow-same-origin"
+                      layout="fixed"
+                      frameborder="0"
+                      src="./index.html">
+                      <!--<amp-img layout="fill" width="200" height="200" src="./images/sunburst_screenshot.png" placeholder></amp-img>-->
+                  </iframe> 
 
 
       </article>

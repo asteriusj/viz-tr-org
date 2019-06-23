@@ -1,4 +1,17 @@
 console.log('loading tree.js... ')
+console.log('tree.js v.2019.06.23.11.17')
+
+// retrieve url params
+var urlParams = new URLSearchParams(window.location.search);
+if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
+if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
+if (RefreshAll) {
+    console.log('tree.js RefreshAll:',RefreshAll)
+    sessionStorage.clear(); 
+    // console.log('sessionStorage:',sessionStorage)
+}
+console.log('tree.js DoNotCache:',DoNotCache)
+console.log('tree.js RefreshAll:',RefreshAll)
 
 
 function embed() {
@@ -25,26 +38,59 @@ function embed() {
     
     
     var Tree = JSON.parse(sessionStorage.getItem('tree')) || null;
-    console.log('scorecard.js Tree from sessionStorage: ',Tree)
+    if(DoNotCache) Tree = null
+    console.log('tree.js Tree from sessionStorage: ',Tree)
     
     
     // NEED TO ADD DIFFERENT LOGIC FOR D3 CALL!!!!
     
     
-    // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
     
-    var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
-    console.log('treeurl:',treeurl)
-    // d3.json("flare.json", function(error, flare) {
-    // d3.json("myTree.json", function(error, flare) {
-    d3.json(treeurl, function(error, jsontree) {
-      if (error) throw error;
-      console.log('jsontree.children[0]:',jsontree.children[0])
-      root = d3.hierarchy(jsontree.children[0]);
-      root.x0 = 0;
-      root.y0 = 0;
-      update(root);
-    });
+    //
+    //  get jsontree data from sessionStorage or get indictaor data transform into tree
+    //
+    //Check for session storage
+    var jsontree = JSON.parse(sessionStorage.getItem('jsontree')) || null;
+    if (DoNotCache) jsontree = null;
+    console.log('tree.js jsontree from sessionStorage: ',jsontree)
+           
+    // check for Tree before proccesing, else get it!
+    if (jsontree != null) {
+        
+        root = d3.hierarchy(jsontree.children[0]);
+        root.x0 = 0;
+        root.y0 = 0;
+        update(root);
+        
+        
+    } else {
+      
+      
+      // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
+      var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+      console.log('treeurl:',treeurl)
+      
+      // d3.json("flare.json", function(error, flare) {
+      // d3.json("myTree.json", function(error, flare) {
+      d3.json(treeurl, function(error, jsontree) {
+        if (error) throw error;
+        console.log('jsontree',jsontree)
+        console.log('jsontree.children[0]:',jsontree.children[0])
+        
+        //
+        // SAVE sessionStorage
+        //
+        var res = sessionStorage.setItem('jsontree', JSON.stringify(jsontree));
+        console.log("sessionStorage.setItem('jsontree'",res)
+        
+        root = d3.hierarchy(jsontree.children[0]);
+        root.x0 = 0;
+        root.y0 = 0;
+        update(root);
+      });
+    
+    } // ief Tree
+    
     
     function update(source) {
     
@@ -213,7 +259,7 @@ function getLabel(t){
 
 // prep title of element 
 function getTitle(t){
-    console.log('getTitle t:',t)
+    // console.log('getTitle t:',t)
     // title content for mouseover
 
     // var _dbotype = t.dbotype || "";
@@ -230,7 +276,7 @@ function getTitle(t){
     
     // var _title =  _group + ": " + _label + "\n" + _description + _color + "\n" ;
     var _title =  _label + ": " + _description + '     ' + _datavalues + "\n" ;
-    console.log('_title', _title)
+    // console.log('_title', _title)
     return _title
 };
 

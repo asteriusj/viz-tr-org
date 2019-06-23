@@ -2,7 +2,7 @@
 <html ⚡>
   <head>
     <meta charset="utf-8">
-    <title>Tree View - Transform Rockford Regional Interactive Performance Dashoard</title>
+    <title>Sunburst Chart - Transform Rockford Regional Interactive Performance Dashoard</title>
     <meta name="description" content="HTML 5 SVG Interactive Diagram for Transform Rockford Community Regional Indicator Scorecard">
     <meta name="author" content="Transform Rockford LLC | Asterius Media LLC">
 
@@ -69,16 +69,45 @@
       <!-- Start article -->
       <article id="article-" class="recipe-article">
 
+        <h3 class="heading-3">Sunburst Chart</h3>
+
+        <div style="max-height: 80%; width: 60%;">
+          <script src="https://d3js.org/d3.v5.min.js"></script>
+          <script src="https://unpkg.com/sunburst-chart"></script>
+          <!-- <script src="../../dist/sunburst-chart.js"></script> -->
+          <style>article { margin: 20 }</style>
+          <div id="sunburst-chart"></div>
+          <script>
+            const color = d3.scaleOrdinal(d3.schemePaired);
+            
+            // marketing / strategy
+            // var treeurl = 'https://e8apsbxd32.execute-api.us-east-1.amazonaws.com/dev/entities/1W_3HbMs0XLNsFHM7tNMdo5W7Con5zXUav-gXBpfjvJM/TREE'
+            // _Indicators_
+            // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Y_15ezF4J2fQKsiv6cHmMA9TMWH6isXrebR0fdBxTNA/TREE'
+            // _Metrics_
+            var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+      
+            console.log('treeurl:',treeurl)
+            
+            
+            // d3.json('../../json/entityTree.json').then(data => {
+            d3.json(treeurl).then(data => {
+              Sunburst()
+                .data(data)
+                .label('name')
+                .size('size')
+                .color((d, parent) => color(parent ? parent.data.name : null))
+                .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
+                (document.getElementById('sunburst-chart'));
+            });
+          </script>
+        </div>
+
+
+
       </article>
     </main>
     <!-- end Main -->
-
-
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <link rel="stylesheet" href="./tree.css" />
-    <script src="./tree.js"></script>
-
-
 
 
 

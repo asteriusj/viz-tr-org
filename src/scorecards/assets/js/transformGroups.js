@@ -9,6 +9,13 @@
       	return GROUPS
     }
     
+    Object.prototype.isEmpty = function() {
+        for(var key in this) {
+            if(this.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
     
 // (function() {
 //
@@ -24,6 +31,8 @@
     
    function transformGroups(data, startid, cb) {
       console.log('transformGroups (02-17-2019)')
+    //   console.log('data',data)
+    //   console.log('startid',startid)
       try {
         
         let d = new Date();
@@ -31,6 +40,7 @@
       	console.log('starting',starting)
       	
       	let defaultNodeId = startid || data['@id'] || "foafiaf:Scorecard_Top_25"
+      	if (defaultNodeId.isEmpty()) defaultNodeId = "foafiaf:Scorecard_Top_25"
       	console.log('defaultNodeId', defaultNodeId)
       	
       	let graph = data['@graph'];
@@ -80,7 +90,7 @@
    //
     	
   function makeTreeOfNodes(_nodes,startid,cb) {
-      // console.log('start makeTreeOfNodes _nodes:',_nodes)
+    //   console.log('start makeTreeOfNodes _nodes: _startid:',_nodes,startid)
     
       let Tree = [] ;
       let Groups = [] ;
@@ -255,7 +265,7 @@
    
       
    function makeGroupFromNode(node,cb) {
-      // console.log('makeGroupFromNode', node)
+    //   console.log('makeGroupFromNode', node)
       
       let Group = {} ;
       try {

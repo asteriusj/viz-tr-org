@@ -914,191 +914,11 @@ function setGroupDetails(group) {
 
 },{}],6:[function(require,module,exports){
 var inject = require('./../../../node_modules/cssify');
-var css = "\n#cardsdiv {\n    \n}\n\n.metrictoplevel {\n    float: left;\n    z-index:100;\n    width: 99%;\n    margin-top: 10;\n    margin-bottom: 10;\n    padding-top: 0;\n    padding-left: 0;\n    padding-right: 0;\n    padding-bottom: 0;\n    border: 3px solid #ddd;\n    border-radius: 5px;\n    /*padding: 1em;*/\n}\n.toplevellabel {\n    padding: 10;\n    color: #333;\n    font-size: 28px;\n    font-weight: bold;\n    \n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n\n.metrictheme {\n    float: left;\n    z-index:99%;\n    width: 100%;\n    /*margin-top: 10;*/\n    /*padding-top: 0;*/\n    /*padding-left: 0;*/\n    /*padding-right: 0;*/\n    /*padding-bottom: 0;*/\n    /*padding: 2px;*/\n    /*border: 1px solid black;*/\n    /*border-top: 1px solid black;*/\n    /*border-bottom: 1px solid black;*/\n    /*border-left: none;*/\n    /*border-right: none;*/\n    \n}\n.themelabel {\n    /*padding: 10;*/\n    font-size: 20px;\n    font-weight: bold;\n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n.themecontainer {\n    min-height: 100px ;\n    display: grid;\n    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr;*/\n    grid-template-columns: repeat(5, 1fr);\n    grid-auto-rows: minmax(100px, auto);\n}\n\n\n\n.metricindicator {\n\n    float: left;\n    z-index:100;\n    \n    margin: 2;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    background-color: #FFFFFF;\n    padding: 1em;\n    /*color: rgb(8,8,8);*/\n\n}\n.metricindicator h2 {\n    font-size: 18px;\n    font-weight: bold;\n}\n.indicatorlabel {\n    padding: 10;\n    font-size: 20px;\n    font-weight: bold;\n    background: yellow;\n}\n.indicatordescription {\n   font-size: 20px;\n   font-weight: normal;\n   margin-top: 5px;\n   margin-bottom: 5px;\n}\n\n\n@media screen and (max-width: 700px){\n  .box{\n    width: 70%;\n  }\n  .popup{\n    width: 70%;\n  }\n}";
+var css = "\n#cardsdiv {\n    \n}\n\n.metrictoplevel {\n    float: left;\n    z-index:100;\n    width: 99%;\n    margin-top: 10;\n    margin-bottom: 10;\n    padding-top: 0;\n    padding-left: 0;\n    padding-right: 0;\n    padding-bottom: 0;\n    border: 3px solid #ddd;\n    border-radius: 5px;\n    font-size: large;\n    /*padding: 1em;*/\n}\n.toplevellabel {\n    padding: 10;\n    color: #333;\n    font-size: 1.2em;\n    font-weight: bold;\n    \n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n\n.metrictheme {\n    float: left;\n    z-index:99%;\n    width: 100%;\n    /*margin-top: 10;*/\n    /*padding-top: 0;*/\n    /*padding-left: 0;*/\n    /*padding-right: 0;*/\n    /*padding-bottom: 0;*/\n    /*padding: 2px;*/\n    /*border: 1px solid black;*/\n    /*border-top: 1px solid black;*/\n    /*border-bottom: 1px solid black;*/\n    /*border-left: none;*/\n    /*border-right: none;*/\n    \n}\n.themelabel {\n    /*padding: 10;*/\n    font-size: 1.0em;\n    font-weight: bold;\n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n.themecontainer {\n    min-height: 100px ;\n    display: grid;\n    \n    \n    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n/*    grid-template-columns: repeat(5, 1fr);*/\n    grid-auto-rows: minmax(80px, auto);\n}\n\n\n\n.metricindicator {\n\n    float: left;\n    z-index:100;\n    \n    margin: 2;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    background-color: #FFFFFF;\n    padding: 1em;\n    /*color: rgb(8,8,8);*/\n\n}\n.metricindicator h2 {\n    font-size: 0.9em;\n    font-weight: bold;\n}\n.indicatorlabel {\n    padding: 10;\n    font-size: 0.8em;\n    font-weight: bold;\n    background: yellow;\n}\n.indicatordescription {\n   font-size: 0.7em;\n   font-weight: normal;\n   margin-top: 5px;\n   margin-bottom: 5px;\n}\n\n\n@media screen and (max-width: 700px){\n  .box{\n    width: 70%;\n  }\n  .popup{\n    width: 70%;\n  }\n}";
 inject(css, undefined, '_12ljpot');
 module.exports = css;
 
 },{"./../../../node_modules/cssify":1}],7:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.drawCards = drawCards;
-exports.doCards = doCards;
-console.log('loading cards.js... '); // ! function() {
-// 	"use strict";
-//
-// has two functions, firt doCards executing ...
-// which calls drawCards
-//
-// export class Cards {
-// function drawCards(groups) {
-
-function drawCards(groups) {
-  console.log('drawCards groups:', groups); // console.log('groups JSON:',JSON.stringify(groups))
-
-  var aGroup = groups[0]; // console.log('aGroup:',aGroup)
-
-  var gTopLevelGroups = aGroup.groups;
-  console.log('gTopLevelGroups:', gTopLevelGroups); //
-  // loop over top level groups
-  //
-
-  if (gTopLevelGroups != undefined && gTopLevelGroups.length > 0) {
-    for (var g = 0; g < gTopLevelGroups.length; g++) {
-      var gTopLevel = gTopLevelGroups[g]; // console.log('gTopLevel:',gTopLevel)
-      //
-      //  create top level html and append to page
-      //
-
-      var topLevelHTML = createTopLevelHTML(gTopLevel);
-      var topLevelDiv = document.getElementById("cardsdiv");
-      var newTopLevelNode = document.createElement('div');
-      var topLevelDivId = "metrictoplevel" + gTopLevel.id;
-      newTopLevelNode.setAttribute("id", topLevelDivId);
-      newTopLevelNode.setAttribute("class", "metrictoplevel"); // newTopLevelNode.style.backgroundColor = gTopLevel.gcolor;
-
-      newTopLevelNode.innerHTML = topLevelHTML;
-      topLevelDiv.appendChild(newTopLevelNode);
-      var gThemeGroups = gTopLevel.groups; // console.log('gThemes:',gThemeGroups)
-      //
-      // loop over theme groups
-      //
-
-      if (gThemeGroups.length > 0) {
-        for (var t = 0; t < gThemeGroups.length; t++) {
-          var gTheme = gThemeGroups[t]; // console.log('gTheme:',gTheme)
-          //
-          // create top level html and append to page
-          //
-
-          var themeHTML = createThemeHTML(gTheme);
-          var topLevelDiv = document.getElementById(topLevelDivId);
-          var newThemeNode = document.createElement('div');
-          var themeDivId = "metrictheme" + gTheme.id;
-          newThemeNode.setAttribute("id", themeDivId);
-          newThemeNode.setAttribute("class", "metrictheme"); // newThemeNode.style.backgroundColor = gTheme.gcolor;
-
-          newThemeNode.innerHTML = themeHTML;
-          topLevelDiv.appendChild(newThemeNode);
-          var newThemeContainer = document.createElement('div');
-          var themeContainerId = "container" + gTheme.id;
-          newThemeContainer.setAttribute("id", themeContainerId);
-          newThemeContainer.setAttribute("class", "themecontainer");
-          newThemeNode.appendChild(newThemeContainer);
-          var gIndicatorGroups = gTheme.groups; // console.log('gIndicatorGroups:',gIndicatorGroups)
-          //
-          // loop through indicator children
-          //
-
-          if (gIndicatorGroups != undefined && gIndicatorGroups.length > 0) {
-            for (var i = 0; i < gIndicatorGroups.length; i++) {
-              var gIndicator = gIndicatorGroups[i]; // console.log('gIndicator:',gIndicator)
-
-              var cardHTML = createCardHTML(gIndicator);
-              var themeDiv = document.getElementById(themeContainerId);
-              var newNode = document.createElement('div');
-              var indicatorDivId = "metricindicator" + gIndicator.id;
-              newNode.setAttribute("id", indicatorDivId);
-              newNode.setAttribute("class", "metricindicator");
-              newNode.innerHTML = cardHTML;
-              themeDiv.appendChild(newNode);
-            } // end for gIndicator
-
-          } // end if gIndicatorGroups
-
-        } // end for gTheme
-
-      } // end if gThemeGroups
-
-    } // end for gTopLevel
-
-  } // end if gTopLevelGroups
-
-} // end function
-
-
-// function createTopLevelHTML(group) {
-//     let _id = "toplevel_" + group.id
-//     let _color = group.gcolor || ""
-//     let topLevelHTML = "" ;
-//     topLevelHTML += ' <div class="toplevellabel" style="background-color:'+ _color + '">' + getGrpLabel(group) + '</div>  '
-//     topLevelHTML += "" ;
-//     // console.log('topLevelHTML:',topLevelHTML)       
-//     return topLevelHTML ;
-// }
-// function createThemeHTML(group) {
-//     let _id = "theme_" + group.id
-//     let _color = group.gcolor || ""
-//     let themeHTML = "" ;
-//     themeHTML += ' <div class="themelabel" style="background-color:'+ _color + '" >' + getGrpFull(group)  + '</div>  '
-//     themeHTML += "" ;
-//     // console.log('themeHTML:',themeHTML)       
-//     return themeHTML ;
-// }
-// function createCardHTML(group) {
-//     let _id = "crd_" + group.id
-//     let cardHTML = "" ;
-//     cardHTML +=   '<div id="' + _id  +'" class=" ui-widget-content">'
-//     cardHTML +=   '<h2><span id="" style="darker">' + getGrpLabel(group) + '</span></h2>  '
-// 	cardHTML +=   ' <div class="content  '
-// 	cardHTML += 	'  <br/>  '
-// // 	cardHTML += 	'   <span id=""   >' + getGrpFull(group) + '</span>  '
-// // 	cardHTML += 	'	<br/>  '
-// // 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'   <span id=""   >' + getGrpDescription(group) + '</span>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<span id="" >' + getGrpStatus(group) + '</span>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<span id=""  >' + getGrpValue(group) + '</span>   <span style="display: inline-block; width: 30px;"> </span>  '  
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<span id=""  >' + getGrpTrend(group) + '</span>  '
-// 	cardHTML += 	'	<br/>  ' 
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<span id=""   >' + getGrpRank(group) + '</span>    <span style="display: inline-block; width: 30px;"> </span>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	'	<span id="">' + getGrpTrendRank(group) + '</span>  '
-// 	cardHTML += 	'	<br/>  '
-// 	cardHTML += 	' </div>  '
-//     cardHTML +=     '</div>  '
-//     // console.log('cardHTML:',cardHTML)       
-//     return cardHTML ;
-// }
-// function to call this???        
-// function doCards() {
-function doCards() {
-  console.log('doCards');
-  var Groups = JSON.parse(sessionStorage.getItem('groups')) || null; // Groups = null;
-
-  console.log('scorecard.js Groups from sessionStorage: ', Groups); // Groups = null   
-  // check for Groups before proccesing, else get it!
-
-  if (Groups != null) {
-    drawCards(Groups);
-  } else {
-    // COMMENT OUT DATA FILE FOr teSTING
-    // fetch('../../things/jsonld/_Indicator_.jsonld')
-    //get Tree insread of JSONLD
-    // fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD')
-    fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE').then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      console.log('data', data); // console.log(JSON.stringify(data));
-    }); // end fetch
-  }
-
-  ; // end else if
-} //end doCards
-// }
-// }();
-
-},{}],8:[function(require,module,exports){
 "use strict";
 
 // list of dependencies to include in bundle
@@ -1107,12 +927,11 @@ var css2 = require('../assets/css/metricpopup.css');
 
 var js2 = require('../assets/js/metricpopup.js');
 
-var css1 = require('./cards.css');
+var css1 = require('./cards.css'); // var js1  = require('./cards.js');
 
-var js1 = require('./cards.js');
 
 var js3 = require('../../js/graphUtils.js');
 
 var js4 = require('../../js/resolveGraph.js'); // var js3  = require('../ConvertTreesToGroups.js');
 
-},{"../../js/graphUtils.js":2,"../../js/resolveGraph.js":3,"../assets/css/metricpopup.css":4,"../assets/js/metricpopup.js":5,"./cards.css":6,"./cards.js":7}]},{},[8]);
+},{"../../js/graphUtils.js":2,"../../js/resolveGraph.js":3,"../assets/css/metricpopup.css":4,"../assets/js/metricpopup.js":5,"./cards.css":6}]},{},[7]);
