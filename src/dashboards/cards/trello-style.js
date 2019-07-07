@@ -1,5 +1,5 @@
 console.log('loading trello-style.js... ')
-console.log('trello-style.js v.2019.06.23.11.17')
+console.log('trello-style.js v.2019.07.07.13.58')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
@@ -33,8 +33,8 @@ function embed() {
         
     } else {
       
-        // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
-        var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+        // var treeurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
+        var treeurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
         // console.log('treeurl:',treeurl)
       
         fetch(treeurl)
@@ -370,8 +370,8 @@ function drawOutcomeCards(jsontree) {
         let cardHTML = "" ;
         
         
-        cardHTML +=   ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
-        cardHTML +=   ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
+        if(metric.year)   cardHTML +=   ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
+        if(metric.theme)   cardHTML +=   ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
         
         cardHTML +=   ' <h4 class="card__title">' + getGrpLabel(metric) + '</h5>  '
         

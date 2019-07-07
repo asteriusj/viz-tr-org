@@ -1,3 +1,6 @@
+console.log('loading transformGroups.js... ')
+console.log('transformGroups.js v.2019.07.07.53')
+
 'use strict';
     let GROUPS = {};
     function getGROUPS(data,cb) {
@@ -30,7 +33,7 @@
   // GROUPS = transformGroups(SCORECARD,"")
     
    function transformGroups(data, startid, cb) {
-      console.log('transformGroups (02-17-2019)')
+      console.log('transformGroups (07-06-2019)')
     //   console.log('data',data)
     //   console.log('startid',startid)
       try {
@@ -181,8 +184,8 @@
       } finally {
           
         
-      	console.log('finished Tree:',Tree)
-      	console.log('finished Groups:',Groups)
+      	console.log('makeTreeOfNodes finished Tree:',Tree)
+      	console.log('makeTreeOfNodes finished Groups:',Groups)
       	if (cb) cb(Groups)
       	return Groups
           	
@@ -275,6 +278,7 @@
           if (_id != "./") {
             
               let newGroup = {};
+              
       
               // newGroup.i = null;
               newGroup.id = node.id || node["@id"] ;
@@ -295,8 +299,13 @@
               newGroup.units = node.unitofmeasure ;
               newGroup.target = node.targetvalue ;
               newGroup.value = node.datavalues ;
-              // newGroup.year = node.datayear ;
+              newGroup.year = node.year ;
               newGroup.datatrend = node.datatrend ;
+              
+              newGroup.fiveyearvalue = node.fiveyearvalue ;
+              newGroup.fiveyearquartile = node.fiveyearquartile ;
+              newGroup.fiveyearrank = node.fiveyearrank ;
+              
               newGroup.rank = node.rank ;
               newGroup.ranktrend = node.ranktrend ;
               
@@ -334,102 +343,90 @@
    
       
   function prepNewNode(node,cb) {
-      // console.log('prepNewNode node:',node)     
-      let Node = null ;
-      try {
+        // console.log('prepNewNode node:',node)     
+        let Node = null ;
+        try {
         
-          let _id = node['@id'] || null;
-          // if (_id == 'foafiaf:Indicator_%_Foreign_born_population_share_') {
-          //     console.log('prepNewNode node:',node)    
-          // }
-          
-          // ADD Indicator Measure others AND/OR DO NOT FILTER
-          // filter nodes on  @type and dbo:type and align properties to Cicle 
-          let _type = node['@type'] || null;  
-          // if (['skos:Concept','foafiaf:Concept'].indexOf(_type) >= 0) {
+            let _id = node['@id'] || null;
+              
+            // ADD Indicator Measure others AND/OR DO NOT FILTER
+            // filter nodes on  @type and dbo:type and align properties to Cicle 
+            let _type = node['@type'] || null;  
             
-              let _dbotype = node['dbo:type'] || null;   
-              // if (['foafiaf:Scorecard', 'foafiaf:Metric', 'foafiaf:Idicator', 'foafiaf:Measure'].indexOf(_dbotype) >= 0) {
+            let _dbotype = node['dbo:type'] || null;   
                 
-                
-                  let _group = node['dbo:type'] || "Group";
-                  
-                	let _label = node['rdfs:label'] || null;
-                	let _title = node['dc:title'] || null;
-                	let _description = node['dc:description'] || null;
-                	
-                  let _broader = node['skos:broader'] || null;
-                  let _parent = node['foafiaf:Parent'] || null;
-                	let _monitors = node['foafiaf:monitors'] || null;
-                	
-                	let _polarity = node['foafiaf:polarity'] || null;
-                	let _timeperiodtype = node['foafiaf:timeperiodtype'] || null;
-                	let _unitofmeasure = node['foafiaf:unitofmeasure'] || null;
-                	let _targetvalue = node['foafiaf:targetvalue'] || null;
-                	let _datavalues = node['foafiaf:datavalues'] || null;
-                // 	let _datayear = node['foafiaf:datayear'] || null;
-                	let _datatrend = node['foafiaf:datatrend'] || null;
-                	let _rank = node['foafiaf:rank'] || null;
-                	let _ranktrend = node['foafiaf:ranktrend'] || null;
-                	let _status = node['foafiaf:status'] || null;
-                	let _color = node['foafiaf:color'] || null;
-         
-         
-                  Node = node ;
-                  
-                  Node.id = _id ;
-                  Node.group = _group  ;
-                  Node.label = _label || _title ;
-                  Node.name = _title || _label ;
-                  Node.full = Node.name ;
-                  if (_description) Node.full = Node.name + ' - ' + _description ;
-                  Node.description = _description ;
-                  Node.weight = 10 ;
-                  
-                  Node.size = null ;
-                  
-                  Node.status = _status ;
-                  Node.gcolor = _color ;
-                  
-                  Node.polarity = _polarity ;
-                  Node.timeperiodtype = _timeperiodtype ;
-                  Node.unitofmeasure = _unitofmeasure ;
-                  Node.targetvalue = _targetvalue ;
-                  
-                  Node.datavalues = _datavalues ;
-                  // Node.datayear = _datayear
-                  Node.datatrend = _datatrend ;
-                  Node.rank = _rank ;
-                  Node.ranktrend = _ranktrend ;
-                  
-                  
-                  // console.log('_label',_label)
-                  // console.log('_monitors',_monitors)
-                  // console.log('_parent',_parent)
-                  // console.log('_broader',_broader)
-                  Node.ingroup = _monitors || _parent || _broader ;
-                  // console.log('Node.ingroup',Node.ingroup)
-                  // Node.groups = [] ;
-                  
-                  // console.log('Node.parent',Node.parent)
-                  // if (Node.ingroup = null) {
-                  //   Node = null ;
-                  //   return null ;
-                  // }
-              // } // end if indexOf(_dbotype)
-          // } // end if indexOf(_type)
+            let _group = node['dbo:type'] || "Group";
           
-      } catch (e) {
-        console.error('prepNewNode error',e)
+            let _label = node['rdfs:label'] || null;
+        	let _title = node['dc:title'] || null;
+        	let _description = node['dc:description'] || null;
+        	
+            let _broader = node['skos:broader'] || null;
+            let _parent = node['foafiaf:Parent'] || null;
+        	let _monitors = node['foafiaf:monitors'] || null;
+        	
+        	let _polarity = node['foafiaf:polarity'] || null;
+        	let _timeperiodtype = node['foafiaf:timeperiodtype'] || null;
+        	let _unitofmeasure = node['foafiaf:unitofmeasure'] || null;
+        	let _targetvalue = node['foafiaf:targetvalue'] || null;
+        	
+        	let _datavalues = node['foafiaf:datavalues'] || null;
+        	let _year = node['foafiaf:year'] || null;
+        	let _quartile = node['foafiaf:quartile'] || null;
+        	let _datatrend = node['foafiaf:datatrend'] || null;
+        	let _status = node['foafiaf:status'] || null;
+        	let _color = node['foafiaf:color'] || null;
+ 	                	
+        	let _rank = node['foafiaf:rank'] || null;
+        	let _fiveyearvalue = node['foafiaf:fiveyearvalue'] || null;
+        	let _fiveyearquartile = node['foafiaf:fiveyearquartile'] || null;
+        	let _fiveyearrank = node['foafiaf:fiveyearrank'] || null;
+        	let _ranktrend = node['foafiaf:ranktrend'] || null;  
+        	
+            Node = node ;
+                  
+            Node.id = _id ;
+            Node.group = _group  ;
+            Node.label = _label || _title ;
+            Node.name = _title || _label ;
+            Node.full = Node.name ;
+            if (_description) Node.full = Node.name + ' - ' + _description ;
+            Node.description = _description ;
+            Node.weight = 10 ;
+            Node.size = null ;
+              
+            Node.polarity = _polarity ;
+            Node.timeperiodtype = _timeperiodtype ;
+            Node.unitofmeasure = _unitofmeasure ;
+            Node.targetvalue = _targetvalue ;
+          
+            Node.datavalues = _datavalues ;
+            Node.year = _year
+            Node.datatrend = _datatrend ;
+            Node.quartile = _quartile ;
+            Node.status = _status ;
+            Node.gcolor = _color ;
+          
+            Node.rank = _rank ;
+            Node.fiveyearvalue = _fiveyearvalue ;
+            Node.fiveyearquartile = _fiveyearquartile ;
+            Node.fiveyearrank = _fiveyearrank ;
+            Node.ranktrend = _ranktrend ;
+            
+            Node.ingroup = _monitors || _parent || _broader ;
+            // console.log('Node:',Node)
+            
+        } catch (e) {
+            console.error('prepNewNode error',e)
           	
-      } finally {
+        } finally {
         
-      // 	console.log('returning Node:',Node)
-      	if (cb) cb(Node)
-      	return Node
+       	    // console.log('returning Node:',Node)
+      	    if (cb) cb(Node)
+      	    return Node
           	
-      } // end try catch    
-   } //end prepNewNode
+        } // end try catch    
+   } //end functionprepNewNode
    
    
    function prepGraphNodes(graph) {
@@ -446,7 +443,7 @@
         //       console.log('prepGraphNodes _id node:',_id,node)
         // }
         
-        if (_id != "./") {
+        if ( (_id != "./") && (_id != "/") ) {
 
             // let newNode = makeGroupFromNode(node) ;
             let newNode = prepNewNode(node) ;
@@ -487,7 +484,7 @@
       }
       
       
-      // console.log('end preppedNodes',preppedNodes)
+    //   console.log('end preppedNodes',preppedNodes)
       // console.log('end prepGraphNode')
       return preppedNodes;
     } // end prepGraphNode

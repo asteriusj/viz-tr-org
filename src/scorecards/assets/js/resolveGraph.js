@@ -1,3 +1,5 @@
+console.log('loading resolveGraph.js... ')
+console.log('resolveGraph.js v.2019.07.06.17.12')
 /**
  * Semantic Graph Internal Relationship link resolver
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.

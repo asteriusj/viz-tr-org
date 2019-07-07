@@ -1,3 +1,5 @@
+console.log('loading metricpopup.js... ')
+console.log('metricpopup.js v.2019.07.07.15.53')
 /**
  * Semantic Data Metric Detials Card
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
@@ -76,8 +78,14 @@ function getGrpStatus(group){
 }
 function getGrpValue(group){
     let _value = group.value  || null ;
+    let yr = group.year || null;
+    if ((!_value.includes('in')) && (yr != null)) {
+        // console.log(_value.includes('in')? 'is' : 'is not')
+        _value = _value + ' in ' + yr ;
+    }
+    
     if (_value != null) {
-        return'<i>value:</i>  <span style="display: inline-block; width: 5px;"></span>' + group.value  ;
+        return'<i>value:</i>  <span style="display: inline-block; width: 5px;"></span>' + _value  ;
     } else {
         return ""
     }
@@ -178,8 +186,8 @@ function setGroupDetails(group) {
     
     var grpTrendRank = document.getElementById("grpTrendRank");
     let _ranktrend = group.ranktrend || null ;
-    if (_ranktrend != null) {
-        let _rankico = null
+    if ( (_ranktrend != null) & (_ranktrend != undefined) ) {
+        // let _rankico = null
         grpTrendRank.innerHTML = getGrpTrendRank(group) ;
     } else {
         grpTrendRank.innerHTML = ""

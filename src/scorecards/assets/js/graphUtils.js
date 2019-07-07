@@ -1,3 +1,5 @@
+console.log('loading graphUtils.js... ')
+console.log('graphUtils.js v.2019.07.06.17.12')
 /**
  * Semantic Graph Utility functions
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.

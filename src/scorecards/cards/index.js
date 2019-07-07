@@ -1,5 +1,5 @@
 console.log('loading index.js')
-console.log('index.js v.2019.06.21.11.47')
+console.log('index.js v.2019.07.07.13.50')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
@@ -227,8 +227,12 @@ function embedCards(element, cb) {
         // fetch('../../things/jsonld/_Indicator_.jsonld')
         
         //get Tree insread of JSONLD
-        // fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD')
-        fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE')
+        // fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD')  OLD
+        
+        // let apiurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//TREE';
+        let apiurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//TREE';
+        console.log('apiurl',apiurl)
+        fetch(apiurl)
       
             .then(function (response) {
                 

@@ -1,8 +1,11 @@
 console.log('loading sunburst.js... ')
-console.log('sunburst.js v.2019.06.22.11.52')
+console.log('sunburst.js v.2019.07.07.15.53')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
+console.log('urlParams',urlParams)
+console.log('nocache:',urlParams.get('nocache'))
+console.log('refresh:',urlParams.get('refresh'))
 if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
 if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
 if (RefreshAll) {
@@ -178,8 +181,10 @@ function embed() {
       // COMMENT OUT DATA FILE FOr teSTING
       // fetch('../../things/jsonld/_Indicator_.jsonld')
     
-      // fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE')
-      fetch('https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD')
+      // let apiurl = 'https://phlh4tx1w.execute-api.us-east-1.amazonaws.com/dev/entities//TREE';
+      let apiurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD' ;
+      console.log('apiurl',apiurl)
+      fetch(apiurl)
     
         .then(function (response) {
             
@@ -187,7 +192,7 @@ function embed() {
         })
         .then(function (data) {
             console.log('data',data);
-            console.log(JSON.stringify(data));
+            // console.log(JSON.stringify(data));
             
             console.log('transforing Groups from data:',data)
             
@@ -217,11 +222,11 @@ function embed() {
                 // console.log('groups[0].groups[0].groups:',groups[0].groups[0].groups)
                 for(var i=0; i<toplevel.length; i++){
                     let tlgrp = toplevel[i]
-                    console.log('tlgrp:',tlgrp)
+                    // console.log('tlgrp:',tlgrp)
                     
                     for(var j=0; j<tlgrp.groups.length; j++){
                         let thmgrp = tlgrp.groups[j]
-                        console.log('thmgrp:',thmgrp)
+                        // console.log('thmgrp:',thmgrp)
                         ngs.push(thmgrp)
                         
                     }

@@ -42,7 +42,7 @@
     "g": "^2.0.1",
     "serverless": "^1.45.1",
     "serverless-finch": "^2.3.2",
-    "serverless-s3-sync": "^1.7.2"
+    "serverless-s3-sync": "^1.8.0"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",

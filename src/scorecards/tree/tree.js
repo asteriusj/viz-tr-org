@@ -1,5 +1,5 @@
 console.log('loading tree/tree.js... ')
-console.log('tree.js v.2019.06.23.11.22')
+console.log('tree.js v.2019.07.07.13.56')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
@@ -60,9 +60,9 @@ function embed() {
         
     } else {
       
-      var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
+      var treeurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//TREE'
       
-      // var treeurl = 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
+      // var treeurl = 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities/1Vod362xQ__GehFbVfO3FrgN0Nawu4Nv74DeC5yPjjfw/TREE'
       console.log('treeurl:',treeurl)
       
       // d3.json("flare.json", function(error, flare) {

@@ -4,7 +4,7 @@
  */
 'use strict';
 console.log('loading browse.js... ')
-console.log('browse.js v.2019.06.22.11.52')
+console.log('browse.js v.2019.07.07.13.48')
 
 // retrieve url params
 // var urlParams = new URLSearchParams(window.location.search);
@@ -39,7 +39,7 @@ function whenPageLoaded() {
     
     // var datalink = getUrlVars()["datalink"] || '../../things/jsonld/_Indicator_.jsonld'
     
-    var datalink = getUrlVars()["datalink"] || 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD'
+    var datalink = getUrlVars()["datalink"] || 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD'
 
     setElement('datalink', datalink);
 
