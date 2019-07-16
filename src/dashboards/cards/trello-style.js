@@ -47,7 +47,7 @@ function embed() {
                 // console.log(JSON.stringify(data));
                 
                 let _root = data['children']
-                // console.log('_root',_root);    
+                console.log('_root',_root);    
             
                 //
                 // utility function to proces process a single node
@@ -59,6 +59,64 @@ function embed() {
                 let LEAF = 0
                 let NUM = -1
                 
+                //
+                // initial call processing function for nodes and callback function
+                //
+                processTreeNode(_root[0], 0, function(err,DATA){
+                    if(err) console.error(err)
+                    
+                    console.log('RETURN processTreeNode call -> DATA:',DATA)
+                    console.log('NUM BRANCH LEAF ::',NUM, BRANCH, LEAF)
+                  
+                }) // end call processTreeNode
+                let groups = [ _root[0] ];
+                console.log("After Process call groups:",groups)
+                console.log('NUM BRANCH LEAF ::',NUM, BRANCH, LEAF) 
+                
+                //console.log("After Process Tree Node call groups:",groups)
+                let Spoke_0 = groups[0]
+                // console.log('Spoke_0',Spoke_0)
+                
+                //
+                // loop over spoke0 children to find Outcomes
+                // put in _Outcomes array
+                //
+                let _Outcomes = [];
+                
+                var sChildren = Spoke_0.children;
+                // console.log('sChildren:',sChildren)
+                
+                for (var s=0; s<sChildren.length; s++){
+                    var sChild = sChildren[s];
+                    // console.log('sChild:',sChild)
+                
+                    var sChildChildren = sChild.children;
+                    for (i=0; i<sChildChildren.length; i++) {
+                        var sChildChild = sChildChildren[i]
+                        
+                        if (sChildChild.dbotype == 'foafiaf:Outcomes') {
+                            // console.log('sChildChild:',sChildChild)
+                            _Outcomes.push(sChildChild);
+                        }; // end if
+                    }; //end for i
+                }; // end for s
+                
+                // console.log('trello-style.js _Outcomes:',_Outcomes)
+                
+                
+                // after processing Outcomes 
+                var Tree = _Outcomes
+                // console.log('trello-style.js Tree):',Tree)
+                var res = sessionStorage.setItem('jsontree', JSON.stringify(Tree));
+                console.log("sessionStorage.setItem 'jsontree' ",res)
+                
+                drawOutcomeCards(Tree)
+                
+                
+                //
+                // utility function to proces process a single node
+                // convert groups to parent, name to label, parent_id to parnt
+                //
                 function processTreeNode(_node, _level, cb) {
                     // console.log('processTreeNode _node: _level:',_node,_level);
                     
@@ -73,15 +131,26 @@ function embed() {
                     
                     newNode.full        = _node.full || "";
                     newNode.description = _node.description || "";
-                    newNode.polarity    = _node.polarity || null;
+                
+                    
                     newNode.weight      = _node.weight || null;
                     newNode.status      = _node.status || null;
                     newNode.gcolor      = _node.gcolor || null;
+                    
+                    newNode.polarity    = _node.polarity || null;
                     newNode.units       = _node.units || null;
                     newNode.target      = _node.target || null;
+                    newNode.value       = _node.datavalues ;
+                    newNode.year        = _node.year ;
                     newNode.datatrend   = _node.datatrend || null;
+                    
+                    newNode.fiveyearvalue = _node.fiveyearvalue ;
+                    newNode.fiveyearquartile = _node.fiveyearquartile ;
+                    newNode.fiveyearrank = _node.fiveyearrank ;
+                    
                     newNode.rank        = _node.rank || null;
                     newNode.ranktrend   = _node.ranktrend || null;
+                    
                     newNode.ingroup     = _node.ingroup || null;
                     newNode.group       = _node.group || null;
                     newNode.parent      = _node.parent || null;
@@ -140,58 +209,20 @@ function embed() {
                     }// end if
                     
                   
-                }; processTreeNode
-        
+                }; 
+                   
                 //
                 // end processTreeNode utility function
                 //    
-                
-                let groups = [ _root[0] ];
-                //console.log("After Process Tree Node call groups:",groups)
-                let Spoke_0 = groups[0]
-                // console.log('Spoke_0',Spoke_0)
-                
-                //
-                // loop over spoke0 children to find Outcomes
-                // put in _Outcomes array
-                //
-                let _Outcomes = [];
-                
-                var sChildren = Spoke_0.children;
-                // console.log('sChildren:',sChildren)
-                
-                for (var s=0; s<sChildren.length; s++){
-                    var sChild = sChildren[s];
-                    // console.log('sChild:',sChild)
-                
-                    var sChildChildren = sChild.children;
-                    for (i=0; i<sChildChildren.length; i++) {
-                        var sChildChild = sChildChildren[i]
-                        
-                        if (sChildChild.dbotype == 'foafiaf:Outcomes') {
-                            console.log('sChildChild:',sChildChild)
-                            _Outcomes.push(sChildChild);
-                        }; // end if
-                    }; //end for i
-                }; // end for s
-                
-                console.log('trello-style.js _Outcomes:',_Outcomes)
-                
-                // after processing Outcomes 
-                var Tree = _Outcomes
-                console.log('trello-style.js Tree):',Tree)
-                var res = sessionStorage.setItem('jsontree', JSON.stringify(Tree));
-                console.log("sessionStorage.setItem 'jsontree' ",res)
-                
-                drawOutcomeCards(Tree)
                 
             
         }); // end fetch
         
     }; // end else if Groups null
     
-    
-
+        
+                
+                
 //
 //
 //
@@ -221,12 +252,12 @@ function drawOutcomeCards(jsontree) {
         var topUlDiv = document.getElementById(topUlNodeId);
         
         let gOutcomeItems = jsontree
-        console.log('gOutcomeItems:',gOutcomeItems)
+        // console.log('gOutcomeItems:',gOutcomeItems)
         
         if (gOutcomeItems.length > 0) {
             for (let g=0; g<gOutcomeItems.length; g++) {
                 let gOutcome = gOutcomeItems[g]
-                console.log('gOutcome:',gOutcome)
+                // console.log('gOutcome:',gOutcome)
             
                 //
                 //  create li for outcome content
@@ -250,15 +281,15 @@ function drawOutcomeCards(jsontree) {
                 //
                 
                 let gOutcomeChildren = gOutcome.children || [];
-                console.log('gOutcomeChildren:',gOutcomeChildren)
+                // console.log('gOutcomeChildren:',gOutcomeChildren)
             
                 if (gOutcomeChildren.length > 0) {
                     for (let t=0; t<gOutcomeChildren.length; t++) {
                         let gMetric= gOutcomeChildren[t]
-                        console.log('gMetric:',gMetric)
+                        // console.log('gMetric:',gMetric)
                     
                         if ( (gMetric.id != "") && (gMetric.datavalues != undefined) ){
-                            console.log('id not blank:',gMetric)
+                            // console.log('id not blank:',gMetric)
                             
                             var cardsContainerId = 'card__list_' + gOutcome.id
                             var cardsContainer = document.getElementById(cardsContainerId);
@@ -362,7 +393,7 @@ function drawOutcomeCards(jsontree) {
     }    
         
     function createCardHTML(metric) {
-        console.log('createCardHTML metric ', metric)
+        // console.log('createCardHTML metric ', metric)
         let _id = "metric_" + metric.id
         // console.log('_id:',_id)
         
@@ -370,16 +401,33 @@ function drawOutcomeCards(jsontree) {
         let cardHTML = "" ;
         
         
-        if(metric.year)   cardHTML +=   ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
-        if(metric.theme)   cardHTML +=   ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
+        if(metric.year)         cardHTML +=   ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
+        if(metric.theme)        cardHTML +=   ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
+        if(metric.category)     cardHTML +=   ' <span class="card__tag card__tag--design">' + metric.category + '</span> '
         
-        cardHTML +=   ' <h4 class="card__title">' + getGrpLabel(metric) + '</h5>  '
         
-        if(metric.datavalues)   cardHTML +=   ' <h5>' + metric.datavalues + '</h5>  '
         
-        if(metric.datatrend)    cardHTML +=   ' <h5>' + metric.datatrend + '</h5>  '
+        // START CARD
         
-        if(metric.polarity)     cardHTML +=   ' <h5>' + metric.polarity + '</h5>  '
+        // cardHTML +=   ' <h4 class="card__title">' + getGrpLabel(metric) + '</h5>  '
+        cardHTML +=   ' <h4 class="card__title">' + getGrpPrefLabel(metric) + '</h5>  '
+        
+        if(metric.description)  cardHTML +=   ' <span id="grpDescription"   class="card__description" >' + getGrpDescription(metric) + '</span>  '
+        
+        
+        if(metric.value)        cardHTML +=   ' <span id="grpValue"             class="card__el" >' + getGrpValue(metric) + '</span>  '
+        
+        if(metric.status)       cardHTML +=   ' <span id="grpStatus"            class="card__el" >' + getGrpStatus(metric) + '</span>  '
+        
+        if(metric.datatrend)    cardHTML +=   ' <span id="grpTrend"             class="card__el" >' + getGrpTrend(metric) + '</span>  '
+    
+        if(metric.rank)         cardHTML +=   ' <br/><span id="grpRank"          class="card__el" >' + getGrpRank(metric) + '</span>  '
+        
+        if(metric.ranktrend)    cardHTML +=   ' <br/><span id="grpTrendRank"     class="card__el" >' + getGrpTrendRank(metric) + '</span>  '
+    
+    
+        if(metric.definition)    cardHTML +=   ' <br/><span id="grpDefinition"     class="card__el" >' + metric.definition + '</span>  '
+        
         
         
         cardHTML +=   ' <br> '
@@ -389,36 +437,9 @@ function drawOutcomeCards(jsontree) {
         cardHTML +=   '   </li> '
         cardHTML +=   ' </ol> '
         
-        
-    //     cardHTML +=   '<div id="' + _id  +'" class=" ui-widget-content">'
-    //     cardHTML +=   '<h2 class="metricindicator indicatorlabel"><span id="" style="darker">' + getGrpLabel(group) + '</span></h2>  '
-    // 	cardHTML +=   ' <br/>  '
-    // 	cardHTML +=   ' <div class="content  '
-    // // 	cardHTML += 	'  <br/>  '
-    // // 	cardHTML += 	'   <span id=""   >' + getGrpFull(group) + '</span>  '
-    // // 	cardHTML += 	'	<br/>  '
-    // // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'   <span id="" class="indicatordescription" >' + getGrpDescription(group) + '</span>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<span id="" class="" >' + getGrpStatus(group) + '</span>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<span id=""  class="" >' + getGrpValue(metric) + '</span>   <span style="display: inline-block; width: 30px;"> </span>  '  
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<span id=""  class="" >' + getGrpTrend(metric) + '</span>  '
-    // 	cardHTML += 	'	<br/>  ' 
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<span id=""  class=""  >' + getGrpRank(metric) + '</span>    <span style="display: inline-block; width: 30px;"> </span>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	'	<span id="">' + getGrpTrendRank(metric) + '</span>  '
-    // 	cardHTML += 	'	<br/>  '
-    // 	cardHTML += 	' </div>  '
-    //     cardHTML +=     '</div>  '
-       
+    
+    
+       // END CARD
        
         // console.log('cardHTML:',cardHTML)       
         return cardHTML ;
@@ -528,14 +549,23 @@ function getGrpStatus(group){
 }
 function getGrpValue(group){
     let _value = group.value  || null ;
+    let yr = group.year || null;
+    if ((!_value.includes('in')) && (yr != null)) {
+        // console.log(_value.includes('in')? 'is' : 'is not')
+        _value = _value + ' in ' + yr ;
+        
+        
+    }
+    
     if (_value != null) {
-        return'<i>value:</i>  <span style="display: inline-block; width: 5px;"></span>' + group.value  ;
+        return'<i>value:</i>  ' + _value  ;
     } else {
         return ""
     }
 }
 //
 // !!! add condition of increasing red and decresing green !!
+//
 //
 function getGrpTrend(group){
     let _datatrend = group.datatrend  || null ;
@@ -544,15 +574,23 @@ function getGrpTrend(group){
         if (_datatrend.includes('Better')) _ico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' +_datatrend + '" aria-hidden style="color: Green;"></i>'
         if (_datatrend.includes('Steady')) _ico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' +_datatrend + '" aria-hidden style="color: Black;"></i>'
         if (_datatrend.includes('Worse'))  _ico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' +_datatrend + '"  aria-hidden style="color: Red;"></i>'
-        if (_ico != null) return '<em>5-year Trend:</em> ' + _ico ;
+        if (_ico != null) return '<em>5-yr trend:</em> ' + _ico ;
     } else {
         return ""
     }
 }
 function getGrpRank(group){
     let _rank = group.rank  || null ;
-    if (_rank!== null) {
-        return '<em>rank:</em>  <span style="display: inline-block; width: 5px;"></span>' + group.rank ;
+    let yr = group.year || null;
+    if ((!_rank.includes('in')) && (yr != null)) {
+        // console.log(_rank.includes('in')? 'is' : 'is not')
+        _rank = _rank + ' in ' + yr ;
+        console.log(_rank, yr)
+        return '<em>rank:</em> ' + group.rank ;
+    
+    } else if (_rank !== null) {
+        return '<em>rank:</em> ' + group.rank ;
+    
     } else {
         return ""
     }
@@ -564,7 +602,7 @@ function getGrpTrendRank(group){
         if (_ranktrend.includes('Better')) _rankico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' +_ranktrend + '" aria-hidden style="color: Green;"></i>'
         if (_ranktrend.includes('Steady')) _rankico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' +_ranktrend + '" aria-hidden style="color: Black;"></i>'
         if (_ranktrend.includes('Worse'))  _rankico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' +_ranktrend + '"  aria-hidden style="color: Red;"></i>'
-        if (_rankico != null) return'<i>Trend in rank:</i> '  + _rankico ;
+        if (_rankico != null) return'<i>trend in rank:</i> '  + _rankico ;
     } else {
         return ""
     }

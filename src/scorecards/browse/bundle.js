@@ -54,10 +54,15 @@ module.exports.byUrl = function (url) {
 }
 
 },{}],2:[function(require,module,exports){
+"use strict";
+
+console.log('loading graphUtils.js... ');
+console.log('graphUtils.js v.2019.07.06.17.12');
 /**
  * Semantic Graph Utility functions
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
  */
+
 'use strict';
 
 function dtstamp() {
@@ -541,10 +546,15 @@ function findFirstObject(obj, targetProp, targetValue, finalResults) {
 }
 
 },{}],3:[function(require,module,exports){
+"use strict";
+
+console.log('loading resolveGraph.js... ');
+console.log('resolveGraph.js v.2019.07.06.17.12');
 /**
  * Semantic Graph Internal Relationship link resolver
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
  */
+
 'use strict';
 
 function dtstamp() {
@@ -704,7 +714,7 @@ module.exports = css;
 'use strict';
 
 console.log('loading browse.js... ');
-console.log('browse.js v.2019.06.22.11.52'); // retrieve url params
+console.log('browse.js v.2019.07.07.13.48'); // retrieve url params
 // var urlParams = new URLSearchParams(window.location.search);
 // if (DoNotCache === undefined) var DoNotCache = urlParams.get('nocache') || urlParams.get('DoNotCache') || null ;
 // if (RefreshAll === undefined) var RefreshAll = urlParams.get('refresh') || urlParams.get('RefreshAll') || null ;
@@ -729,7 +739,7 @@ function whenPageLoaded() {
   console.log('whenPageLoaded ...');
   var reset = getUrlVars()["reset"] || null; // var datalink = getUrlVars()["datalink"] || '../../things/jsonld/_Indicator_.jsonld'
 
-  var datalink = getUrlVars()["datalink"] || 'https://6nepl40j73.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD';
+  var datalink = getUrlVars()["datalink"] || 'https://phlh4tx1wl.execute-api.us-east-1.amazonaws.com/dev/entities//JSONLD';
   setElement('datalink', datalink);
   var startid = getUrlVars()["startid"] || null;
   setElement('startid', startid);

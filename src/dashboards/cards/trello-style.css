@@ -44,6 +44,13 @@ body {
   color: #798d99;
 }
 
+
+.column__description {
+  border-radius: .2rem;
+  background-color: #dfe3e6;
+  padding: .5rem;
+}
+
 .column__item--cta {
   padding: .25rem;
   display: flex;
@@ -54,20 +61,20 @@ body {
   margin-right: .25rem;
 }
 
+
 /* card styles */
 
-.card__list {
-  display: grid;
-  grid-template-rows: auto;
-  grid-gap: .5rem;
-  margin: .5rem 0;
-}
-
 .card__item {
+  
+  font-size: .75rem;
+  /*padding: .1rem .5rem;*/
+  /*border-radius: .25rem;*/
+  font-weight: 700;
   background-color: white;
   border-radius: .25rem;
   box-shadow: 0 1px 0 rgba(9,45,66,.25);
   padding: .5rem;
+  margin: .5rem;
 }
 
 .card__tag {
@@ -84,6 +91,8 @@ body {
   width: 100%;
   margin-bottom: .25rem;
 }
+
+
 
 /* sticker colors */
 
@@ -109,6 +118,27 @@ body {
 
 .card__title {
   color: #17394d;
+  font-size: .99rem;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+
+.card__description {
+  color: #17394d;
+  font-style: italic;
+  font-size: .84rem;
+  font-weight: 700;
+  display: block;
+  padding: .2rem;
+  margin-bottom: .75rem;
+}
+
+
+.card__el {
+  font-size: .75rem;
+  font-weight: 700;
+  display: block;
   margin-bottom: .75rem;
 }
 

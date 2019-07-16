@@ -54,10 +54,21 @@ module.exports.byUrl = function (url) {
 }
 
 },{}],2:[function(require,module,exports){
+var inject = require('./../../node_modules/cssify');
+var css = "/*body {*/\n/*  font-family: Arial, sans-serif;*/\n/*  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;*/\n/*  background-size: cover;*/\n/*  height: 100vh;*/\n/*}*/\n\n/*h1 {*/\n/*  text-align: center;*/\n/*  font-family: Tahoma, Arial, sans-serif;*/\n/*  color: #06D85F;*/\n/*  margin: 80px 0;*/\n/*}*/\n\nspan#statusText {\n   font-family: Monospace;\n   font-size: 22px;\n   font-weight: bold;\n}\nspan#grpRank {\n   margin-top: 25px;\n}\nspan#grpDescription {\n   font-size: 18px;\n   font-weight: normal;\n   font-style: italic;\n   margin-bottom: 11px;\n}\n\n.metrictoplevel {\n    /*position: absolute;*/\n    /*width: 17%;*/\n    float: left;\n    z-index:100;\n    margin-top: 20px;\n    /*cursor: move;*/\n    border-style: solid;\n}\n.metrictheme {\n    /*position: absolute;*/\n    /*width: 17%;*/\n    float: left;\n    z-index:100;\n    margin-top: 10px;\n    /*cursor: move;*/\n    border-style: solid;\n}\n.metricpopup {\n    /*position: absolute;*/\n    width: 17%;\n    float: left;\n    z-index:100;\n    margin-top: 5px;\n    cursor: move;\n}\n\ndiv#myPopupBox {\n  display: none;\n    position: fixed;\n    width: 20%;\n    float: left;\n    z-index:100;\n    cursor: move;\n}\n#resizable { width: 150px; height: 150px; padding: 0.5em; }\n#resizable h3 { text-align: center; margin: 0; }\n.ui-draggable, .ui-droppable {\n\tbackground-position: top;\n}\n#draggable { width: 150px; height: 150px; padding: 0.5em; }\n  \n.popup {\n  margin-top: 1%;\n  margin-right: auto;\n  margin-bottom: auto;\n  margin-left: 1%;\n  padding: 11px;\n  background: #fff;\n  border-color: #ddd;\n  border: 1px solid grey;\n  border-radius: 5px;\n  width: 99%;\n  position: relative;\n  /*transition: all 5s ease-in-out;*/\n}\n/*h1 {*/\n/*  text-align: center;*/\n/*  font-family: Tahoma, Arial, sans-serif;*/\n/*  color: #06D85F;*/\n/*  margin: 80px 0;*/\n/*}*/\n.popup h2 {\n  margin-top: 0;\n  margin-bottom: 2px;\n  margin-right: 5px;\n  color: #333;\n  font-size: 18px;\n  font-weight: bold;\n  font-family: Tahoma, Arial, sans-serif;\n}\n.popup .close {\n  position: absolute;\n  top: 3px;\n  right: 5px;\n  transition: all 200ms;\n  font-size: 28px;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n.popup .close:hover {\n  color: #06D85F;\n}\n.popup .content {\n  max-height: 30%;\n  padding-top: 4px;\n  /*overflow: auto;*/\n}\n\n@media screen and (max-width: 700px){\n  .box{\n    width: 70%;\n  }\n  .popup{\n    width: 70%;\n  }\n}";
+inject(css, undefined, '_ec048g');
+module.exports = css;
+
+},{"./../../node_modules/cssify":1}],3:[function(require,module,exports){
+"use strict";
+
+console.log('loading graphUtils.js... ');
+console.log('graphUtils.js v.2019.07.06.17.12');
 /**
  * Semantic Graph Utility functions
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
  */
+
 'use strict';
 
 function dtstamp() {
@@ -540,11 +551,252 @@ function findFirstObject(obj, targetProp, targetValue, finalResults) {
   getObject(obj);
 }
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+"use strict";
+
+console.log('loading metricpopup.js... ');
+console.log('metricpopup.js v.2019.07.07.15.53');
+/**
+ * Semantic Data Metric Detials Card
+ * Copyright 2018, Asterius Media LLC, All Rights Reserved.
+ */
+
+'use strict'; // $(function(){
+//     $('#full-width').draggable({
+//       handle: ".modal-header"
+//   });
+//     $('#full-width').resizable();
+// });
+
+
+$(function () {
+  $("#resizable").resizable();
+  $("#myPopupBox").resizable();
+});
+$(function () {
+  $("#draggable").draggable();
+  $("#myPopupBox").draggable();
+  $("metricpopup").draggable();
+});
+
+function myPopupFunction(group) {
+  console.log('myPopupFunction', group);
+  var x = document.getElementById("myPopupBox");
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function myPopupClose(group) {
+  console.log('myPopupClose');
+  var x = document.getElementById("myPopupBox");
+  x.style.display = "none";
+}
+
+function myPopupOpen(group) {
+  console.log('myPopupOpen');
+  var x = document.getElementById("myPopupBox");
+  x.style.display = "block";
+} //
+// 
+//
+
+
+function getGrpLabel(group) {
+  return group.label;
+}
+
+function getGrpPrefLabel(group) {
+  return group.preflabel;
+}
+
+function getGrpFull(group) {
+  var _full = group.full || null;
+
+  if (_full != null) {
+    return group.full;
+  } else {
+    return "";
+  }
+}
+
+function getGrpDescription(group) {
+  var _description = group.description || null;
+
+  if (_description != null) {
+    return group.description;
+  } else {
+    return "";
+  }
+}
+
+function getGrpStatus(group) {
+  var _status = group.status || null;
+
+  if (_status != null) {
+    return '<em>status:</em> <span style="display: inline-block; width: 10px;"></span>    <span id="statusText" ><font color="' + group.status + '">' + group.status + '</font></span>';
+  } else {
+    return "";
+  }
+}
+
+function getGrpValue(group) {
+  var _value = group.value || null;
+
+  var yr = group.year || null;
+
+  if (!_value.includes('in') && yr != null) {
+    // console.log(_value.includes('in')? 'is' : 'is not')
+    _value = _value + ' in ' + yr;
+  }
+
+  if (_value != null) {
+    return '<i>value:</i>  <span style="display: inline-block; width: 5px;"></span>' + _value;
+  } else {
+    return "";
+  }
+} //
+// !!! add condition of increasing red and decresing green !!
+//
+
+
+function getGrpTrend(group) {
+  var _datatrend = group.datatrend || null;
+
+  if (_datatrend != null && _datatrend != undefined) {
+    var _ico = null;
+    if (_datatrend.includes('Better')) _ico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Green;"></i>';
+    if (_datatrend.includes('Steady')) _ico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Black;"></i>';
+    if (_datatrend.includes('Worse')) _ico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' + _datatrend + '"  aria-hidden style="color: Red;"></i>';
+    if (_ico != null) return '<em>5-year Trend:</em> ' + _ico;
+  } else {
+    return "";
+  }
+}
+
+function getGrpRank(group) {
+  var _rank = group.rank || null;
+
+  var yr = group.year || null;
+
+  if (!_rank.includes('in') && yr != null) {
+    // console.log(_value.includes('in')? 'is' : 'is not')
+    _rank = _rank + ' in ' + yr;
+  }
+
+  if (_rank !== null) {
+    return '<em>rank:</em>  <span style="display: inline-block; width: 5px;"></span>' + group.rank;
+  } else {
+    return "";
+  }
+}
+
+function getGrpTrendRank(group) {
+  var _ranktrend = group.ranktrend || null;
+
+  if (_ranktrend != null && _ranktrend != undefined) {
+    var _rankico = null;
+    if (_ranktrend.includes('Better')) _rankico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' + _ranktrend + '" aria-hidden style="color: Green;"></i>';
+    if (_ranktrend.includes('Steady')) _rankico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _ranktrend + '" aria-hidden style="color: Black;"></i>';
+    if (_ranktrend.includes('Worse')) _rankico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' + _ranktrend + '"  aria-hidden style="color: Red;"></i>';
+    if (_rankico != null) return '<i>Trend in rank:</i> ' + _rankico;
+  } else {
+    return "";
+  }
+}
+
+function setGroupDetails(group) {
+  // console.log('setGroupDetails',group)
+  var x = document.getElementById("myPopupBox");
+  var grpLabel = document.getElementById("grpLabel"); // grpLabel.innerHTML = getGrpLabel(group);
+
+  grpLabel.innerHTML = getGrpPrefLabel(group); // var grpFull = document.getElementById("grpFull");
+  // let _full = group.full  || null ;
+  // if (_full != null) {
+  //     grpFull.innerHTML = getGrpFull(group);
+  // } else {
+  //     grpFull.innerHTML = ""
+  // }
+
+  var grpDescription = document.getElementById("grpDescription");
+
+  var _description = group.description || null;
+
+  if (_description != null) {
+    grpDescription.innerHTML = getGrpDescription(group);
+  } else {
+    grpDescription.innerHTML = "";
+  }
+
+  var grpStatus = document.getElementById("grpStatus");
+
+  var _status = group.status || null;
+
+  if (_status != null) {
+    grpStatus.innerHTML = getGrpStatus(group);
+  } else {
+    grpStatus.innerHTML = "";
+  } // var grpUnits = document.getElementById("grpUnits");
+  // grpUnits.innerHTML = '<em>units:</em> ' + group.units;
+
+
+  var grpValue = document.getElementById("grpValue");
+
+  var _value = group.value || null;
+
+  if (_value != null) {
+    grpValue.innerHTML = getGrpValue(group);
+  } else {
+    grpValue.innerHTML = "";
+  }
+
+  var grpTrend = document.getElementById("grpTrend");
+
+  var _trend = group.datatrend || null;
+
+  if (_trend != null) {
+    grpTrend.innerHTML = getGrpTrend(group);
+  } else {
+    grpTrend.innerHTML = "";
+  }
+
+  var grpRank = document.getElementById("grpRank");
+
+  var _rank = group.rank || null;
+
+  if (_rank !== null) {
+    grpRank.innerHTML = getGrpRank(group);
+  } else {
+    grpRank.innerHTML = "";
+  }
+
+  var grpTrendRank = document.getElementById("grpTrendRank");
+
+  var _ranktrend = group.ranktrend || null;
+
+  if (_ranktrend != null & _ranktrend != undefined) {
+    // let _rankico = null
+    grpTrendRank.innerHTML = getGrpTrendRank(group);
+  } else {
+    grpTrendRank.innerHTML = "";
+  }
+
+  return true;
+}
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+console.log('loading resolveGraph.js... ');
+console.log('resolveGraph.js v.2019.07.06.17.12');
 /**
  * Semantic Graph Internal Relationship link resolver
  * Copyright 2018, Asterius Media LLC, All Rights Reserved.
  */
+
 'use strict';
 
 function dtstamp() {
@@ -690,228 +942,6 @@ function testLinkability(_nodes, link) {
   }
 } // end testLinkability
 
-},{}],4:[function(require,module,exports){
-var inject = require('./../../../../node_modules/cssify');
-var css = "/*body {*/\n/*  font-family: Arial, sans-serif;*/\n/*  background: url(http://www.shukatsu-note.com/wp-content/uploads/2014/12/computer-564136_1280.jpg) no-repeat;*/\n/*  background-size: cover;*/\n/*  height: 100vh;*/\n/*}*/\n\n/*h1 {*/\n/*  text-align: center;*/\n/*  font-family: Tahoma, Arial, sans-serif;*/\n/*  color: #06D85F;*/\n/*  margin: 80px 0;*/\n/*}*/\n\nspan#statusText {\n   font-family: Monospace;\n   font-size: 25px;\n   font-weight: bold;\n}\nspan#grpRank {\n   margin-top: 25px;\n}\nspan#grpDescription {\n   font-size: 20px;\n   font-weight: normal;\n   margin-bottom: 5px;\n}\n\n.metrictoplevel {\n    /*position: absolute;*/\n    /*width: 17%;*/\n    float: left;\n    z-index:100;\n    margin-top: 20px;\n    /*cursor: move;*/\n    border-style: solid;\n}\n.metrictheme {\n    /*position: absolute;*/\n    /*width: 17%;*/\n    float: left;\n    z-index:100;\n    margin-top: 10px;\n    /*cursor: move;*/\n    border-style: solid;\n}\n.metricpopup {\n    /*position: absolute;*/\n    width: 17%;\n    float: left;\n    z-index:100;\n    margin-top: 5px;\n    cursor: move;\n}\n\ndiv#myPopupBox {\n  display: none;\n    position: fixed;\n    width: 25%;\n    float: left;\n    z-index:100;\n    cursor: move;\n}\n#resizable { width: 150px; height: 150px; padding: 0.5em; }\n#resizable h3 { text-align: center; margin: 0; }\n.ui-draggable, .ui-droppable {\n\tbackground-position: top;\n}\n#draggable { width: 150px; height: 150px; padding: 0.5em; }\n  \n.popup {\n  margin-top: 1%;\n  margin-right: auto;\n  margin-bottom: auto;\n  margin-left: 1%;\n  padding: 12px;\n  background: #fff;\n  border-color: #ddd;\n  border: 1px solid grey;\n  border-radius: 5px;\n  width: 99%;\n  position: relative;\n  /*transition: all 5s ease-in-out;*/\n}\n/*h1 {*/\n/*  text-align: center;*/\n/*  font-family: Tahoma, Arial, sans-serif;*/\n/*  color: #06D85F;*/\n/*  margin: 80px 0;*/\n/*}*/\n.popup h2 {\n  margin-top: 0;\n  margin-bottom: 2px;\n  margin-right: 5px;\n  color: #333;\n  font-size: 20px;\n  font-weight: bold;\n  font-family: Tahoma, Arial, sans-serif;\n}\n.popup .close {\n  position: absolute;\n  top: 3px;\n  right: 5px;\n  transition: all 200ms;\n  font-size: 30px;\n  font-weight: bold;\n  text-decoration: none;\n  color: #333;\n}\n.popup .close:hover {\n  color: #06D85F;\n}\n.popup .content {\n  max-height: 30%;\n  padding-top: 4px;\n  /*overflow: auto;*/\n}\n\n@media screen and (max-width: 700px){\n  .box{\n    width: 70%;\n  }\n  .popup{\n    width: 70%;\n  }\n}";
-inject(css, undefined, '_15vivp8');
-module.exports = css;
-
-},{"./../../../../node_modules/cssify":1}],5:[function(require,module,exports){
-/**
- * Semantic Data Metric Detials Card
- * Copyright 2018, Asterius Media LLC, All Rights Reserved.
- */
-'use strict'; // $(function(){
-//     $('#full-width').draggable({
-//       handle: ".modal-header"
-//   });
-//     $('#full-width').resizable();
-// });
-
-$(function () {
-  $("#resizable").resizable();
-  $("#myPopupBox").resizable();
-});
-$(function () {
-  $("#draggable").draggable();
-  $("#myPopupBox").draggable();
-  $("metricpopup").draggable();
-});
-
-function myPopupFunction(group) {
-  console.log('myPopupFunction', group);
-  var x = document.getElementById("myPopupBox");
-
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-
-function myPopupClose(group) {
-  console.log('myPopupClose');
-  var x = document.getElementById("myPopupBox");
-  x.style.display = "none";
-}
-
-function myPopupOpen(group) {
-  console.log('myPopupOpen');
-  var x = document.getElementById("myPopupBox");
-  x.style.display = "block";
-} //
-// 
-//
-
-
-function getGrpLabel(group) {
-  return group.label;
-}
-
-function getGrpPrefLabel(group) {
-  return group.preflabel;
-}
-
-function getGrpFull(group) {
-  var _full = group.full || null;
-
-  if (_full != null) {
-    return group.full;
-  } else {
-    return "";
-  }
-}
-
-function getGrpDescription(group) {
-  var _description = group.description || null;
-
-  if (_description != null) {
-    return group.description;
-  } else {
-    return "";
-  }
-}
-
-function getGrpStatus(group) {
-  var _status = group.status || null;
-
-  if (_status != null) {
-    return '<em>status:</em> <span style="display: inline-block; width: 10px;"></span>    <span id="statusText" ><font color="' + group.status + '">' + group.status + '</font></span>';
-  } else {
-    return "";
-  }
-}
-
-function getGrpValue(group) {
-  var _value = group.value || null;
-
-  if (_value != null) {
-    return '<i>value:</i>  <span style="display: inline-block; width: 5px;"></span>' + group.value;
-  } else {
-    return "";
-  }
-} //
-// !!! add condition of increasing red and decresing green !!
-//
-
-
-function getGrpTrend(group) {
-  var _datatrend = group.datatrend || null;
-
-  if (_datatrend != null && _datatrend != undefined) {
-    var _ico = null;
-    if (_datatrend.includes('Better')) _ico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Green;"></i>';
-    if (_datatrend.includes('Steady')) _ico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Black;"></i>';
-    if (_datatrend.includes('Worse')) _ico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' + _datatrend + '"  aria-hidden style="color: Red;"></i>';
-    if (_ico != null) return '<em>5-year Trend:</em> ' + _ico;
-  } else {
-    return "";
-  }
-}
-
-function getGrpRank(group) {
-  var _rank = group.rank || null;
-
-  if (_rank !== null) {
-    return '<em>rank:</em>  <span style="display: inline-block; width: 5px;"></span>' + group.rank;
-  } else {
-    return "";
-  }
-}
-
-function getGrpTrendRank(group) {
-  var _ranktrend = group.ranktrend || null;
-
-  if (_ranktrend != null && _ranktrend != undefined) {
-    var _rankico = null;
-    if (_ranktrend.includes('Better')) _rankico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' + _ranktrend + '" aria-hidden style="color: Green;"></i>';
-    if (_ranktrend.includes('Steady')) _rankico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _ranktrend + '" aria-hidden style="color: Black;"></i>';
-    if (_ranktrend.includes('Worse')) _rankico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' + _ranktrend + '"  aria-hidden style="color: Red;"></i>';
-    if (_rankico != null) return '<i>Trend in rank:</i> ' + _rankico;
-  } else {
-    return "";
-  }
-}
-
-function setGroupDetails(group) {
-  // console.log('setGroupDetails',group)
-  var x = document.getElementById("myPopupBox");
-  var grpLabel = document.getElementById("grpLabel"); // grpLabel.innerHTML = getGrpLabel(group);
-
-  grpLabel.innerHTML = getGrpPrefLabel(group); // var grpFull = document.getElementById("grpFull");
-  // let _full = group.full  || null ;
-  // if (_full != null) {
-  //     grpFull.innerHTML = getGrpFull(group);
-  // } else {
-  //     grpFull.innerHTML = ""
-  // }
-
-  var grpDescription = document.getElementById("grpDescription");
-
-  var _description = group.description || null;
-
-  if (_description != null) {
-    grpDescription.innerHTML = getGrpDescription(group);
-  } else {
-    grpDescription.innerHTML = "";
-  }
-
-  var grpStatus = document.getElementById("grpStatus");
-
-  var _status = group.status || null;
-
-  if (_status != null) {
-    grpStatus.innerHTML = getGrpStatus(group);
-  } else {
-    grpStatus.innerHTML = "";
-  } // var grpUnits = document.getElementById("grpUnits");
-  // grpUnits.innerHTML = '<em>units:</em> ' + group.units;
-
-
-  var grpValue = document.getElementById("grpValue");
-
-  var _value = group.value || null;
-
-  if (_value != null) {
-    grpValue.innerHTML = getGrpValue(group);
-  } else {
-    grpValue.innerHTML = "";
-  }
-
-  var grpTrend = document.getElementById("grpTrend");
-
-  var _trend = group.datatrend || null;
-
-  if (_trend != null) {
-    grpTrend.innerHTML = getGrpTrend(group);
-  } else {
-    grpTrend.innerHTML = "";
-  }
-
-  var grpRank = document.getElementById("grpRank");
-
-  var _rank = group.rank || null;
-
-  if (_rank !== null) {
-    grpRank.innerHTML = getGrpRank(group);
-  } else {
-    grpRank.innerHTML = "";
-  }
-
-  var grpTrendRank = document.getElementById("grpTrendRank");
-
-  var _ranktrend = group.ranktrend || null;
-
-  if (_ranktrend != null) {
-    var _rankico = null;
-    grpTrendRank.innerHTML = getGrpTrendRank(group);
-  } else {
-    grpTrendRank.innerHTML = "";
-  }
-
-  return true;
-}
-
 },{}],6:[function(require,module,exports){
 var inject = require('./../../../node_modules/cssify');
 var css = "\n#cardsdiv {\n    \n}\n\n.metrictoplevel {\n    float: left;\n    z-index:100;\n    width: 99%;\n    margin-top: 10;\n    margin-bottom: 10;\n    padding-top: 0;\n    padding-left: 0;\n    padding-right: 0;\n    padding-bottom: 0;\n    border: 3px solid #ddd;\n    border-radius: 5px;\n    font-size: large;\n    /*padding: 1em;*/\n}\n.toplevellabel {\n    padding: 10;\n    color: #333;\n    font-size: 1.2em;\n    font-weight: bold;\n    \n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n\n.metrictheme {\n    float: left;\n    z-index:99%;\n    width: 100%;\n    /*margin-top: 10;*/\n    /*padding-top: 0;*/\n    /*padding-left: 0;*/\n    /*padding-right: 0;*/\n    /*padding-bottom: 0;*/\n    /*padding: 2px;*/\n    /*border: 1px solid black;*/\n    /*border-top: 1px solid black;*/\n    /*border-bottom: 1px solid black;*/\n    /*border-left: none;*/\n    /*border-right: none;*/\n    \n}\n.themelabel {\n    /*padding: 10;*/\n    font-size: 1.0em;\n    font-weight: bold;\n    margin: 2px;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    padding: 1em;\n}\n.themecontainer {\n    min-height: 100px ;\n    display: grid;\n    \n    \n    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;\n/*    grid-template-columns: repeat(5, 1fr);*/\n    grid-auto-rows: minmax(80px, auto);\n}\n\n\n\n.metricindicator {\n\n    float: left;\n    z-index:100;\n    \n    margin: 2;\n    border: 2px solid #ddd;\n    border-radius: 5px;\n    background-color: #FFFFFF;\n    padding: 1em;\n    /*color: rgb(8,8,8);*/\n\n}\n.metricindicator h2 {\n    font-size: 0.9em;\n    font-weight: bold;\n}\n.indicatorlabel {\n    padding: 10;\n    font-size: 0.8em;\n    font-weight: bold;\n    background: yellow;\n}\n.indicatordescription {\n   font-size: 0.7em;\n   font-weight: normal;\n   margin-top: 5px;\n   margin-bottom: 5px;\n}\n\n\n@media screen and (max-width: 700px){\n  .box{\n    width: 70%;\n  }\n  .popup{\n    width: 70%;\n  }\n}";
@@ -923,9 +953,9 @@ module.exports = css;
 
 // list of dependencies to include in bundle
 // var js0  = require('./index.js');
-var css2 = require('../assets/css/metricpopup.css');
+var css2 = require('../../css/metricpopup.css');
 
-var js2 = require('../assets/js/metricpopup.js');
+var js2 = require('../../js/metricpopup.js');
 
 var css1 = require('./cards.css'); // var js1  = require('./cards.js');
 
@@ -934,4 +964,4 @@ var js3 = require('../../js/graphUtils.js');
 
 var js4 = require('../../js/resolveGraph.js'); // var js3  = require('../ConvertTreesToGroups.js');
 
-},{"../../js/graphUtils.js":2,"../../js/resolveGraph.js":3,"../assets/css/metricpopup.css":4,"../assets/js/metricpopup.js":5,"./cards.css":6}]},{},[7]);
+},{"../../css/metricpopup.css":2,"../../js/graphUtils.js":3,"../../js/metricpopup.js":4,"../../js/resolveGraph.js":5,"./cards.css":6}]},{},[7]);
