@@ -1,0 +1,202 @@
+<!-- // -->
+<!-- // donut marketing functions html -->
+<!-- // -->
+<script>
+    console.log('starting blueprint-donut-marketing-functions')
+</script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<div id="marketing-functions-data" class=" " style="visibility: hidden; display: none; color: #fff;">
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_00_name">All</div>
+        <div class="vis-label" id="blueprint_headcounts_00_open">0</div>
+        <div class="vis-label" id="blueprint_headcounts_00_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_00_total">0</div>
+        <div class="vis-label" id="blueprint_headcounts_00_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_01_name">Branding</div>
+        <div class="vis-label" id="blueprint_headcounts_01_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_01_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_01_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_01_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_02_name">Channel Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_02_open">5</div>
+        <div class="vis-label" id="blueprint_headcounts_02_staffed">5</div>
+        <div class="vis-label" id="blueprint_headcounts_02_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_02_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_03_name">Corporate Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_03_open">0</div>
+        <div class="vis-label" id="blueprint_headcounts_03_staffed">10</div>
+        <div class="vis-label" id="blueprint_headcounts_03_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_03_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_04_name">Creative/Content</div>
+        <div class="vis-label" id="blueprint_headcounts_04_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_04_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_04_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_04_color">10</div>
+        <div class="vis-label" id="blueprint_headcounts_04_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_05_name">Digital Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_05_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_05_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_05_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_05_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_06_name">Branding</div>
+        <div class="vis-label" id="blueprint_headcounts_06_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_06_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_06_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_06_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_07_name">Channel Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_07_open">5</div>
+        <div class="vis-label" id="blueprint_headcounts_07_staffed">5</div>
+        <div class="vis-label" id="blueprint_headcounts_07_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_07_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_08_name">Corporate Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_08_open">0</div>
+        <div class="vis-label" id="blueprint_headcounts_08_staffed">10</div>
+        <div class="vis-label" id="blueprint_headcounts_08_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_08_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_09_name"></div>
+        <div class="vis-label" id="blueprint_headcounts_09_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_09_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_09_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_09_color"></div>
+    </div>
+    <div class="vis-labelset">
+        <div class="vis-label" id="blueprint_headcounts_10_name">Digital Marketing</div>
+        <div class="vis-label" id="blueprint_headcounts_10_open">10</div>
+        <div class="vis-label" id="blueprint_headcounts_10_staffed">0</div>
+        <div class="vis-label" id="blueprint_headcounts_10_total">10</div>
+        <div class="vis-label" id="blueprint_headcounts_10_color"></div>
+    </div>
+</div>
+<div id="container-marketing-functions" style="max-width: 100%; min-width: 100%;"></div>
+<div id="insertContentCallback" class="insertContentCallbacks">updateDonutMarketingFunctions()</div>
+<script>
+    let theMarketingFunctions = null;
+    // updateDonutMarketingFunctions()
+    function updateDonutMarketingFunctions() {
+        console.log('updateDonutMarketingFunctions called')
+        console.log()
+        // crete items
+        var numberOfItems = 10;
+        var theMarketingFunctions = []
+        // {
+        //       start: Date.UTC(2017, 11, 1),
+        //       end: Date.UTC(2018, 1, 2),
+        //       name: 'Initiative 1'
+        // } 
+        let dividbase = "blueprint_headcounts_"
+        for (var i = 0; i < numberOfItems; i++) {
+            // console.log('i:',i)
+            if (i < 9) {
+                var id = '0' + (i + 1);
+            }
+            else {
+                var id = i + 1;
+            }
+            var dividname = dividbase + id + "_name";
+            console.log('dividname', dividname)
+            var divvalname = document.getElementById(dividname).innerHTML || "";
+            // console.log('divvalname',divvalname)
+
+            var name = divvalname || "";
+            // console.log('name',name)
+
+            var dividtotal = dividbase + id + "_total";
+            var divvaltotal = document.getElementById(dividtotal).innerHTML || "";
+            var tot = divvaltotal || "";
+            var total = Number(tot)
+            // console.log('total',total)
+            // {
+            //       name: 'Branding', 
+            //       y: 10
+            // } 
+            var entry = { name: name, y: total }
+            theMarketingFunctions[i] = entry
+        } // end for
+        console.log('theMarketingFunctions', theMarketingFunctions)
+        var headcounttotal = document.getElementById("blueprint_headcounts_00_total").innerHTML || "";
+        var headcountstaffed = document.getElementById("blueprint_headcounts_00_staffed").innerHTML || "";
+        var headcountopen = document.getElementById("blueprint_headcounts_00_open").innerHTML || "";
+        Highcharts.chart('container-marketing-functions', {
+            chart: {
+                height: "100%",
+                // width: "99%",
+                type: 'pie',
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                floating: true,
+                style: { "color": "#333333", "fontSize": "14px", "height": "100%" },
+                text: '<div style="display:inline-block; height: 100%" >' +
+                    ' <div style="position: absolute; top: -22%; left: -3.8em;">' +
+                    '  <div style="display:inline-block; text-align: center;">' +
+                    '   <span style="font-size:28px;color:black">' + headcounttotal + '</span><br>' +
+                    '   <br style="height: .5em">' +
+                    '   <span style="display:inline-block; text-align: center; font-size:13px;color:silver"> Total Head Count </span><br>' +
+                    '  </div>' +
+                    ' </div>' +
+                    ' <div style="position: absolute; top: 13%; left: -9.1em;">' +
+                    '  <div style="display:inline-block; text-align: center;">' +
+                    '   <span style="font-size:26px;color:black">' + headcountstaffed + '</span><br>' +
+                    '   <br>' +
+                    '   <span style="display:inline-block; text-align: center; font-size:12px;color:silver"> Staffed Head Count </span><br>' +
+                    '  </div>' +
+                    ' </div>' +
+                    ' <div style="position: absolute; top: 13%; left: 1em;">' +
+                    '  <div style="display:inline-block; text-align: center;">' +
+                    '   <span style="font-size:27px;color:black">' + headcountopen + '</span><br>' +
+                    '   <br>' +
+                    '   <span style="display:inline-block; text-align: center; font-size:12px;color:silver"> Open Head Count </span><br>' +
+                    '  </div>' +
+                    ' </div>' +
+                    '</div>',
+                align: 'center',
+                useHTML: true,
+                verticalAlign: 'middle',
+                y: 0
+            },
+            tooltip: {
+                pointFormat: '<b>{series.name}  {point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: false
+                    },
+                    startAngle: 0,
+                    endAngle: 360,
+                    center: ['50%', '50%'],
+                    size: '100%'
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '',
+                innerSize: '80%',
+                data: theMarketingFunctions
+            }]
+        });
+    }
+</script>
+<script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!--<script src="https://zennai-asteriusj.c9users.io/app.zenn.ai/src/js/insertContent.js" type="text/javascript"></script>-->
+<!--<script src="https://app.zenn.ai/js/insertContent.js" type="text/javascript"></script>-->

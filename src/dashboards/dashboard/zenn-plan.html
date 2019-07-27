@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<!--  Last Published: Wed Apr 10 2019 17:45:43 GMT+0000 (UTC)  -->
+<html data-wf-page="5caa49a77177dc7d52d4cda3" data-wf-site="5c9ab322feba5a22a786b12a" lang="en-us">
+
+    <head>
+        <meta charset="utf-8">
+        <title>PlanAI</title>
+        <meta content="PlanAI" property="og:title">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <link href="css/normalize.css" rel="stylesheet" type="text/css">
+        <link href="css/components.css" rel="stylesheet" type="text/css">
+        <link href="css/zenn-ux-project-app.css" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            WebFont.load({
+                google: {
+                    families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Poppins:100,200,300,regular,500,600,700,800,900:latin,latin-ext,devanagari"]
+                }
+            });
+        </script>
+        <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+        <script type="text/javascript">
+            ! function(o, c) {
+                var n = c.documentElement,
+                    t = " w-mod-";
+                n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+            }(window, document);
+        </script>
+        <link href="images/5bcb41d079f0440deac7f7fd_Zenn--Favicon.png" rel="shortcut icon" type="image/x-icon">
+        <link href="images/5bcb422b76071d386811e7ee_Zenn-Web-Clip.png" rel="apple-touch-icon">
+    </head>
+
+    <body>
+        <div data-collapse="small" data-animation="default" data-duration="400" class="global-navigation w-nav">
+            <div class="w-container"><a href="dashboard.html" id="left_nav_myzenn_link_href" class="nav-link-my-zenn w-nav-brand"><img src="images/Zenn-Logo.png" width="45" id="left_nav_myzenn_link_image" title="My Zenn Dashboard" alt="" class="image-13"></a>
+                <nav role="navigation" class="nav-menu w-nav-menu">
+                    <div class="div-nav-menu-item"><a id="left_nav_ecosystem_link" href="#" class="nav-menu-item-link w-inline-block"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_blueprint_link_href" href="blueprint.html" title="Blueprint" class="nav-menu-item-link w-inline-block"><img src="images/Icon1_1Icon1.png" width="32" id="left_nav_blueprint_link_image" alt="Blueprint" class="image-icon"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_playbook_link_href" href="playbook.html" title="Playbook" class="nav-menu-item-link w-inline-block"><img src="images/Icon3_1Icon3.png" width="32" id="left_nav_playbook_link_image" alt="Playbook" class="image-icon"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_plan_link_href" href="planai.html" title="Plan AI" class="nav-menu-item-link w-inline-block w--current"><img src="images/Icon2_1Icon2.png" width="32" id="left_nav_plan_link_image" alt="Plan AI" class="image-icon"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_ecosystem_link_href" href="ecosystem.html" title="Ecosystem" class="nav-menu-item-link w-inline-block"><img src="images/Icon4_1Icon4.png" width="32" id="left_nav_ecosystem_link_image" alt="Ecosystem" class="image-icon"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_ecosystem_link" href="#" class="nav-menu-item-link w-inline-block"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_profile_link_href" href="profile.html" title="My Profile" class="nav-menu-item-link w-inline-block"><img src="images/Profile-Image-placeholder.png" width="40" id="left_nav_profile_link_image" alt="My Profile"></a></div>
+                    <div class="div-nav-menu-item"><a id="left_nav_config_link_href" title="Config" href="config.html" class="nav-menu-item-link w-inline-block"><img src="images/Gear.png" alt="Config" width="32" id="left_nav_config_link_image" class="image-icon"></a></div>
+                </nav>
+                <div class="w-nav-button">
+                    <div class="icon w-icon-nav-menu"></div>
+                </div>
+            </div>
+        </div>
+        <div class="section-header">
+            <div>
+                <div id="plan_header" class="main-header-block-text">Plan AI</div>
+            </div>
+        </div>
+        <div class="section-content">
+            <div data-duration-in="300" data-duration-out="100" class="plan-tabs w-tabs">
+                <div class="plan-tab-menu w-tab-menu">
+                    <a data-w-tab="Overview" id="tab-plan-overview" class="plan-tab-menu-item tab-plan-overview w-inline-block w-tab-link w--current">
+                        <div class="blueprint-tab-menu-item-title">Overview</div>
+                    </a>
+                    <a data-w-tab="Manage" id="tab-plan-manage" class="plan-tab-menu-item tab-plan-manage w-inline-block w-tab-link">
+                        <div class="blueprint-tab-menu-item-title">Manage</div>
+                    </a>
+                </div>
+                <div class="plan-tab-contents w-tab-content">
+                    <div data-w-tab="Overview" class="plan-tab-page w-tab-pane w--tab-active">
+                        <div class="all-page-main-background-div-2">
+                            <div class="main-header-div">
+                                <div class="main-header-3-column w-row">
+                                    <div class="_3-column-1 w-col w-col-4">
+                                        <div class="main-title-text">2019 Back-to-School Mobile Plan</div>
+                                    </div>
+                                    <div class="_3-column-2 w-col w-col-4">
+                                        <div class="column-title-header-h4-text">Value Mix</div><img src="https://uploads-ssl.webflow.com/5c9ce2f6d88d00fc5af36f09/5c9ce2f6d88d0032d9f36f1d_Value%20Mix%20Bar.png" alt=""></div>
+                                    <div class="_3-column-3 w-col w-col-4">
+                                        <div data-delay="0" class="w-dropdown">
+                                            <div class="dropdown-toggle-3 w-dropdown-toggle">
+                                                <div class="w-icon-dropdown-toggle"></div>
+                                                <div class="text-block-11">Select Your Plan</div>
+                                            </div>
+                                            <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="all-page-main-content-div-2">
+                                <div class="content-block-div">
+                                    <div class="section-content-containters-div">
+                                        <div class="section-titles-h1-text">Plan Summary</div>
+                                        <div>
+                                            <div class="w-row">
+                                                <div class="w-col w-col-4">
+                                                    <div>
+                                                        <div class="commitment-actual-div">
+                                                            <div class="create-field-title-2">Committed</div>
+                                                            <div class="commitment-actuals-value-field">$29,000,000</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w-col w-col-4">
+                                                    <div>
+                                                        <div class="create-field-title-2">Actual</div>
+                                                        <div class="commitment-actuals-value-field">$31,567,098</div>
+                                                    </div>
+                                                </div>
+                                                <div class="w-col w-col-4">
+                                                    <div>
+                                                        <div class="create-field-title-2">Return on Investment</div>
+                                                        <div class="commitment-actuals-value-field">109%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="create-2-column-block-div">
+                                            <div class="create-2-column w-row">
+                                                <div class="create-2-column-column1 w-col w-col-6"></div>
+                                                <div class="create-2-column-column2-2 w-col w-col-6"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="create-field-title-2"></div>
+                                            <div>
+                                                <p class="plan-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae
+                                                    erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-content-containters-div">
+                                        <div class="section-titles-h1-text">Headcount</div>
+                                        <div class="headcount-columns">
+                                            <div class="div-headcount-column-outside-2">
+                                                <div id="div-col-1" class="div-drill-down-column-box">
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_01_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_01_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_01_staffed" class="number-value">2</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_01_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_02_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_02_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_02_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_02_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_03_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_03_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_03_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_03_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_04_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_04_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_04_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_04_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_05_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_05_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_05_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_05_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="div-headcount-column-inside-2">
+                                                <div id="div-col-2" class="div-drill-down-column-box middle">
+                                                    <div class="html-embed-4 w-embed w-script">
+                                                        <!--  //  -->
+                                                        <!--  // donut marketing functions html  -->
+                                                        <!--  //  -->
+                                                        <script src="https://code.highcharts.com/highcharts.js"></script>
+                                                        <!--  <script src="https://code.highcharts.com/modules/exporting.js"></script>  -->
+                                                        <!--  <script src="https://code.highcharts.com/modules/export-data.js"></script>  -->
+                                                        <div id="marketing-functions-data" class=" " style="visibility: hidden; display: none; color: #fff;">
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_00_name">All</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_00_open">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_00_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_00_total">0</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_01_name">Branding</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_01_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_01_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_01_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_02_name">Channel Marketing</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_02_open">5</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_02_staffed">5</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_02_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_03_name">Corporate Marketing</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_03_open">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_03_staffed">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_03_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_04_name">Creative/Content</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_04_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_04_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_04_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_05_name">Digital Marketing</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_05_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_05_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_05_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_06_name">Marketing Management</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_06_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_06_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_06_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_07_name">Marketing Finance</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_07_open">5</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_07_staffed">5</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_07_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_08_name">Marketing Operations</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_08_open">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_08_staffed">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_08_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_09_name">Project Management</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_09_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_09_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_09_total">10</div>
+                                                            </div>
+                                                            <div class="vis-labelset">
+                                                                <div class="vis-label" id="blueprint_headcounts_10_name">Insights & Research</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_10_open">10</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_10_staffed">0</div>
+                                                                <div class="vis-label" id="blueprint_headcounts_10_total">10</div>
+                                                            </div>
+                                                        </div>
+                                                        <div id="container-marketing-functions" style="max-width: 100%; min-width: 100%;"></div>
+                                                        <div id="insertContentCallback" class="insertContentCallbacks">updateDonutMarketingFunctions()</div>
+                                                        <script>
+                                                            let theMarketingFunctions = null;
+                                                            updateDonutMarketingFunctions()
+
+                                                            function updateDonutMarketingFunctions() {
+                                                                console.log('updateDonutMarketingFunctions')
+                                                                // crete items
+                                                                var numberOfItems = 9;
+                                                                var theMarketingFunctions = []
+                                                                // {
+                                                                //       start: Date.UTC(2017, 11, 1),
+                                                                //       end: Date.UTC(2018, 1, 2),
+                                                                //       name: 'Initiative 1'
+                                                                // } 
+                                                                for (var i = 0; i < numberOfItems; i++) {
+                                                                    var id = i + 1;
+                                                                    var dividname = "blueprint_headcounts_0" + id + "_name";
+                                                                    // console.log('dividname',dividname)
+                                                                    var divvalname = document.getElementById(dividname).innerHTML || "";
+                                                                    // console.log('divvalname',divvalname)
+                                                                    var name = divvalname || "";
+                                                                    // console.log('name',name)
+                                                                    var dividtotal = "blueprint_headcounts_0" + id + "_total";
+                                                                    var divvaltotal = document.getElementById(dividtotal).innerHTML || "";
+                                                                    var tot = divvaltotal || "";
+                                                                    var total = Number(tot)
+                                                                    // console.log('total',total)
+                                                                    // {
+                                                                    //       name: 'Branding', 
+                                                                    //       y: 10
+                                                                    // } 
+                                                                    var entry = {
+                                                                        name: name,
+                                                                        y: total
+                                                                    }
+                                                                    theMarketingFunctions[i] = entry
+                                                                } // end for
+                                                                console.log('theMarketingFunctions', theMarketingFunctions)
+                                                                var headcounttotal = document.getElementById("blueprint_headcounts_00_total").innerHTML || "";
+                                                                var headcountstaffed = document.getElementById("blueprint_headcounts_00_staffed").innerHTML || "";
+                                                                var headcountopen = document.getElementById("blueprint_headcounts_00_open").innerHTML || "";
+                                                                Highcharts.chart('container-marketing-functions', {
+                                                                    chart: {
+                                                                        height: "100%",
+                                                                        // width: "99%",
+                                                                        type: 'pie',
+                                                                        plotBackgroundColor: null,
+                                                                        plotBorderWidth: 0,
+                                                                        plotShadow: false
+                                                                    },
+                                                                    title: {
+                                                                        floating: true,
+                                                                        style: {
+                                                                            "color": "#333333",
+                                                                            "fontSize": "14px",
+                                                                            "height": "100%"
+                                                                        },
+                                                                        text: '<div style="display:inline-block; height: 100%" >' +
+                                                                            ' <div style="position: absolute; top: -22%; left: -3.8em;">' +
+                                                                            '  <div style="display:inline-block; text-align: center;">' +
+                                                                            '   <span style="font-size:28px;color:black">' + headcounttotal + '</span><br>' +
+                                                                            '   <br style="height: .5em">' +
+                                                                            '   <span style="display:inline-block; text-align: center; font-size:13px;color:silver"> Total Head Count </span><br>' +
+                                                                            '  </div>' +
+                                                                            ' </div>' +
+                                                                            ' <div style="position: absolute; top: 13%; left: -9.1em;">' +
+                                                                            '  <div style="display:inline-block; text-align: center;">' +
+                                                                            '   <span style="font-size:26px;color:black">' + headcountstaffed + '</span><br>' +
+                                                                            '   <br>' +
+                                                                            '   <span style="display:inline-block; text-align: center; font-size:12px;color:silver"> Staffed Head Count </span><br>' +
+                                                                            '  </div>' +
+                                                                            ' </div>' +
+                                                                            ' <div style="position: absolute; top: 13%; left: 1em;">' +
+                                                                            '  <div style="display:inline-block; text-align: center;">' +
+                                                                            '   <span style="font-size:27px;color:black">' + headcountopen + '</span><br>' +
+                                                                            '   <br>' +
+                                                                            '   <span style="display:inline-block; text-align: center; font-size:12px;color:silver"> Open Head Count </span><br>' +
+                                                                            '  </div>' +
+                                                                            ' </div>' +
+                                                                            '</div>',
+                                                                        align: 'center',
+                                                                        useHTML: true,
+                                                                        verticalAlign: 'middle',
+                                                                        y: 0
+                                                                    },
+                                                                    tooltip: {
+                                                                        pointFormat: '<b>{series.name}  {point.percentage:.1f}%</b>'
+                                                                    },
+                                                                    plotOptions: {
+                                                                        pie: {
+                                                                            dataLabels: {
+                                                                                enabled: false
+                                                                            },
+                                                                            startAngle: 0,
+                                                                            endAngle: 360,
+                                                                            center: ['50%', '50%'],
+                                                                            size: '100%'
+                                                                        }
+                                                                    },
+                                                                    series: [{
+                                                                        type: 'pie',
+                                                                        name: '',
+                                                                        innerSize: '80%',
+                                                                        data: theMarketingFunctions
+                                                                    }]
+                                                                });
+                                                            }
+                                                        </script>
+                                                        <script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+                                                        <script src="https://zennai-asteriusj.c9users.io/app.zenn.ai/src/js/insertContent.js" type="text/javascript"></script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="div-headcount-column-outside-2">
+                                                <div id="div-col-3" class="div-drill-down-column-box">
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_06_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_06_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_06_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_06_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                        <div class="div-block-22"></div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_07_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_07_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_07_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_07_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_08_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_08_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_08_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_08_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_09_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_09_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_09_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_09_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="div-blueprint-headcount-category w-clearfix">
+                                                        <h5 id="blueprint_headcounts_10_name" class="diagram-subtitle-field">Function</h5>
+                                                        <div class="div-horizontal-spacer"></div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_10_total" class="number-value">0</div>
+                                                            <div class="number-label">Total</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_10_staffed" class="number-value">0</div>
+                                                            <div class="number-label">Staffed</div>
+                                                        </div>
+                                                        <div class="div-blueprint-headcount-category-number-3">
+                                                            <div id="blueprint_headcounts_10_open" class="number-value">0</div>
+                                                            <div class="number-label">Open</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="div-block-19">
+                                        <div class="section-content-containters-div">
+                                            <div class="section-titles-h1-text">Budget</div>
+                                            <div class="div-block-20">
+                                                <h5 id="blueprint_headcounts_01_name" class="diagram-subtitle-field">Plan Funding</h5>
+                                                <div class="budget-numerical-value-field">$14,545,678</div>
+                                            </div>
+                                            <div>
+                                                <div class="columns-6 w-row">
+                                                    <div class="w-col w-col-3">
+                                                        <div>
+                                                            <div class="text-block-64">x.x%</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-col w-col-3">
+                                                        <div class="text-block-64">x.x%</div>
+                                                    </div>
+                                                    <div class="w-col w-col-3">
+                                                        <div class="text-block-64">x.x%</div>
+                                                    </div>
+                                                    <div class="w-col w-col-3">
+                                                        <div class="text-block-64">x.x%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="columns-5 w-row">
+                                                    <div class="column-11 w-col w-col-3">
+                                                        <div class="div-blueprint-funding-category">
+                                                            <div>
+                                                                <h6 class="heading-blueprint-category-header">People</h6>
+                                                            </div>
+                                                            <div>
+                                                                <div class="budget-numerical-value-field funding-s category">$1,800,000</div>
+                                                            </div>
+                                                            <div class="div-blueprint-funding-category-headcount">
+                                                                <div class="number-value small">12</div>
+                                                                <div class="number-label small">Total Staff</div>
+                                                            </div>
+                                                            <div>
+                                                                <ul class="list w-list-unstyled">
+                                                                    <li class="list-item-10 blueprint">Branding</li>
+                                                                    <li class="list-item-12 blueprint">Channel Marketing</li>
+                                                                    <li class="list-item-12 blueprint">Corporate Marketing</li>
+                                                                    <li class="list-item-10">Creative/Content</li>
+                                                                    <li class="list-item-10">Digital Marketing</li>
+                                                                    <li class="list-item-10">Marketing Management</li>
+                                                                    <li class="list-item-10">Marketing Finance</li>
+                                                                    <li class="list-item-10">Marketing Operations</li>
+                                                                    <li class="list-item-10">Project Management</li>
+                                                                    <li class="list-item-10">Insights &amp; Research</li>
+                                                                    <li class="list-item-10"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column-11 w-col w-col-3">
+                                                        <div class="div-blueprint-funding-category">
+                                                            <div>
+                                                                <h6 class="heading-blueprint-category-header">Marketing</h6>
+                                                            </div>
+                                                            <div>
+                                                                <div class="budget-numerical-value-field funding-s category">$8,990,000</div>
+                                                            </div>
+                                                            <div class="div-blueprint-funding-category-headcount">
+                                                                <div class="number-value small">15</div>
+                                                                <div class="number-label small">Total Plays</div>
+                                                            </div>
+                                                            <div>
+                                                                <ul class="list w-list-unstyled">
+                                                                    <li class="list-item-10 blueprint">Activity 1</li>
+                                                                    <li class="list-item-12 blueprint">Activity 2</li>
+                                                                    <li class="list-item-12 blueprint">Activity 3</li>
+                                                                    <li class="list-item-12 blueprint">Activity 4</li>
+                                                                    <li class="list-item-12 blueprint">Activity 5</li>
+                                                                    <li class="list-item-12 blueprint">Activity 6</li>
+                                                                    <li class="list-item-10">Activity 7</li>
+                                                                    <li class="list-item-10"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column-11 w-col w-col-3">
+                                                        <div class="div-blueprint-funding-category">
+                                                            <div>
+                                                                <h6 class="heading-blueprint-category-header">Services</h6>
+                                                            </div>
+                                                            <div>
+                                                                <div class="budget-numerical-value-field funding-s category">$1,290,678</div>
+                                                            </div>
+                                                            <div class="div-blueprint-funding-category-headcount">
+                                                                <div class="number-value small">3</div>
+                                                                <div class="number-label small">Service Partners</div>
+                                                            </div>
+                                                            <div>
+                                                                <ul class="list w-list-unstyled">
+                                                                    <li class="list-item-10 blueprint">Agency 1</li>
+                                                                    <li class="list-item-12 blueprint">Agency 2</li>
+                                                                    <li class="list-item-12 blueprint">Agency 3</li>
+                                                                    <li class="list-item-10"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="column-13 w-col w-col-3">
+                                                        <div class="div-blueprint-funding-category">
+                                                            <div>
+                                                                <h6 class="heading-blueprint-category-header">Capability</h6>
+                                                            </div>
+                                                            <div>
+                                                                <div class="budget-numerical-value-field funding-s category">$2,465,000</div>
+                                                            </div>
+                                                            <div class="div-blueprint-funding-category-headcount">
+                                                                <div class="number-value small">7</div>
+                                                                <div class="number-label small">Total Capabilities</div>
+                                                            </div>
+                                                            <div>
+                                                                <ul class="list w-list-unstyled">
+                                                                    <li class="list-item-10 blueprint">Capability 1</li>
+                                                                    <li class="list-item-12 blueprint">Capability 2</li>
+                                                                    <li class="list-item-12 blueprint">Capability 3</li>
+                                                                    <li class="list-item-10">Capability 4</li>
+                                                                    <li class="list-item-10">Capability 5</li>
+                                                                    <li class="list-item-10">Capability 6</li>
+                                                                    <li class="list-item-10">Capability 7</li>
+                                                                    <li class="list-item-10"></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="div-block-pane-contents"></div>
+                                    </div>
+                                    <div class="section-content-containters-div">
+                                        <div class="section-titles-h1-text">Time</div>
+                                        <div class="plan-timeline-div"><img src="images/Timeline-Placeholder.png" srcset="images/Screen-Shot-2019-03-28-at-1.32.30-PM-p-500.png 500w, images/Screen-Shot-2019-03-28-at-1.32.30-PM-p-800.png 800w, images/Screen-Shot-2019-03-28-at-1.32.30-PM-p-1080.png 1080w, images/Timeline-Placeholder.png 1242w"
+                                                sizes="(max-width: 767px) 93vw, (max-width: 991px) 87vw, (max-width: 1411px) 88vw, 1242px" alt=""></div>
+                                    </div>
+                                    <div class="section-content-containters-div">
+                                        <div class="section-titles-h1-text">Activities</div>
+                                        <div class="activities-detail-div"><img src="images/Activity-Placeholder.png" srcset="images/Screen-Shot-2019-03-28-at-1.34.39-PM-p-500.png 500w, images/Screen-Shot-2019-03-28-at-1.34.39-PM-p-800.png 800w, images/Screen-Shot-2019-03-28-at-1.34.39-PM-p-1080.png 1080w, images/Activity-Placeholder.png 1261w"
+                                                sizes="(max-width: 767px) 93vw, (max-width: 991px) 87vw, (max-width: 1416px) 89vw, 1261px" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-w-tab="Manage" class="plan-tab-page w-tab-pane">
+                        <div class="all-page-main-background-div-2">
+                            <div class="all-page-main-content-div-2">
+                                <div class="single-header-no-column">
+                                    <div class="main-title-text">Create Your Plan</div>
+                                </div>
+                                <div class="content-block-div">
+                                    <div class="create-blueprint-desc-div-2">
+                                        <div class="section-titles-h1-text">Describe Your Plan</div>
+                                        <div class="create-4-column-width-6-2-2-2 w-row">
+                                            <div class="blueprint-name-column w-col w-col-6">
+                                                <div class="_2-column-div">
+                                                    <div class="create-field-title-2">Plan Name</div>
+                                                    <div class="create-blueprint-name-text-2">2019 Back-to-School Mobile Plan</div>
+                                                </div>
+                                            </div>
+                                            <div class="blueprint-fiscal-column w-col w-col-2">
+                                                <div class="create-field-title-2">Fiscal Year</div>
+                                                <div data-delay="0" class="dropdown-5 w-dropdown">
+                                                    <div class="select-blueprint-year-2 w-dropdown-toggle">
+                                                        <div class="w-icon-dropdown-toggle"></div>
+                                                        <div>Select Year</div>
+                                                    </div>
+                                                    <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                </div>
+                                            </div>
+                                            <div class="blueprint-quarters-column w-col w-col-2">
+                                                <div class="create-field-title-2">Total Quarters</div>
+                                                <div data-delay="0" class="w-dropdown">
+                                                    <div class="select-blueprint-quarters-2 w-dropdown-toggle">
+                                                        <div class="w-icon-dropdown-toggle"></div>
+                                                        <div>Select Qs</div>
+                                                    </div>
+                                                    <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                </div>
+                                            </div>
+                                            <div class="blueprint-status-column w-col w-col-2">
+                                                <div class="create-field-title-2">Status</div>
+                                                <div data-delay="0" class="status-dropdown w-dropdown">
+                                                    <div class="select-blueprint-status-2 w-dropdown-toggle">
+                                                        <div class="w-icon-dropdown-toggle"></div>
+                                                        <div>Select Status</div>
+                                                    </div>
+                                                    <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="create-blueprint-desc-div-2">
+                                        <div class="section-titles-h1-text">Define Your Commitment &amp; Contribution</div>
+                                        <div class="commitment-div">
+                                            <div class="create-field-title-2">Plan Commitment</div>
+                                            <div class="define-your-budget-text-2">Enter amount here</div>
+                                        </div>
+                                        <div class="contribution-div">
+                                            <div class="success-contribution-placeholder">
+                                                <div class="create-field-title-2">Total Value Mix Contribution</div><img src="https://uploads-ssl.webflow.com/5c9ce2f6d88d00fc5af36f09/5c9d1f705e325453eb941c63_Success-Contribution-Placeholder.png" width="1000" alt="" class="image-15"></div>
+                                        </div>
+                                    </div>
+                                    <div class="create-headcount-div-2">
+                                        <div class="section-titles-h1-text">Headcount</div>
+                                        <div class="create-2-column w-row">
+                                            <div class="create-headcount-2-column-column1 w-col w-col-6">
+                                                <div class="create-headcount-selection-div">
+                                                    <div data-delay="0" class="create-headcount-selector-dropdown w-dropdown">
+                                                        <div class="select-your-team-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Team</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-headcount-selector-dropdown w-dropdown">
+                                                        <div class="select-your-team-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Team</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-headcount-selector-dropdown w-dropdown">
+                                                        <div class="select-your-team-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Team</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-headcount-selector-dropdown w-dropdown">
+                                                        <div class="select-your-team-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Team</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-headcount-selector-dropdown w-dropdown">
+                                                        <div class="select-your-team-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Team</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="create-headcount-2-column-column2 w-col w-col-6">
+                                                <div class="create-headcount-resource-count-div">
+                                                    <div data-delay="0" class="select-headcount-total-dropdown w-dropdown">
+                                                        <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Total Headcount</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="select-headcount-total-dropdown w-dropdown">
+                                                        <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Total Headcount</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="select-headcount-total-dropdown w-dropdown">
+                                                        <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Total Headcount</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="select-headcount-total-dropdown w-dropdown">
+                                                        <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Total Headcount</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="select-headcount-total-dropdown w-dropdown">
+                                                        <div class="dropdown-toggle-4 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Total Headcount</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="create-budget-div-2">
+                                        <div class="section-titles-h1-text">Budget</div>
+                                        <div class="create-2-column w-row">
+                                            <div class="create-budget-2-column-column1 w-col w-col-6">
+                                                <div class="create-budget-selection-div">
+                                                    <div data-delay="0" class="create-budget-selector-dropdown w-dropdown">
+                                                        <div class="select-your-budget-category-dropdown-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Category</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-budget-selector-dropdown w-dropdown">
+                                                        <div class="select-your-budget-category-dropdown-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Category</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-budget-selector-dropdown w-dropdown">
+                                                        <div class="select-your-budget-category-dropdown-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Category</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                    <div data-delay="0" class="create-budget-selector-dropdown w-dropdown">
+                                                        <div class="select-your-budget-category-dropdown-2 w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Category</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="create-budget-2-column-column2-2 w-col w-col-6">
+                                                <div class="create-budget-amount-div">
+                                                    <div class="define-your-budget-text-2">Enter amount here</div>
+                                                    <div class="define-your-budget-text-2">Enter amount here</div>
+                                                    <div class="define-your-budget-text-2">Enter amount here</div>
+                                                    <div class="define-your-budget-text-2">Enter amount here</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="create-timeline-div-2">
+                                        <div class="section-titles-h1-text">Time</div><img src="https://uploads-ssl.webflow.com/5c9ce2f6d88d00fc5af36f09/5c9ce2f6d88d00064ff36f24_Timeline-Placeholder.png" alt="" class="image-3"></div>
+                                    <div class="create-plays-div-2">
+                                        <div class="section-titles-h1-text">Activities</div>
+                                        <div class="create-2-column w-row">
+                                            <div class="create-2-column-column1 w-col w-col-6">
+                                                <div class="playbook-selector-div">
+                                                    <div data-delay="0" class="create-plays-selector-dropdown w-dropdown">
+                                                        <div class="select-your-play-dropdown w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Activity</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="create-2-column-column2-2 w-col w-col-6">
+                                                <div class="selected-playbook-plays-div">
+                                                    <div data-delay="0" class="create-plays-selector-dropdown w-dropdown">
+                                                        <div class="select-your-play-dropdown w-dropdown-toggle">
+                                                            <div class="w-icon-dropdown-toggle"></div>
+                                                            <div>Select Your Activity</div>
+                                                        </div>
+                                                        <nav class="w-dropdown-list"><a href="#" class="w-dropdown-link">Link 1</a><a href="#" class="w-dropdown-link">Link 2</a><a href="#" class="w-dropdown-link">Link 3</a></nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-footer">
+            <div></div>
+        </div>
+        <script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <!--<script src="js/zenn-ux-project-app.js" type="text/javascript"></script>-->
+        <script src="./build/bundle.js" type="text/javascript"></script>
+        <!--<script src="js/insertContent.js" type="text/javascript"></script>-->
+        <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+        <script>
+            var Webflow = Webflow || [];
+            Webflow.push(function() {
+                var tabName = getParam('tab');
+                if (!tabName) return;
+                $('.' + tabName).triggerHandler('click');
+
+                function getParam(name) {
+                    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                        results = regex.exec(location.search);
+                    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                }
+            });
+        </script>
+    </body>
+
+</html>
