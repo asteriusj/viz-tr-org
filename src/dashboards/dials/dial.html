@@ -1,0 +1,219 @@
+<!--https: //codepen.io/sergiopedercini/pen/jmKdbj/-->
+
+<div class="metric-dial-wrapper" style="width:63%">
+
+    <div id="dial-data" class=" " style="visibility: hidden; display: none; color: #fff;">
+        <div class="vis-label" id="dial_01_name">Per capita GDP</div>
+        <div class="vis-label" id="dial_01_units">$</div>
+        <div class="vis-label" id="dial_01_max">74133</div>
+        <div class="vis-label" id="dial_01_top25">43939</div>
+        <div class="vis-label" id="dial_01_top50">36464</div>
+        <div class="vis-label" id="dial_01_top75">31966</div>
+        <div class="vis-label" id="dial_01_min">25363</div>
+        <div class="vis-label" id="dial_01_target"></div>
+        <div class="vis-label" id="dial_01_value">39123</div>
+    </div>
+
+    <link rel="stylesheet" href="./dial.css" />
+    <script src="./dial.js"></script>
+    <div class="single-chart container-metric-dial" style="max-width: 100%; min-width: 100%;">
+        <svg id="svg_color" viewBox="0 0 36 36" class="circular-chart blue">
+          <path id="svg_path_circle_bg" class="circle-bg"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path id="svg_path_circle" class="circle"
+            stroke-dasharray="33, 100"
+            d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text id="svg_text_percentage" x="18" y="20.35" class="percentage">66%</text>
+        </svg>
+    </div>
+    <div id="insertContentCallback" class="insertContentCallbacks" style="visibility: hidden; display: none; color: #fff;">updateDialFunctions()</div>
+    <script>
+        // let theDialFunctions = null;
+
+        let dial_value = 33;
+        let dial_target = 33;
+        let dial_max = 99;
+        let dial_top25 = 77;
+        let dial_top50 = 55;
+        let dial_top75 = 33;
+        let dial_min = 1;
+        let dial_name = "Metric";
+        let dial_units = "units";
+        let dial_svg_class = "circular-chart green";
+        let dial_stroke_dasharray = "33, 100";
+        let dial_fill_color = "circular-chart green";
+
+        updateDialFunctions()
+
+        function updateDialFunctions() {
+            console.log('updateDialFunctions called')
+            console.log()
+
+            let dividbase = "dial_"
+            var id = '01'
+
+            var dividname = dividbase + id + "_name";
+            // console.log('dividname', dividname)
+            var divvalname = document.getElementById(dividname).innerHTML || null;
+            // console.log('divvalname', divvalname)
+            var dial_name = divvalname || "";
+            console.log('dial_name', dial_name)
+
+            var dividunits = dividbase + id + "_units";
+            // console.log('dividunits', dividunits)
+            var divvalunits = document.getElementById(dividunits).innerHTML || null;
+            // console.log('divvalunits', divvalunits)
+            var dial_units = divvalunits || "";
+            console.log('dial_units', dial_units)
+
+            var dividmax = dividbase + id + "_max";
+            if (document.getElementById(dividmax) != null) {
+                var divvalmax = document.getElementById(dividmax).innerHTML || null;
+                var tmax = divvalmax || null;
+                dial_max = Number(tmax) || null;
+            }
+            else {
+                dial_max = null;
+            }
+            console.log('dial_max', dial_max)
+
+            var dividtop25 = dividbase + id + "_top25";
+            if (document.getElementById(dividtop25) != null) {
+                var divvaltop25 = document.getElementById(dividtop25).innerHTML || null;
+                var t25 = divvaltop25 || null;
+                dial_top25 = Number(t25) || null;
+            }
+            else {
+                dial_top25 = null;
+            }
+            console.log('dial_top25', dial_top25)
+
+
+            var dividtop50 = dividbase + id + "_top50";
+            // console.log('dividtop50', dividtop50)
+            var divvaltop50 = document.getElementById(dividtop50).innerHTML || null;
+            var t50 = divvaltop50 || null;
+            var dial_top50 = Number(t50) || null;
+            console.log('dial_top50', dial_top50)
+
+            var dividtop75 = dividbase + id + "_top75";
+            // console.log('dividtop75', dividtop75)
+            var divvaltop75 = document.getElementById(dividtop75).innerHTML || null;
+            var t75 = divvaltop75 || null;
+            var dial_top75 = Number(t75) || null;
+            console.log('dial_top75', dial_top75)
+
+            var dividmin = dividbase + id + "_min";
+            var divvalmin = document.getElementById(dividmin).innerHTML || null;
+            var tmin = divvalmax || null;
+            var dial_min = Number(tmin) || null;
+            console.log('dial_min', dial_min)
+
+            var dividtarget = dividbase + id + "_target";
+            // console.log('dividtarget', dividtarget)
+            var divvaltarget = document.getElementById(dividtarget).innerHTML || null;
+            var tar = divvaltarget || null;
+            var dial_target = Number(tar) || dial_top25 || null;
+            console.log('dial_target', dial_target)
+
+
+            var dividvalue = dividbase + id + "_value";
+            // console.log('dividvalue', dividvalue)
+            var divvalvalue = document.getElementById(dividvalue).innerHTML || "";
+            var val = divvalvalue || "";
+            var dial_value = Number(val) || "";
+            console.log('dial_value', dial_value)
+
+
+            // calc percentages
+            if ((dial_value != null) && (dial_target != null)) {
+                var percentage = ((dial_value / dial_target) * 100);
+            }
+            else {
+                var percentage = 0;
+            }
+            console.log('percentage', percentage)
+
+            // var firstQtr = (dial_top25 / dial_max) || 75;
+            // console.log('firstQtr', firstQtr)
+
+            // var secondQtr = (dial_top50 / dial_max) || 50;
+            // console.log('secondQtr', secondQtr)
+
+            // var thirdQtr = (dial_top75 / dial_max) || 25;
+            // console.log('thirdQtr', thirdQtr)
+
+
+            // update donut chart visualization
+
+            //
+            // donut center text 
+            // if 0 set to value of metric and unit
+            //s
+            if (percentage === 0) {
+
+                var dial_text_percentage = dial_value + " " + dial_units;
+            }
+            else {
+
+                var dial_text_percentage = Math.trunc(percentage) + '%';
+            }
+
+            console.log('dial_text_percentage', dial_text_percentage)
+            var dividdialtextpercentage = document.getElementById('svg_text_percentage');
+            // console.log('dividdialtextpercentage', dividdialtextpercentage)
+            dividdialtextpercentage.innerHTML = dial_text_percentage;
+
+
+            //
+            // dial fill percentage
+            // if 0 set to fill 99%
+            //
+            if (percentage === 0) {
+                dial_stroke_dasharray = '99, 100';
+            }
+            else {
+                dial_stroke_dasharray = Math.trunc(percentage) + ', 100';
+
+            }
+            console.log('dial_stroke_dasharray', dial_stroke_dasharray)
+
+            var dividdialpathcircle = document.getElementById('svg_path_circle');
+            // console.log('dividdialpathcircle', dividdialpathcircle)
+            dividdialpathcircle.setAttribute("stroke-dasharray", dial_stroke_dasharray);
+
+            //
+            // dial color style
+            // if 0 percent, set to blue
+            //
+            if (dial_value >= dial_top25) {
+                dial_fill_color = "circular-chart green";
+            }
+            else if (dial_value >= dial_top50) {
+                dial_fill_color = "circular-chart yellow";
+            }
+            else if (dial_value >= dial_top75) {
+                dial_fill_color = "circular-chart orange";
+            }
+            else {
+                dial_fill_color = "circular-chart red";
+            }
+
+            if (percentage === 0) {
+                dial_fill_color = "circular-chart blue";
+            }
+
+            console.log('dial_fill_color', dial_fill_color)
+            var dividdialcolor = document.getElementById('svg_color');
+            dividdialcolor.setAttribute("class", dial_fill_color);
+
+
+        }
+    </script>
+</div>
