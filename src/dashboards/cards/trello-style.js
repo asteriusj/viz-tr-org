@@ -265,7 +265,7 @@ function embed() {
         var topUlDiv = document.getElementById(topUlNodeId);
 
         let gOutcomeItems = jsontree
-        // console.log('gOutcomeItems:',gOutcomeItems)
+        console.log('gOutcomeItems:',gOutcomeItems)
 
         if (gOutcomeItems.length > 0) {
             // loop over outcomes
@@ -282,7 +282,7 @@ function embed() {
                     // var myOutcomeId = "foafiaf:" + columnitem
                     // console.log('myOutcomeId', myOutcomeId)
                     if (columnitem != gOutcome.id) {
-                        // console.log('Outcome NO Match', columnitem, gOutcome.id)
+                        console.log('Outcome NO Match', columnitem, gOutcome.id)
                         // skip this loop iteration and continue to next
                         continue;
                     } //
@@ -458,28 +458,25 @@ function embed() {
 
         let _id = "metric_" + metric.id
 
-        let cardHTML = "";
-
-
-        if (metric.year) cardHTML += ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
-        if (metric.theme) cardHTML += ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
-        if (metric.category) cardHTML += ' <span class="card__tag card__tag--design">' + metric.category + '</span> '
 
 
         // START CARD
 
-        // cardHTML +=   ' <h4 class="card__title">' + getGrpLabel(metric) + '</h5>  '
+        let cardHTML = "";
+
+        if (metric.year) cardHTML += ' <span class="card__tag card__tag--low">' + metric.year + '</span> '
+        if (metric.theme) cardHTML += ' <span class="card__tag card__tag--browser">' + metric.theme + '</span> '
+        if (metric.category) cardHTML += ' <span class="card__tag card__tag--design">' + metric.category + '</span> '
+        
         cardHTML += ' <h4 class="card__title">' + '<a href="' + _url + '">' + getGrpPrefLabel(metric) + '<\a>' + '</h5>  '
 
         if (metric.description) cardHTML += ' <span id="grpDescription"  class="card__description" >' + getGrpDescription(metric) + '</span>  '
 
-        if (metric.value) cardHTML += ' <span id="grpValue"        class="card__el" >' + getGrpValue(metric) + '</span>  '
-
         if (metric.status) cardHTML += ' <span id="grpStatus"       class="card__el" >' + getGrpStatus(metric) + '</span>  '
 
-        if (metric.target) cardHTML += ' <span id="grpTarget"       class="card__el" >' + getGrpTarget(metric) + '</span>  '
+        if (metric.value) cardHTML += ' <span id="grpValue"        class="card__el" >' + getGrpValue(metric) + '</span>  '
 
-        if (metric.datatrend) cardHTML += ' <span id="grpTrend"        class="card__el" >' + getGrpTrend(metric) + '</span>  '
+        if (metric.target) cardHTML += ' <span id="grpTarget"       class="card__el" >' + getGrpTarget(metric) + '</span>  '
 
 
         //
@@ -567,12 +564,13 @@ function embed() {
         dialHTML += ' </div> ';
         dialHTML += ' <div id="insertContentCallback" class="insertContentCallbacks" style="visibility: hidden; display: none; color: #fff;">updateDialFunctions()</div> ';
 
-
-
         cardHTML += dialHTML;
 
         // end insert dial control
+        //
+        
 
+        if (metric.datatrend) cardHTML += ' <span id="grpTrend"        class="card__el" >' + getGrpTrend(metric) + '</span>  '
 
         if (metric.rank) cardHTML += ' <br/><span id="grpRank"          class="card__el" >' + getGrpRank(metric) + '</span>  '
 
@@ -588,13 +586,12 @@ function embed() {
         cardHTML += '   </li> '
         cardHTML += ' </ol> '
 
-
-
         // END CARD
 
         // console.log('cardHTML:',cardHTML)       
         return cardHTML;
-    }
+        
+    } // end function createCardHTML
 
 
 
