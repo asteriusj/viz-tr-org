@@ -1,7 +1,7 @@
 /* general styles */
 
 body {
-  font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -24,6 +24,8 @@ body {
   border-radius: .2rem;
   background-color: #dfe3e6;
   padding: .5rem;
+  display: block;
+  visibility: visible;
 }
 
 .column__title--wrapper {
@@ -65,16 +67,17 @@ body {
 /* card styles */
 
 .card__item {
-  
   font-size: .75rem;
   /*padding: .1rem .5rem;*/
   /*border-radius: .25rem;*/
   font-weight: 700;
   background-color: white;
   border-radius: .25rem;
-  box-shadow: 0 1px 0 rgba(9,45,66,.25);
+  box-shadow: 0 1px 0 rgba(9, 45, 66, .25);
   padding: .5rem;
   margin: .5rem;
+  display: block;
+  visibility: visible;
 }
 
 .card__tag {
@@ -134,6 +137,17 @@ body {
   margin-bottom: .75rem;
 }
 
+.card__description_sm {
+  color: #17394d;
+  font-style: italic;
+  font-size: .64rem;
+  font-weight: 600;
+  display: block;
+  padding: .2rem;
+  margin-bottom: .75rem;
+  overflow-wrap: break-word;
+}
+
 
 .card__el {
   font-size: .75rem;
@@ -142,11 +156,19 @@ body {
   margin-bottom: .75rem;
 }
 
+.card__sm_el {
+  font-size: .6rem;
+  font-weight: 600;
+  margin-bottom: .75rem;
+}
+
 /* card actions */
 
 .card__actions {
   display: flex;
   align-items: center;
+  margin-top: .2rem;
+  margin-bottom: .1rem;
 }
 
 .card__actions--wrapper i {
@@ -173,7 +195,7 @@ body {
   height: 28px;
 }
 
-.avatar__image {  
+.avatar__image {
   border-radius: 50%;
   width: 100%;
   height: 100%;
