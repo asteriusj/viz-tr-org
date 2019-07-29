@@ -1,5 +1,5 @@
 console.log('loading trello-style.js... ')
-console.log('trello-style.js v.2019.07.07.13.58')
+console.log('trello-style.js v.2019.07.38.11.00')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
@@ -13,9 +13,13 @@ if (RefreshAll) {
 console.log('trello-style.js DoNotCache:', DoNotCache)
 console.log('trello-style.js RefreshAll:', RefreshAll)
 
+var columnitem = urlParams.get('columnitem') || null;
+console.log('columnitem', columnitem)
+var carditem = urlParams.get('carditem') || null;
+console.log('carditem', carditem)
+
 
 function embed() {
-
 
     //
     //  get jsontree data from sessionStorage or get indictaor data transform into tree
@@ -224,6 +228,13 @@ function embed() {
 
 
 
+    //
+    //
+    function drawOneCard(jsontree) {
+        console.log('drawOneCard Tree:', jsontree)
+        console.log('carditem', carditem)
+
+    }
 
     //
     //
@@ -257,9 +268,26 @@ function embed() {
         // console.log('gOutcomeItems:',gOutcomeItems)
 
         if (gOutcomeItems.length > 0) {
+            // loop over outcomes
             for (let g = 0; g < gOutcomeItems.length; g++) {
                 let gOutcome = gOutcomeItems[g]
-                // console.log('gOutcome:',gOutcome)
+                // console.log('gOutcome:', gOutcome)
+
+                //
+                // check for urlparam and check for matching element
+                //
+                let strColumnitem = 'columitem=' + gOutcome.id
+                // console.log('strColumnitem', strColumnitem)
+                if (columnitem != null) {
+                    // var myOutcomeId = "foafiaf:" + columnitem
+                    // console.log('myOutcomeId', myOutcomeId)
+                    if (columnitem != gOutcome.id) {
+                        // console.log('Outcome NO Match', columnitem, gOutcome.id)
+                        // skip this loop iteration and continue to next
+                        continue;
+                    } //
+                } //
+
 
                 //
                 //  create li for outcome content
@@ -288,7 +316,35 @@ function embed() {
                 if (gOutcomeChildren.length > 0) {
                     for (let t = 0; t < gOutcomeChildren.length; t++) {
                         let gMetric = gOutcomeChildren[t]
-                        // console.log('gMetric:',gMetric)
+                        console.log('gMetric:', gMetric)
+
+
+
+                        //
+                        // check for urlparam and check for matching element
+                        //
+                        let strCarditem = 'carditem=' + gMetric.id
+                        // console.log('strCardlist', strCardlist)
+                        if (carditem != null) {
+                            if (carditem != gMetric.id) {
+                                console.log('Metric NO Match', carditem, gMetric.id)
+
+                                // skip this loop iteration and continue to next
+                                continue;
+
+                            } //
+
+                            if (carditem === gMetric.id) {
+                                console.log('Metric MATCH', carditem, gMetric.id)
+
+                                // set column items hidden
+                                var elements = document.getElementsByClassName('column__item');
+                                for (var i = 0; i < elements.length; i++) {
+                                    elements[i].style.visibility = 'hidden';
+                                }
+                            }
+                        }
+
 
                         if ((gMetric.id != "") && (gMetric.datavalues != undefined)) {
                             // console.log('id not blank:',gMetric)
@@ -320,53 +376,44 @@ function embed() {
 
     } // end function drawOutcomeCards
 
-
-    // function createWrapperHTML(group) {
-
-    //     let wrapperHTML = "" ;   
-
-    //     wrapperHTML += ' <section class="wrapper"> '
-    //     wrapperHTML += '  <ul class="column__list"> '
-    //     // wrapperHTML += '  <ul id="ul_column_' + group.id + '" class="column__list"> '
-
-
-    //     // wrapperHTML += '   <li id="li_column_' +  group.id + '" class="column__item"> '
-    //     // wrapperHTML += '    <div class="column__title--wrapper"> '
-    //     // wrapperHTML += '      <h2>' + getGrpPrefLabel(group) + '</h2><br><p>' + getGrpTitle(group) + '</p><i class="fas fa-ellipsis-h"></i> '
-    //     // wrapperHTML += '    </div> '
-
-    //     // wrapperHTML += '    <ul id="ul_cards_' + group.id + '" class="card__list"> '
-    //     // wrapperHTML += '    </ul> '
-
-    //     // wrapperHTML += '   </li> '
-
-    //     wrapperHTML += '  </ul> '
-    //     wrapperHTML += ' </section> '
-
-    //     wrapperHTML += "" ;
-
-    //     // console.log('wrapperHTML:',wrapperHTML)       
-    //     return wrapperHTML ;
-    // }   
-    // function createThemeHTML(group) {
-    //     let _id = "theme_" + group.id
-    //     let _color = group.gcolor || ""
-
-    //     let themeHTML = "" ;
-
-    //     themeHTML += ' <div class="themelabel" style="background-color:'+ _color + '" >' + getGrpFull(group)  + '</div>  '
-
-    //     themeHTML += "" ;
-
-    //     // console.log('themeHTML:',themeHTML)       
-    //     return themeHTML ;
-    // }
     function createOutcomeHTML(group) {
+
+        let _r = window.location.href
+        // console.log('_r', _r)
+
+        let _s = window.location.protocol
+        // console.log('_s', _s)
+
+        let _h = window.location.hostname
+        // console.log('_h', _h)
+
+        let _p = window.location.pathname
+        // console.log('_path', _p)
+
+        let _id = group.id;
+        let _param = "columnitem=" + _id;
+        // console.log('_param', _param)
+        let _url = _s + '//' + _h + _p + "?" + _param;
+        // if (_page.includes('_id')) {
+        //     console.log('_id already included')
+        //     // donothing
+        // }
+        // else if (_page.includes("?")) {
+        //     console.log('add ?')
+        //     _url = _page + "&" + _param;
+        // }
+        // else if (!_page.includes("?")) {
+        //     console.log('add &')
+        //     _url = _page + "?" + _param;
+        // }
+        console.log('_url', _url)
+
 
         let outcomeHTML = "";
 
         outcomeHTML += '    <div class="column__title--wrapper"> '
-        outcomeHTML += '      <h2>' + getGrpPrefLabel(group) + '</h2> <i class="fas fa-ellipsis-h"></i> '
+
+        outcomeHTML += '      <h2>' + '<a href=' + _url + ' class="card__link">' + getGrpPrefLabel(group) + '</a>' + '</h2> <i class="fas fa-ellipsis-h"></i> '
         outcomeHTML += '    </div> '
 
         outcomeHTML += '    <div> '
@@ -395,10 +442,21 @@ function embed() {
     }
 
     function createCardHTML(metric) {
-        // console.log('createCardHTML metric ', metric)
-        let _id = "metric_" + metric.id
-        // console.log('_id:',_id)
+        console.log('createCardHTML metric ', metric)
 
+        let _r = window.location.href
+        let _s = window.location.protocol
+        let _h = window.location.hostname
+        let _p = window.location.pathname
+
+
+        let _param = "cardlist=" + metric.id;
+        // console.log('_param', _param)
+        let _url = _s + '//' + _h + _p + "?" + _param;
+        console.log('_url', _url)
+
+
+        let _id = "metric_" + metric.id
 
         let cardHTML = "";
 
@@ -408,37 +466,84 @@ function embed() {
         if (metric.category) cardHTML += ' <span class="card__tag card__tag--design">' + metric.category + '</span> '
 
 
-
         // START CARD
 
         // cardHTML +=   ' <h4 class="card__title">' + getGrpLabel(metric) + '</h5>  '
-        cardHTML += ' <h4 class="card__title">' + getGrpPrefLabel(metric) + '</h5>  '
+        cardHTML += ' <h4 class="card__title">' + '<a href="' + _url + '">' + getGrpPrefLabel(metric) + '<\a>' + '</h5>  '
 
-        if (metric.description) cardHTML += ' <span id="grpDescription"   class="card__description" >' + getGrpDescription(metric) + '</span>  '
+        if (metric.description) cardHTML += ' <span id="grpDescription"  class="card__description" >' + getGrpDescription(metric) + '</span>  '
 
+        if (metric.value) cardHTML += ' <span id="grpValue"        class="card__el" >' + getGrpValue(metric) + '</span>  '
 
-        if (metric.value) cardHTML += ' <span id="grpValue"             class="card__el" >' + getGrpValue(metric) + '</span>  '
+        if (metric.status) cardHTML += ' <span id="grpStatus"       class="card__el" >' + getGrpStatus(metric) + '</span>  '
 
-        if (metric.status) cardHTML += ' <span id="grpStatus"            class="card__el" >' + getGrpStatus(metric) + '</span>  '
+        if (metric.target) cardHTML += ' <span id="grpTarget"       class="card__el" >' + getGrpTarget(metric) + '</span>  '
 
-        if (metric.datatrend) cardHTML += ' <span id="grpTrend"             class="card__el" >' + getGrpTrend(metric) + '</span>  '
-
-        if (metric.rank) cardHTML += ' <br/><span id="grpRank"          class="card__el" >' + getGrpRank(metric) + '</span>  '
-
-        if (metric.ranktrend) cardHTML += ' <br/><span id="grpTrendRank"     class="card__el" >' + getGrpTrendRank(metric) + '</span>  '
-
-
-        if (metric.definition) cardHTML += ' <br/><span id="grpDefinition"     class="card__el" >' + metric.definition + '</span>  '
-
+        if (metric.datatrend) cardHTML += ' <span id="grpTrend"        class="card__el" >' + getGrpTrend(metric) + '</span>  '
 
 
         //
         // insert dial control
         //
-        var dial_value = metric.datavalues.split('i')[0];
+        var dial_value = metric.datavalues.split('i')[0] || null;
+        var dial_target = metric.target || null;
+        var dial_status = metric.status || "";
         var dial_units = metric.units || "";
         var dial_stroke_dasharray = '99, 100';
         var dial_fill_color = "circular-chart blue";
+
+        // if target is not null calc percentage and color
+        // calc percentages
+        if ((dial_value != null) && (dial_target != null)) {
+            var percentage = ((dial_value / dial_target) * 100);
+        }
+        else {
+            var percentage = 0;
+        }
+        console.log('percentage', dial_value, dial_target, percentage)
+        //
+        // donut center text 
+        // if 0 set to value of metric and units
+        //
+        if (percentage === 0) {
+            var dial_text_percentage = dial_value;
+            // if (dial_units != "") dial_text_percentage += " " + dial_units;
+        }
+        else {
+            var dial_text_percentage = Math.trunc(percentage) + '%';
+        }
+        console.log('dial_text_percentage', dial_text_percentage)
+        //
+        // dial fill percentage
+        // if 0 set to fill 99%
+        //
+        if (percentage === 0) {
+            dial_stroke_dasharray = '99, 100';
+        }
+        else {
+            dial_stroke_dasharray = Math.trunc(percentage) + ', 100';
+
+        }
+        console.log('dial_stroke_dasharray', dial_stroke_dasharray)
+        //
+        // dial color style
+        //
+        if (dial_status === "Green") {
+            dial_fill_color = "circular-chart green";
+        }
+        else if (dial_status === "Yellow") {
+            dial_fill_color = "circular-chart yellow";
+        }
+        else if (dial_status === "Organge") {
+            dial_fill_color = "circular-chart orange";
+        }
+        else if (dial_status === "Red") {
+            dial_fill_color = "circular-chart red";
+        }
+        else {
+            dial_fill_color = "circular-chart blue";
+        }
+        console.log('dial_fill_color', dial_fill_color)
 
         let dialHTML = "";
 
@@ -457,13 +562,23 @@ function embed() {
         dialHTML += '           a 15.9155 15.9155 0 0 1 0 31.831 ';
         dialHTML += '           a 15.9155 15.9155 0 0 1 0 -31.831" ';
         dialHTML += '       /> ';
-        dialHTML += '       <text id="svg_text_percentage" x="18" y="20.35" class="percentage">' + dial_value + '</text> ';
+        dialHTML += '       <text id="svg_text_percentage" x="18" y="20.35" class="percentage">' + dial_text_percentage + '</text> ';
         cardHTML += '     </svg> ';
         dialHTML += ' </div> ';
         dialHTML += ' <div id="insertContentCallback" class="insertContentCallbacks" style="visibility: hidden; display: none; color: #fff;">updateDialFunctions()</div> ';
 
 
+
+        cardHTML += dialHTML;
+
         // end insert dial control
+
+
+        if (metric.rank) cardHTML += ' <br/><span id="grpRank"          class="card__el" >' + getGrpRank(metric) + '</span>  '
+
+        if (metric.ranktrend) cardHTML += ' <br/><span id="grpTrendRank"     class="card__el" >' + getGrpTrendRank(metric) + '</span>  '
+
+        if (metric.definition) cardHTML += ' <br/><span id="grpDefinition"     class="card__description_sm" >' + metric.definition + '</span>  '
 
 
         cardHTML += ' <br> '
@@ -481,6 +596,10 @@ function embed() {
         return cardHTML;
     }
 
+
+
+
+    // Helper Functions
 
     // prep title of element 
     function getText(d) {
@@ -590,6 +709,16 @@ function embed() {
         }
     }
 
+    function getGrpTarget(group) {
+        let _target = group.target || null;
+        if (_target != null) {
+            return '<em>target:</em> <span style="display: inline-block; width: 10px;"></span>    <span id="targetText" ><font >' + _target + '</font></span>';
+        }
+        else {
+            return ""
+        }
+    }
+
     function getGrpValue(group) {
         let _value = group.value || null;
         let yr = group.year || null;
@@ -614,10 +743,13 @@ function embed() {
     function getGrpTrend(group) {
         let _datatrend = group.datatrend || null;
         if ((_datatrend != null) && (_datatrend != undefined)) {
+            // console.log('_datatrend', _datatrend)
             let _ico = null
             if (_datatrend.includes('Better')) _ico = '&nbsp; <i class="fas fa-arrow-up    fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Green;"></i>'
             if (_datatrend.includes('Steady')) _ico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Black;"></i>'
+            if (_datatrend.includes('Same')) _ico = '&nbsp; <i class="far fa-arrow-alt-circle-right fa-2x"  title="' + _datatrend + '" aria-hidden style="color: Black;"></i>'
             if (_datatrend.includes('Worse')) _ico = '&nbsp; <i class="fas fa-arrow-down  fa-2x"  title="' + _datatrend + '"  aria-hidden style="color: Red;"></i>'
+            // console.log('_ico', _ico)
             if (_ico != null) return '<em>5-yr trend:</em> ' + _ico;
         }
         else {
@@ -631,7 +763,7 @@ function embed() {
         if ((!_rank.includes('in')) && (yr != null)) {
             // console.log(_rank.includes('in')? 'is' : 'is not')
             _rank = _rank + ' in ' + yr;
-            console.log(_rank, yr)
+            // console.log(_rank, yr)
             return '<em>rank:</em> ' + group.rank;
 
         }
