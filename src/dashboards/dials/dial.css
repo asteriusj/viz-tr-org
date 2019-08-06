@@ -57,6 +57,13 @@
 .percentage {
     fill: #666;
     font-family: sans-serif;
-    font-size: 0.4em;
+    font-size: 0.3em;
+    text-anchor: middle;
+}
+
+.percentage-sm {
+    fill: #666;
+    font-family: sans-serif;
+    font-size: 0.3em;
     text-anchor: middle;
 }

@@ -1,5 +1,5 @@
 console.log('loading metrics.js... ')
-console.log('metrics.js v.2019.08.94.21.06')
+console.log('metrics.js v.2019.08.06.07.56')
 
 // retrieve url params
 var urlParams = new URLSearchParams(window.location.search);
@@ -51,180 +51,10 @@ function embed() {
                 console.log('data',data);
                 // console.log(JSON.stringify(data));
 
-                // let _root = data['children']
-                // console.log('_root', _root);
-
-                // //
-                // // utility function to proces process a single node
-                // // convert groups to parent, name to label, parent_id to parnt
-                // //
-
-                // // set counter initial vals
-                // let BRANCH = 0
-                // let LEAF = 0
-                // let NUM = -1
-
-                // //
-                // // initial call processing function for nodes and callback function
-                // //
-                // processTreeNode(_root[0], 0, function(err, DATA) {
-                //     if (err) console.error(err)
-
-                //     console.log('RETURN processTreeNode call -> DATA:', DATA)
-                //     console.log('NUM BRANCH LEAF ::', NUM, BRANCH, LEAF)
-
-                // }) // end call processTreeNode
-                // let groups = [_root[0]];
-                // console.log("After Process call groups:", groups)
-                // console.log('NUM BRANCH LEAF ::', NUM, BRANCH, LEAF)
-
-                // //console.log("After Process Tree Node call groups:",groups)
-                // let Spoke_0 = groups[0]
-                // // console.log('Spoke_0',Spoke_0)
-
-                // //
-                // // loop over spoke0 children to find Outcomes
-                // // put in _Outcomes array
-                // //
-                // let _Outcomes = [];
-
-                // var sChildren = Spoke_0.children;
-                // // console.log('sChildren:',sChildren)
-
-                // for (var s = 0; s < sChildren.length; s++) {
-                //     var sChild = sChildren[s];
-                //     // console.log('sChild:',sChild)
-
-                //     var sChildChildren = sChild.children;
-                //     for (i = 0; i < sChildChildren.length; i++) {
-                //         var sChildChild = sChildChildren[i]
-
-                //         if (sChildChild.dbotype == 'foafiaf:Outcomes') {
-                //             // console.log('sChildChild:',sChildChild)
-                //             _Outcomes.push(sChildChild);
-                //         }; // end if
-                //     }; //end for i
-                // }; // end for s
-
-                // // console.log('metrics.js_Outcomes:',_Outcomes)
-
-
-                // // after processing Outcomes 
-                // var Tree = _Outcomes
-                // // console.log('metrics.jsTree):',Tree)
-                // var res = sessionStorage.setItem('jsontree', JSON.stringify(Tree));
-                // console.log("sessionStorage.setItem 'jsontree' ", res)
-
-                // drawOutcomeCards(data)
-                
                 let graph = data['@graph']
                 var res = sessionStorage.setItem('graph', JSON.stringify(graph));
                 console.log("sessionStorage.setItem 'graph' ", res)
                 drawMetricCards(graph)
-
-
-                // //
-                // // utility function to proces process a single node
-                // // convert groups to parent, name to label, parent_id to parnt
-                // //
-                // function processTreeNode(_node, _level, cb) {
-                //     // console.log('processTreeNode _node: _level:',_node,_level);
-
-                //     // increment node counter
-                //     NUM = NUM + 1;
-                //     // console.log('NUM: ',NUM)
-
-                //     let newNode = _node;
-                //     newNode.label = _node.name;
-                //     newNode.parent = _node.parent_id;
-                //     newNode.groups = _node.children;
-
-                //     newNode.full = _node.full || "";
-                //     newNode.description = _node.description || "";
-
-
-                //     newNode.weight = _node.weight || null;
-                //     newNode.status = _node.status || null;
-                //     newNode.gcolor = _node.gcolor || null;
-
-                //     newNode.polarity = _node.polarity || null;
-                //     newNode.units = _node.units || null;
-                //     newNode.target = _node.target || null;
-                //     newNode.value = _node.datavalues;
-                //     newNode.year = _node.year;
-                //     newNode.datatrend = _node.datatrend || null;
-
-                //     newNode.fiveyearvalue = _node.fiveyearvalue;
-                //     newNode.fiveyearquartile = _node.fiveyearquartile;
-                //     newNode.fiveyearrank = _node.fiveyearrank;
-
-                //     newNode.rank = _node.rank || null;
-                //     newNode.ranktrend = _node.ranktrend || null;
-
-                //     newNode.ingroup = _node.ingroup || null;
-                //     newNode.group = _node.group || null;
-                //     newNode.parent = _node.parent || null;
-
-                //     newNode.BRANCH = BRANCH;
-                //     newNode.LEVEL = _level;
-                //     newNode.PROCESSED = true;
-                //     newNode.NUM = NUM;
-                //     newNode.NTYPE = null;
-                //     // console.log('converted newNode:', newNode)
-
-                //     //
-                //     // recursively call function for node children
-                //     //
-                //     let newNodeGroups = newNode.groups
-                //     // console.log('newNodeGroups:',newNodeGroups)
-
-                //     //
-                //     // if no children/groups set node type to leaf and retrun to caller
-                //     // if children set node type to branch and recriesively call processer
-                //     //
-                //     if ((newNodeGroups != undefined) && (newNodeGroups.length > 0)) {
-
-                //         // set nodetype as branch because has children
-                //         newNode.NTYPE = 'branch'
-                //         BRANCH = BRANCH + 1; // new branch
-                //         // console.log('BRANCH:',BRANCH)
-
-                //         for (let g = 0; g < newNodeGroups.length; g++) {
-                //             let groupNode = newNodeGroups[g]
-                //             // console.log('groupNode:',groupNode)
-
-                //             //
-                //             // recursively call processor
-                //             //
-                //             processTreeNode(groupNode, _level + 1, function(err, results) {
-                //                 if (err) console.error(err)
-                //                 // console.log('end of branch groupNode results:',results)
-                //                 // if (cb) cb(null, results)
-                //                 return
-                //             }) // end call processTreeNode
-
-                //         } // end for 
-
-                //     }
-                //     else {
-                //         // console.log(' - else newNodeGroup is empty or undefined _node',_node)
-                //         // recursive on banch complete - return to caller
-                //         // set nodetype as leaf because has children thus end of branch
-                //         newNode.NTYPE = 'leaf'
-                //         LEAF = LEAF + 1; // new branch
-                //         // console.log('LEAF:',LEAF)
-                //         // console.log('calling callback -> newNode:',newNode)
-                //         // if (cb) cb(null, newNode)
-                //         return;
-
-                //     } // end if
-
-
-                // };
-
-                // //
-                // // end processTreeNode utility function
-                // //    
 
 
             }); // end fetch
@@ -260,7 +90,8 @@ function embed() {
         cardsDiv.appendChild(newSectionNode)
 
         var sectionDiv = document.getElementById(newSectionNodeId);
-
+        console.log('sectionDiv:',sectionDiv)
+        
         var topUlNode = document.createElement('ul');
         var topUlNodeId = "column__list_";
         topUlNode.setAttribute("id", topUlNodeId);
@@ -268,38 +99,55 @@ function embed() {
         sectionDiv.appendChild(topUlNode)
 
         var topUlDiv = document.getElementById(topUlNodeId);
-
+        // console.log('topUlDiv:',topUlDiv)
 
 
         let gMetricItems = graph
-        console.log('gMetricItems:',gMetricItems)
+        // console.log('gMetricItems:',gMetricItems)
 
+        // flag for url match for column item or card item
+        let columnmatch = false;
+        let cardmatch = false;
+        
+        //loop over metrics
         if (gMetricItems.length > 0) {
             // loop over metrics
             for (let g = 0; g < gMetricItems.length; g++) {
                 let gMetric = gMetricItems[g]
-
-
+                // console.log('g gMetric',g,gMetric)
+                
+                
                 //
                 // check for urlparam and check for matching element
                 //
                 var skipthisone = false;
-                let strColumnitem = 'columitem=' + gMetric['dc:title'] 
+                let strColumnitem = gMetric['dc:title'].split(' ').join('_')
                 // console.log('strColumnitem', strColumnitem)
+                
                 if (columnitem != null) {
-                    if (columnitem != gMetric['dc:title'] ) {
-                        // console.log('Outcome NO Match', columnitem, gMetric['dc:title'] )
+                    if (columnitem != strColumnitem ) {
+                        // console.log(' NO Match', columnitem, strColumnitem )
+                        // console.log('g gMetric',g,gMetric)
+                
                         // skip this loop iteration and continue to next
-                        skipthisone = true;
-                        // continue;
-                    } //
+                        // skipthisone = true;
+                        continue;
+                    } else {
+                        console.log(" Match",columnitem,strColumnitem)
+                        // console.log('g gMetric',g,gMetric)
+                    
+                        columnmatch = true;
+                        
+                    } // end of match
+                    
+                } else {
+                    
+                    
                 } //
                 
                 
-              if  ( ( gMetric['dbo:type'] == 'foafiaf:Measure' ) && (skipthisone == true) )  {
+              if  ( ( gMetric['dbo:type'] == 'foafiaf:Measure' ) && (skipthisone == false) )  {
     
-    
-
                 gMetric.id = gMetric['@id']
                 gMetric.dbotype = gMetric['dbo.type'] || "";
                 gMetric.title = gMetric['dc:title'] || null;
@@ -315,7 +163,6 @@ function embed() {
                 gMetric.status = gMetric['foafiaf:status']  || null;
                 gMetric.target = gMetric['foafiaf:targetvalue']  || null;
                 
-                
                 // console.log('gMetric:', gMetric)
                 
              
@@ -324,9 +171,8 @@ function embed() {
                 //  create li for container content
                 //
 
-
                 var newLiNode = document.createElement('li');
-                var newLiNodeId = "column__item_" + gMetric.title;
+                var newLiNodeId = "column__item_" + gMetric.title.split(' ').join('_');
                 newLiNode.setAttribute("id", newLiNodeId);
                 newLiNode.setAttribute("class", "column__item");
                 // console.log('newLiNode:',newLiNode)
@@ -339,46 +185,53 @@ function embed() {
                     
                 } else {
                     
-                        topUlDiv.appendChild(newLiNode)
-        
-                        var newLiContainer = document.getElementById(newLiNodeId);
-        
-                        var containerHTML = createTitleContainerHTML(gMetric)
-        
-                        newLiContainer.innerHTML = containerHTML;
+                    topUlDiv.appendChild(newLiNode)
+                    var newLiContainer = document.getElementById(newLiNodeId);
+                    var containerHTML = createTitleContainerHTML(gMetric)
+                    newLiContainer.innerHTML = containerHTML;
             
                 } // end if exists
                 
+                        
                         
                 // then add metric specific cards                
                         
                 //
                 // check for urlparam and check for matching element
                 //
-                let strCarditem = 'carditem=' + gMetric.id
+                
+                let skipcard = false;
+                // let strCarditem = 'carditem=' + gMetric.id
                 // console.log('strCarditem', strCarditem)
+                
+                
                 if (carditem != null) {
-                    if (carditem != gMetric.id) {
-                        console.log('Metric NO Match', carditem, gMetric.id)
-
-                        // skip this loop iteration and continue to next
-                        continue;
-
-                    } //
-
+                    
                     if (carditem === gMetric.id) {
                         console.log('Metric MATCH', carditem, gMetric.id)
 
-                        // set column items hidden
-                        var elements = document.getElementsByClassName('column__item');
-                        for (var i = 0; i < elements.length; i++) {
-                            elements[i].style.visibility = 'hidden';
-                        }
+                        cardmatch = true;
+                        // set column items hidden at the end to ensure all and made hidden
+                        // var elements = document.getElementsByClassName('column__item');
+                        // console.log('column__item elemnts:',elements)
+                        // for (var i = 0; i < elements.length; i++) {
+                        //     elements[i].style.visibility = 'hidden';
+                        // }
                     }
-                }
+                    
+                    if (carditem != gMetric.id) {
+                        // console.log('Metric NO Match', carditem, gMetric.id)
+
+                        // skip this loop iteration and continue to next
+                        skipcard = true;
+                        continue;
+
+                    } // 
+
+                } // end of carditem
 
 
-                if ((gMetric.id != "") && (gMetric.datavalues != undefined)) {
+                if ((gMetric.id != "") && (gMetric.datavalues != undefined) && (skipcard == false)  ) {
                     // console.log('id not blank:',gMetric)
 
                     var cardsContainerId = 'card__list_' + gMetric.title || null;           // set container a title grouping
@@ -399,10 +252,26 @@ function embed() {
 
                 }
 
-        
+              } else {
+                  //else not measure or skiponce
+                //   console.log('else not measure or skiponce')
+              
               } // end if type Measure
 
             } // end for gMetricItems
+            
+            // if card item was matched make columns hidden
+            if (cardmatch == true) {
+
+                // set column items hidden
+                var elements = document.getElementsByClassName('column__item');
+                // console.log('column__item elemnts:',elements)
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].style.visibility = 'hidden';
+                    // elements[i].style.display = 'none';
+                }
+            } // end if cardmatch
+                    
         } // end if gMetricItems
 
     } // end function drawMetricCards
@@ -629,9 +498,11 @@ function embed() {
         // console.log('_path', _p)
 
         // let _id = metric.id;
-        let _param = "columnitem=" + metric.title;       //eg. column__item_% change in population
+        let _param = "columnitem=" + metric.title.split(' ').join('_');       //eg. column__item_% change in population
         // console.log('_param', _param)
-        let _url = encodeURI( _s + '//' + _h + _p + "?" + _param );
+        let _uri =  _s + '//' + _h + _p + "?" + _param ;
+        let _url = encodeURI(_uri);
+        _url = _url.replace('#','%23')  // fix # in url issue
         // console.log('_url', _url)
 
 
@@ -679,6 +550,7 @@ function embed() {
         let _param = "carditem=" + metric.id;
         // console.log('_param', _param)
         let _url = encodeURI( _s + '//' + _h + _p + "?" + _param );
+        _url = _url.replace('#','%23')  // fix # in url issue
         // console.log('_url', _url)
 
         let _id = "metric_" + metric.id
@@ -716,12 +588,13 @@ function embed() {
         // if target is not null calc percentage and color
         // calc percentages
         if ((dial_value != null) && (dial_target != null)) {
-            var percentage = ((dial_value / dial_target) * 100);
+            var percentage = ((dial_value / dial_target) * 100) ;
         }
         else {
             var percentage = 0;
         }
         // console.log('percentage', dial_value, dial_target, percentage)
+        
         //
         // donut center text 
         // if 0 set to value of metric and units
@@ -731,9 +604,11 @@ function embed() {
             // if (dial_units != "") dial_text_percentage += " " + dial_units;
         }
         else {
-            var dial_text_percentage = Math.trunc(percentage) + '%';
+            var dial_text_percentage = Math.trunc(percentage) + '%' + ' of target';
+            // set font to smaller? different color?
         }
         // console.log('dial_text_percentage', dial_text_percentage)
+        
         //
         // dial fill percentage
         // if 0 set to fill 99%
@@ -749,16 +624,26 @@ function embed() {
         //
         // dial color style
         //
-        if (dial_status === "Green") {
-            dial_fill_color = "circular-chart green";
-        }
-        else if (dial_status === "Yellow") {
+        
+        if ( (percentage != 0) && (percentage < 100) ) {
             dial_fill_color = "circular-chart yellow";
         }
-        else if (dial_status === "Organge") {
+        if ( (percentage != 0) && (percentage < 67) ) {
             dial_fill_color = "circular-chart orange";
         }
-        else if (dial_status === "Red") {
+        if ( (percentage != 0) && (percentage < 34) ) {
+            dial_fill_color = "circular-chart orange";
+        }
+        if ( (percentage === 0) && (dial_status === "Green") ) {
+            dial_fill_color = "circular-chart green";
+        }
+        else if (  (percentage === 0) && (dial_status === "Yellow") ) {
+            dial_fill_color = "circular-chart yellow";
+        }
+        else if ( (percentage === 0) && (dial_status === "Orange") ) {
+            dial_fill_color = "circular-chart orange";
+        }
+        else if ( (percentage === 0) && (dial_status === "Red") ) {
             dial_fill_color = "circular-chart red";
         }
         else {
