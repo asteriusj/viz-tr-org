@@ -40,7 +40,7 @@
     "aws": "0.0.3-2",
     "aws-cli": "0.0.2",
     "g": "^2.0.1",
-    "serverless": "^1.48.4",
+    "serverless": "^1.83.3",
     "serverless-finch": "^2.4.2",
     "serverless-s3-sync": "^1.8.0"
   },
